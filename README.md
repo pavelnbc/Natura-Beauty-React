@@ -1,1 +1,1 @@
-# Natura-Beauty-React
+# Natural-Beauty-React
