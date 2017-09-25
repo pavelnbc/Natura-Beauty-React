@@ -1,0 +1,202 @@
+[
+  {
+    "slug": "generic-viagra",
+    "title": "Generic Viagra",
+    "category": "ED",
+    "ingredient": "Sildenafil Citrate 25/50/100/150/200mg",
+    "dosage": 100,
+    "quantity": 30,
+    "price": 7.00
+  },
+  {
+    "slug": "generic-cialis",
+    "title": "Generic Cialis",
+    "category": "ED",
+    "ingredient": "Tadalafil 10/20/40/60mg",
+    "dosage": 100,
+    "quantity": 30,
+    "price": 7.00
+  },
+  {
+    "slug": "kamagra-brand",
+    "title": "Kamagra®",
+    "category": "ED",
+    "ingredient": "Sildenafil Citrate 100mg",
+    "dosage": 100,
+    "quantity": 30,
+    "price": 7.00
+  },
+  {
+    "slug": "generic-levitra",
+    "title": "Generic Levitra",
+    "category": "ED",
+    "ingredient": "Vardenafil 10/20/40/60mg",
+    "dosage": 100,
+    "quantity": 30,
+    "price": 7.00
+  },
+  {
+    "slug": "generic-lasix",
+    "title": "Generic Lasix",
+    "category": "ED",
+    "ingredient": "Furosemide 40mg",
+    "dosage": 100,
+    "quantity": 30,
+    "price": 7.00
+  },
+  {
+    "slug": "generic-propecia",
+    "title": "Generic Propecia",
+    "category": "ED",
+    "ingredient": "Finasteride 1mg",
+    "dosage": 100,
+    "quantity": 30,
+    "price": 7.00
+  },
+  {
+    "slug": "generic-priligy",
+    "title": "Generic Priligy",
+    "category": "ED",
+    "ingredient": "Dapoxetine 30/60/90mg",
+    "dosage": 100,
+    "quantity": 30,
+    "price": 7.00
+  },
+  {
+    "slug": "albuterol",
+    "title": "Albuterol",
+    "category": "respiratory-disorders",
+    "ingredient": "Salbutamol",
+    "dosage": 100,
+    "quantity": 30,
+    "price": 7.00
+  },
+  {
+    "slug": "alvesco",
+    "title": "Alvesco",
+    "category": "respiratory-disorders",
+    "ingredient": "Ciclesonide",
+    "dosage": 100,
+    "quantity": 30,
+    "price": 7.00
+  },
+  {
+    "slug": "bambec",
+    "title": "Bambec",
+    "category": "respiratory-disorders",
+    "ingredient": "Bambuterol",
+    "dosage": 100,
+    "quantity": 30,
+    "price": 7.00
+  },
+  {
+    "slug": "deltasone",
+    "title": "Deltasone",
+    "category": "respiratory-disorders",
+    "ingredient": "Prednisone",
+    "dosage": 100,
+    "quantity": 30,
+    "price": 7.00
+  },
+  {
+    "slug": "serevent",
+    "title": "Serevent",
+    "category": "respiratory-disorders",
+    "ingredient": "Salmeterol",
+    "dosage": 100,
+    "quantity": 30,
+    "price": 7.00
+  },
+  {
+    "slug": "Celexa",
+    "title": "celexa",
+    "category": "antidepressants",
+    "ingredient": "Citalopram",
+    "dosage": 100,
+    "quantity": 30,
+    "price": 7.00
+  },
+  {
+    "slug": "effexor",
+    "title": "Effexor",
+    "category": "antidepressants",
+    "ingredient": "Venlafaxine",
+    "dosage": 100,
+    "quantity": 30,
+    "price": 7.00
+  },
+  {
+    "slug": "lexapro",
+    "title": "Lexapro",
+    "category": "antidepressants",
+    "ingredient": "Escitalopram",
+    "dosage": 100,
+    "quantity": 30,
+    "price": 7.00
+  },
+  {
+    "slug": "thorazine",
+    "title": "Thorazine",
+    "category": "antidepressants",
+    "ingredient": "Chlorpromazine",
+    "dosage": 100,
+    "quantity": 30,
+    "price": 7.00
+  },
+  {
+    "slug": "Paxil",
+    "title": "Paxil",
+    "category": "antidepressants",
+    "ingredient": "Paroxetine",
+    "dosage": 100,
+    "quantity": 30,
+    "price": 7.00
+  },
+  {
+    "slug": "lipitor",
+    "title": "Lipitor",
+    "category": "cholesterol-meds",
+    "ingredient": "Atorvastatin",
+    "dosage": 100,
+    "quantity": 30,
+    "price": 7.00
+  },
+  {
+    "slug": "mevacor",
+    "title": "Mevacor",
+    "category": "cholesterol-meds",
+    "ingredient": "Lovastatin",
+    "dosage": 100,
+    "quantity": 30,
+    "price": 7.00
+  },
+  {
+    "slug": "zetia",
+    "title": "Zetia",
+    "category": "cholesterol-meds",
+    "ingredient": "Ezetimibe",
+    "dosage": 100,
+    "quantity": 30,
+    "price": 7.00
+  },
+  {
+    "slug": "zocor",
+    "title": "Zocor",
+    "category": "cholesterol-meds",
+    "ingredient": "Simvastatin",
+    "dosage": 100,
+    "quantity": 30,
+    "price": 7.00
+  },
+  {
+    "slug": "tricor",
+    "title": "Tricor",
+    "category": "cholesterol-meds",
+    "ingredient": "Fenofibrate",
+    "dosage": 100,
+    "quantity": 30,
+    "price": 7.00
+  }
+]
+
+

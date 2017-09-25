@@ -1,0 +1,90 @@
+body {
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+content {
+    width: 500px;
+    height: 500px;
+}
+
+.content {
+    padding: 0 50px 0 50px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+
+#mdc-tab-bar .mdc-tab {
+    font-size: 11px;
+    font-weight: bold;
+    padding: 0;
+    min-width: 120px;
+}
+
+.activeTab {
+    border-bottom: 2px solid white;
+}
+
+.login-form {
+    width: 20%;
+    margin: 50px auto;
+}
+
+.login-form input {
+    width: 250px;
+    border: 1px solid blue;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.login-form button {
+    width: 100px;
+    margin: 0 80px;
+}
+
+.mdc-toolbar__title {
+    text-decoration: none;
+    color: white;
+}
+
+.fa-bars {
+    margin: 12px 20px;
+    cursor: pointer;
+}
+
+.contentLayer {
+    opacity: 0.4;
+}
+
+.mdc-permanent-drawer {
+    height: auto !important;
+    width: 300px !important;
+    position: fixed;
+    min-height: 100%;
+    margin-left: -350px;
+    transition: margin, 1s;
+    z-index: 100;
+}
+
+.menuOpened {
+    margin-left: 0;
+}
+
+.mdc-list-item {
+    width: 280px;
+}
+
+.mdc-list-item:hover {
+    background-color: lightcyan;
+}
+
