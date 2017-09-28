@@ -5,6 +5,7 @@ import Toolbar from './components/Toolbar';
 import Menu from './components/Menu';
 import Content from './components/Content';
 import Home from './pages/Home';
+import Products from './pages/Products';
 import About from './pages/About';
 import Contacts from './pages/Contacts';
 import Policies from './pages/Policies';
@@ -20,6 +21,8 @@ class App extends Component {
             user: false,
             menuIsOpened: false
         };
+
+        this.body = document.body;
 
         this.login = this.login.bind(this);
         this.logout = this.logout.bind(this);
@@ -42,7 +45,13 @@ class App extends Component {
     handleMenu() {
         this.setState({
             menuIsOpened: !this.state.menuIsOpened
-        })
+        });
+        if(!this.body.classList.contains("lock-scroll")) {
+            this.body.classList.add("lock-scroll")
+        } else {
+            this.body.classList.remove("lock-scroll")
+        }
+
     };
 
     menuCloser() {
@@ -54,11 +63,12 @@ class App extends Component {
             <div className="app">
 
                 <Toolbar user={this.state.user} onMenu={this.handleMenu} offMenu={this.menuCloser}/>
-                <Route path="/" render={ () => <Menu isOpened={this.state.menuIsOpened}/> }/>
+                <Route path="/" render={ () => <Menu isOpened={this.state.menuIsOpened} offMenu={this.menuCloser}/> }/>
 
-                <Content onClick={this.menuCloser} isMenuOpened={this.state.menuIsOpened}>
+                <Content offMenu={this.menuCloser} isMenuOpened={this.state.menuIsOpened}>
                     <Switch>
                         <Route exact path="/" component={Home}/>
+                        <Route exact path="/products" component={Products}/>
                         <Route path="/about" component={About}/>
                         <Route path="/contact" component={Contacts}/>
                         <Route path="/policies" component={Policies}/>

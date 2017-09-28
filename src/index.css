@@ -1,37 +1,44 @@
 body {
     height:100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    height: 100%;
 }
 
-content {
-    width: 500px;
-    height: 500px;
+/*content*/
+
+.supLayer {
+    width: 100%;
+    height: 100%;
+    pointer-events: auto;
+}
+
+.contentLayer {
+    min-width: 100vw;
+    min-height: 100vh;
+    overflow: hidden;
+    background-color: rgba(0,0,0,0.5);
+    pointer-events: none;
+    transition: 400ms;
 }
 
 .content {
+    position: relative;
     padding: 0 50px 0 50px;
     width: 100%;
     box-sizing: border-box;
 }
 
-
-
-#mdc-tab-bar .mdc-tab {
-    font-size: 11px;
-    font-weight: bold;
-    padding: 0;
-    min-width: 120px;
+.lock-scroll {
+    overflow: hidden;
 }
 
-.activeTab {
-    border-bottom: 2px solid white;
-}
+
+/*login*/
 
 .login-form {
     width: 20%;
@@ -52,39 +59,95 @@ content {
     margin: 0 80px;
 }
 
-.mdc-toolbar__title {
+/*header-toolbar*/
+
+.header-title {
+    font-weight: bold;
+}
+
+.navbar-default {
+    margin-bottom: 0;
+}
+
+.navItem {
+    color: #777777;
+    font-family: Arial;
+    padding: 0;
+}
+
+.navItem:hover {
     text-decoration: none;
-    color: white;
+    color: #333333;
+}
+
+.dropdown-menu {
+    min-width: 10px;
+}
+
+.dropdown-menu li a {
+    padding: 7px;
+}
+
+.dropdown-item {
+    width: 20px;
+    color: #777777;
+    font-family: Arial;
+}
+
+.dropdown-item:hover {
+    text-decoration: none;
+    color: #333333;
 }
 
 .fa-bars {
-    margin: 12px 20px;
     cursor: pointer;
+    padding-top: 11px;
+    margin-right: 20px;
 }
 
-.contentLayer {
-    opacity: 0.4;
-}
+/*Menu-bar*/
 
 .mdc-permanent-drawer {
     height: auto !important;
-    width: 300px !important;
+    width: 270px !important;
     position: fixed;
+    transition: margin, 300ms;
     min-height: 100%;
-    margin-left: -350px;
-    transition: margin, 1s;
-    z-index: 100;
+    z-index: 1001;
+
 }
 
-.menuOpened {
-    margin-left: 0;
+.list-group-item a {
+    color: #777777;
 }
 
-.mdc-list-item {
-    width: 280px;
-}
-
-.mdc-list-item:hover {
+.list-group-item:hover {
     background-color: lightcyan;
 }
 
+.slide-enter {
+    margin-left: -300px;
+}
+
+.slide-enter .slide-enter-active {
+    margin-left: 0;
+
+}
+
+.slide-leave {
+    margin-left: -300px;
+}
+
+.slide-leave .slide-enter-leave {
+    margin-left: 0;
+}
+
+/*LogIn*/
+
+.login-form input{
+    border: 1px solid #777777;
+}
+
+.login-form input:focus {
+    border: 1px solid #777777;
+}

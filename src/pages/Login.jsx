@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import { Redirect } from 'react-router-dom';
+import FieldGroup from '../components/FieldGroup';
+
 
 class Login extends Component {
     constructor(props) {
@@ -29,16 +31,19 @@ class Login extends Component {
             :
                 <main className="login-form">
                     <form onSubmit={this.handleSubmit}>
-                        <input type="text"
-                               name="username"
-                               className="mdc-textfield__input"
-                               placeholder="Enter your login"
-                               ref={(title => this.loginInput = title)}/>
-                        <input type="password"
-                               name="userpassword"
-                               className="mdc-textfield__input"
-                               placeholder="Enter your passwword"
-                               ref={(title => this.passwordInput = title)}/>
+                        <FieldGroup
+                            id="formControlsText"
+                            type="text"
+                            label="Text"
+                            placeholder="Enter text"
+
+                        />
+                        <FieldGroup
+                            id="formControlsEmail"
+                            type="email"
+                            label="Email address"
+                            placeholder="Enter email"
+                        />
                         <button>Enter</button>
                     </form>
                 </main>

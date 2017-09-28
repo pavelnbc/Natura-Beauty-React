@@ -1,30 +1,47 @@
 import React from 'react';
 import { NavLink} from 'react-router-dom';
+import { Navbar, Nav, NavItem, NavDropdown, MenuItem, ListGroup, ListGroupItem } from 'react-bootstrap';
+
 
 
 
 function Toolbar({ user, onMenu, offMenu }) {
     return (
-        <header className="mdc-toolbar">
-            <div className="mdc-toolbar__row">
-                <section className="mdc-toolbar__section mdc-toolbar__section--align-start">
+        <Navbar>
+            <Navbar.Header>
+                <Navbar.Brand>
                     <i className="fa fa-bars fa-2x" aria-hidden="true" onClick={onMenu}></i>
-                    <NavLink className="mdc-toolbar__title" onClick={offMenu} to="/">Natural Beauty</NavLink>
-                </section>
-
-                <section className="mdc-toolbar__section mdc-toolbar__section--align-end" onClick={offMenu}>
-                    <nav className="mdc-tab-bar" id="mdc-tab-bar">
-                        <NavLink className="mdc-tab" activeClassName="activeTab" to="/about">ABOUT US</NavLink>
-                        <NavLink className="mdc-tab" activeClassName="activeTab" to="/contact">CONTACT US</NavLink>
-                        <NavLink className="mdc-tab" activeClassName="activeTab" to="/policies">OUR POLICIES</NavLink>
+                </Navbar.Brand>
+                <Navbar.Brand>
+                    <NavLink className="header-title" onClick={offMenu} to="/">Natural Beauty</NavLink>
+                </Navbar.Brand>
+            </Navbar.Header>
+            <Nav pullRight={true} onClick={offMenu}>
+                <NavItem>
+                    <NavLink className="navItem" to="/products">Our Products</NavLink>
+                </NavItem>
+                <NavItem>
+                    <NavLink className="navItem" to="/about">About Us</NavLink>
+                </NavItem>
+                <NavItem>
+                    <NavLink className="navItem" to="/contact">Contact Us</NavLink>
+                </NavItem>
+                <NavItem>
+                    <NavLink className="navItem" to="/policies">Our Policies</NavLink>
+                </NavItem>
+                <NavDropdown title="Enter" id="basic-nav-dropdown">
+                    <MenuItem>
                         {user ?
-                            <NavLink className="mdc-tab" to="/logout">Log out</NavLink>
+                            <NavLink className="dropdown-item" to="/logout">Log out</NavLink>
                             :
-                            <NavLink className="mdc-tab" to="/login">Log in</NavLink>}
-                    </nav>
-                </section>
-            </div>
-        </header>
+                            <NavLink className="dropdown-item" to="/login">Log in</NavLink>}
+                    </MenuItem>
+                    <MenuItem>
+                        <NavLink className="dropdown-item" /*activeClassName="activeTab" */ to="/logout">Sign up</NavLink>
+                    </MenuItem>
+                </NavDropdown>
+            </Nav>
+        </Navbar>
     )
 }
 
