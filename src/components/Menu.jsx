@@ -20,7 +20,7 @@ function Menu({isOpened, offMenu}) {
                             <ListGroupItem>
                                 <NavLink
                                     key={category.id}
-                                    to={`/${category.id}`}
+                                    to={`/products/${category.id}`}
                                     className="menuItem"
                                     onClick={offMenu}>
                                     {category.title}
@@ -35,20 +35,6 @@ function Menu({isOpened, offMenu}) {
         </ReactCSSTransitionGroup>
     )
 }
-
-/*<aside className={`mdc-permanent-drawer ${props.isOpened ? "menuOpened" : ""}`}>
-    <nav className="mdc-list">
-        {categories.map( category => {
-            return <NavLink
-                key={category.id}
-                to={`/${category.id}`}
-                className="mdc-list-item"
-                activeClassName="mdc-list-item--selected">
-                {category.title}
-            </NavLink>
-        })}
-    </nav>
-</aside>*/
 
 Menu.propTypes = {
     isOpened: React.PropTypes.bool.isRequired

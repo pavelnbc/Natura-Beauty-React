@@ -2,10 +2,7 @@ import React from 'react';
 import { NavLink} from 'react-router-dom';
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem, ListGroup, ListGroupItem } from 'react-bootstrap';
 
-
-
-
-function Toolbar({ user, onMenu, offMenu }) {
+function Toolbar({ user, onMenu, offMenu, isMenuOpened }) {
     return (
         <Navbar>
             <Navbar.Header>
@@ -13,11 +10,11 @@ function Toolbar({ user, onMenu, offMenu }) {
                     <i className="fa fa-bars fa-2x" aria-hidden="true" onClick={onMenu}></i>
                 </Navbar.Brand>
                 <Navbar.Brand>
-                    <NavLink className="header-title" onClick={offMenu} to="/">Natural Beauty</NavLink>
+                    <NavLink className="header-title" onClick={isMenuOpened ? offMenu : null} to="/">Natural Beauty</NavLink>
                 </Navbar.Brand>
             </Navbar.Header>
-            <Nav pullRight={true} onClick={offMenu}>
-                <NavItem>
+            <Nav pullRight={true} onClick={isMenuOpened ? offMenu : null}>
+                <NavItem activeClassName="nav-item-active">
                     <NavLink className="navItem" to="/products">Our Products</NavLink>
                 </NavItem>
                 <NavItem>
@@ -47,7 +44,8 @@ function Toolbar({ user, onMenu, offMenu }) {
 
 Toolbar.propTypes = {
     user: React.PropTypes.object,
-    onMenu: React.PropTypes.func.isRequired
+    onMenu: React.PropTypes.func.isRequired,
+    offMenu: React.PropTypes.func.isRequired
 };
 
 export default Toolbar

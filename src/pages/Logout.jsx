@@ -5,7 +5,7 @@ function Logout( {onLogout} ) {
     onLogout();
 
     return (
-        <Redirect to="/" />
+        <Redirect to="/login" />
     )
 }
 

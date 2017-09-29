@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Redirect } from 'react-router-dom';
 import FieldGroup from '../components/FieldGroup';
+import {Button} from 'react-bootstrap';
 
 
 class Login extends Component {
@@ -8,9 +9,6 @@ class Login extends Component {
         super(props);
 
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.state = {
-            isLogedIn: false
-        }
     }
 
     handleSubmit(event) {
@@ -19,15 +17,12 @@ class Login extends Component {
             userLogin: this.loginInput,
             userPassword: this.passwordInput
         });
-        this.setState({
-            isLogedIn: true
-        })
     }
 
     render() {
         return (
-            this.state.isLogedIn ?
-                <Redirect to="/" />
+            this.props.isLogedIn ?
+                <Redirect to="/products" />
             :
                 <main className="login-form">
                     <form onSubmit={this.handleSubmit}>
@@ -36,7 +31,6 @@ class Login extends Component {
                             type="text"
                             label="Text"
                             placeholder="Enter text"
-
                         />
                         <FieldGroup
                             id="formControlsEmail"
@@ -44,7 +38,7 @@ class Login extends Component {
                             label="Email address"
                             placeholder="Enter email"
                         />
-                        <button>Enter</button>
+                        <Button bsStyle="primary" type="submit">Enter</Button>
                     </form>
                 </main>
         )

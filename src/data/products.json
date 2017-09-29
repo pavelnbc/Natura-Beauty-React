@@ -3,7 +3,7 @@
     "slug": "generic-viagra",
     "title": "Generic Viagra",
     "category": "ED",
-    "ingredient": "Sildenafil Citrate 25/50/100/150/200mg",
+    "ingredient": "Sildenafil Citrate",
     "dosage": 100,
     "quantity": 30,
     "price": 7.00
@@ -12,7 +12,7 @@
     "slug": "generic-cialis",
     "title": "Generic Cialis",
     "category": "ED",
-    "ingredient": "Tadalafil 10/20/40/60mg",
+    "ingredient": "Tadalafil",
     "dosage": 100,
     "quantity": 30,
     "price": 7.00
@@ -21,7 +21,7 @@
     "slug": "kamagra-brand",
     "title": "Kamagra®",
     "category": "ED",
-    "ingredient": "Sildenafil Citrate 100mg",
+    "ingredient": "Sildenafil Citrate",
     "dosage": 100,
     "quantity": 30,
     "price": 7.00
@@ -30,7 +30,7 @@
     "slug": "generic-levitra",
     "title": "Generic Levitra",
     "category": "ED",
-    "ingredient": "Vardenafil 10/20/40/60mg",
+    "ingredient": "Vardenafil",
     "dosage": 100,
     "quantity": 30,
     "price": 7.00
@@ -39,7 +39,7 @@
     "slug": "generic-lasix",
     "title": "Generic Lasix",
     "category": "ED",
-    "ingredient": "Furosemide 40mg",
+    "ingredient": "Furosemide",
     "dosage": 100,
     "quantity": 30,
     "price": 7.00
@@ -48,7 +48,7 @@
     "slug": "generic-propecia",
     "title": "Generic Propecia",
     "category": "ED",
-    "ingredient": "Finasteride 1mg",
+    "ingredient": "Finasteride",
     "dosage": 100,
     "quantity": 30,
     "price": 7.00
@@ -57,7 +57,7 @@
     "slug": "generic-priligy",
     "title": "Generic Priligy",
     "category": "ED",
-    "ingredient": "Dapoxetine 30/60/90mg",
+    "ingredient": "Dapoxetine",
     "dosage": 100,
     "quantity": 30,
     "price": 7.00

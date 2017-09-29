@@ -10,27 +10,27 @@ body {
 }
 
 /*content*/
-
-.supLayer {
+.content {
+    position: relative;
+    padding: 20px 50px 0 50px;
     width: 100%;
-    height: 100%;
-    pointer-events: auto;
+    box-sizing: border-box;
 }
 
 .contentLayer {
     min-width: 100vw;
     min-height: 100vh;
-    overflow: hidden;
     background-color: rgba(0,0,0,0.5);
     pointer-events: none;
     transition: 400ms;
+    z-index: 1000;
 }
 
-.content {
-    position: relative;
-    padding: 0 50px 0 50px;
+.supLayer {
     width: 100%;
-    box-sizing: border-box;
+    height: 100%;
+    pointer-events: auto;
+    z-index: 1000;
 }
 
 .lock-scroll {
@@ -114,7 +114,6 @@ body {
     transition: margin, 300ms;
     min-height: 100%;
     z-index: 1001;
-
 }
 
 .list-group-item a {
@@ -150,4 +149,16 @@ body {
 
 .login-form input:focus {
     border: 1px solid #777777;
+}
+
+/*Products*/
+
+.product {
+    min-height: 250px;
+    text-align: center;
+    z-index: 100;
+}
+
+.product img{
+    margin: 0 auto;
 }

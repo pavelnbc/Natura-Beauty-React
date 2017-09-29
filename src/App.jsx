@@ -46,23 +46,19 @@ class App extends Component {
         this.setState({
             menuIsOpened: !this.state.menuIsOpened
         });
-        if(!this.body.classList.contains("lock-scroll")) {
-            this.body.classList.add("lock-scroll")
-        } else {
-            this.body.classList.remove("lock-scroll")
-        }
-
+        this.body.classList.toggle("lock-scroll");
     };
 
     menuCloser() {
-        this.setState({menuIsOpened: false})
+        this.setState({menuIsOpened: false});
+        this.body.classList.toggle("lock-scroll");
     }
 
     render() {
         return (
             <div className="app">
 
-                <Toolbar user={this.state.user} onMenu={this.handleMenu} offMenu={this.menuCloser}/>
+                <Toolbar user={this.state.user} isMenuOpened={this.state.menuIsOpened} onMenu={this.handleMenu} offMenu={this.menuCloser}/>
                 <Route path="/" render={ () => <Menu isOpened={this.state.menuIsOpened} offMenu={this.menuCloser}/> }/>
 
                 <Content offMenu={this.menuCloser} isMenuOpened={this.state.menuIsOpened}>
@@ -72,7 +68,7 @@ class App extends Component {
                         <Route path="/about" component={About}/>
                         <Route path="/contact" component={Contacts}/>
                         <Route path="/policies" component={Policies}/>
-                        <Route path="/login" render={() => <Login onLogin={this.login} />}/>
+                        <Route path="/login" render={() => <Login isLogedIn={this.state.user} onLogin={this.login} />}/>
                         <Route path="/logout" render={() => <Logout onLogout={this.logout} />}/>
                     </Switch>
                 </Content>
