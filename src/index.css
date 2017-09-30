@@ -102,7 +102,6 @@ body {
 .fa-bars {
     cursor: pointer;
     padding-top: 11px;
-    margin-right: 20px;
 }
 
 /*Menu-bar*/
@@ -118,6 +117,14 @@ body {
 
 .list-group-item a {
     color: #777777;
+}
+
+.menuItem:last-child {
+
+}
+
+.list-group-item:nth-child(4) {
+    border-bottom: 2px solid #777777;
 }
 
 .list-group-item:hover {
@@ -161,4 +168,13 @@ body {
 
 .product img{
     margin: 0 auto;
+}
+
+.products-appear {
+    opacity: 0;
+}
+
+.products-appear.products-appear-active {
+    opacity: 1;
+    transition: opacity, 700ms;
 }

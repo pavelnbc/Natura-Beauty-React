@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import {Grid, Row, Col} from 'react-bootstrap';
 
 import Product from '../components/Product'
@@ -10,9 +11,16 @@ function Products() {
         <Grid>
             <Row className="show-grid">
                 {products.map(((product, index) => {
-                    return <Col xs={12} sm={4} md={3} lg={3}>
+                    return (
+                        <ReactCSSTransitionGroup component="main"
+                                                 transitionName="products"
+                                                 transitionAppear={true}
+                                                 transitionAppearTimeout={700}>
+                            <Col xs={12} sm={4} md={3} lg={3}>
                                 <Product key={index} medication={product}/>
-                           </Col>
+                            </Col>
+                        </ReactCSSTransitionGroup>
+                    )
                 }))}
             </Row>
         </Grid>

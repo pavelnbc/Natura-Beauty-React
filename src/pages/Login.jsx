@@ -27,16 +27,16 @@ class Login extends Component {
                 <main className="login-form">
                     <form onSubmit={this.handleSubmit}>
                         <FieldGroup
-                            id="formControlsText"
-                            type="text"
-                            label="Text"
-                            placeholder="Enter text"
-                        />
-                        <FieldGroup
                             id="formControlsEmail"
                             type="email"
+                            label="Text"
+                            placeholder="Enter your Email"
+                        />
+                        <FieldGroup
+                            id="formControlsPassword"
+                            type="password"
                             label="Email address"
-                            placeholder="Enter email"
+                            placeholder="Enter your password"
                         />
                         <Button bsStyle="primary" type="submit">Enter</Button>
                     </form>
