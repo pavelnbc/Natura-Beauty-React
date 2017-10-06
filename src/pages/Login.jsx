@@ -31,13 +31,13 @@ class Login extends Component {
                             type="email"
                             label="Text"
                             placeholder="Enter your Email"
-                        />
+                            ref={(input) => this.loginInput = FieldGroup}/>
                         <FieldGroup
                             id="formControlsPassword"
                             type="password"
                             label="Email address"
                             placeholder="Enter your password"
-                        />
+                            ref={(input) => this.passwordInput = FieldGroup}/>
                         <Button bsStyle="primary" type="submit">Enter</Button>
                     </form>
                 </main>
@@ -48,6 +48,6 @@ class Login extends Component {
 
 Login.propTypes = {
     onLogin: React.PropTypes.func.isRequired
-}
+};
 
 export default Login;

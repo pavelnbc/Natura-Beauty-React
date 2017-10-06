@@ -28,19 +28,6 @@ function Menu({isOpened, offMenu}) {
                             </ListGroupItem>
                         )
                     })}
-                    <ListGroupItem onClick={offMenu}>
-                        <NavLink className="navItem" to="/products">Our Products</NavLink>
-                    </ListGroupItem>
-                     <ListGroupItem onClick={offMenu}>
-                         <NavLink className="navItem" to="/about">About Us</NavLink>
-                    </ListGroupItem>
-                     <ListGroupItem onClick={offMenu}>
-                         <NavLink className="navItem" to="/contact">Contact Us</NavLink>
-                    </ListGroupItem>
-                     <ListGroupItem onClick={offMenu}>
-                         <NavLink className="navItem" to="/policies">Our Policies</NavLink>
-                    </ListGroupItem>
-
                 </ListGroup>
             </div>
             :
@@ -54,3 +41,16 @@ Menu.propTypes = {
 };
 
 export default Menu;
+
+/*<ListGroupItem onClick={offMenu}>
+ <NavLink className="navItem" to="/products">Our Products</NavLink>
+ </ListGroupItem>
+ <ListGroupItem onClick={offMenu}>
+ <NavLink className="navItem" to="/about">About Us</NavLink>
+ </ListGroupItem>
+ <ListGroupItem onClick={offMenu}>
+ <NavLink className="navItem" to="/contact">Contact Us</NavLink>
+ </ListGroupItem>
+ <ListGroupItem onClick={offMenu}>
+ <NavLink className="navItem" to="/policies">Our Policies</NavLink>
+ </ListGroupItem>*/

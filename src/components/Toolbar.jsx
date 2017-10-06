@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink} from 'react-router-dom';
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem, ListGroup, ListGroupItem, Grid, Row, Col } from 'react-bootstrap';
 
-function Toolbar({ user, onMenu, offMenu, isMenuOpened }) {
+function Toolbar({ user, onMenu, offMenu, isMenuOpened, handleVision}) {
     return (
         <Navbar>
             <Grid>
@@ -20,7 +20,7 @@ function Toolbar({ user, onMenu, offMenu, isMenuOpened }) {
                     <Col xsHidden sm={8} md={9} lg={9}>
                         <Nav pullRight={true} onClick={isMenuOpened ? offMenu : null}>
                             <NavItem>
-                                <NavLink className="navItem" to="/products">Our Products</NavLink>
+                                <NavLink className="navItem" to="/products" onClick={handleVision}>Our Products</NavLink>
                             </NavItem>
                             <NavItem>
                                 <NavLink className="navItem" to="/about">About Us</NavLink>

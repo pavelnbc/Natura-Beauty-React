@@ -19,7 +19,8 @@ class App extends Component {
 
         this.state = {
             user: false,
-            menuIsOpened: false
+            menuIsOpened: false,
+            areProductsVisible: false
         };
 
         this.body = document.body;
@@ -28,9 +29,32 @@ class App extends Component {
         this.logout = this.logout.bind(this);
         this.handleMenu = this.handleMenu.bind(this);
         this.menuCloser = this.menuCloser.bind(this);
+        this.setProductsAppearance__menu = this.setProductsAppearance__menu.bind(this);
+        this.setProductsAppearance__ourProductsLink = this.setProductsAppearance__ourProductsLink.bind(this);
     };
 
+    setProductsAppearance__menu() {
+        this.state.areProductsVisible = true;
+
+        setTimeout(() => {
+            this.setState({
+                areProductsVisible: true
+            })
+        }, 100)
+    }
+
+    setProductsAppearance__ourProductsLink() {
+        this.state.areProductsVisible = false;
+
+        setTimeout(() => {
+            this.setState({
+                areProductsVisible: true
+            })
+        }, 100)
+    }
+
     login(user) {
+        console.log(user);
         this.setState({
             user: user
         })
@@ -58,13 +82,18 @@ class App extends Component {
         return (
             <div className="app">
 
-                <Toolbar user={this.state.user} isMenuOpened={this.state.menuIsOpened} onMenu={this.handleMenu} offMenu={this.menuCloser}/>
+                <Toolbar user={this.state.user} isMenuOpened={this.state.menuIsOpened}
+                                                onMenu={this.handleMenu}
+                                                offMenu={this.menuCloser}
+                                                handleVision={this.setProductsAppearance__ourProductsLink}/>
                 <Route path="/" render={ () => <Menu isOpened={this.state.menuIsOpened} offMenu={this.menuCloser}/> }/>
 
                 <Content offMenu={this.menuCloser} isMenuOpened={this.state.menuIsOpened}>
                     <Switch>
                         <Route exact path="/" component={Home}/>
-                        <Route exact path="/products" component={Products}/>
+                        <Route exact path="/products/:category?" render={(props) => <Products isVisible={this.state.areProductsVisible}
+                                                                                        handleVision={this.setProductsAppearance__menu}
+                                                                                        {...props}/>}/>
                         <Route path="/about" component={About}/>
                         <Route path="/contact" component={Contacts}/>
                         <Route path="/policies" component={Policies}/>

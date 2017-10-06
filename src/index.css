@@ -17,12 +17,16 @@ body {
     box-sizing: border-box;
 }
 
+.hidContent {
+    opacity: 0.5;
+}
+
 .contentLayer {
     min-width: 100vw;
     min-height: 100vh;
     background-color: rgba(0,0,0,0.5);
     pointer-events: none;
-    transition: 400ms;
+    transition: 700ms;
     z-index: 1000;
 }
 
@@ -119,14 +123,6 @@ body {
     color: #777777;
 }
 
-.menuItem:last-child {
-
-}
-
-.list-group-item:nth-child(4) {
-    border-bottom: 2px solid #777777;
-}
-
 .list-group-item:hover {
     background-color: lightcyan;
 }
@@ -164,11 +160,9 @@ body {
     min-height: 250px;
     text-align: center;
     z-index: 100;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-.product img{
-    margin: 0 auto;
-}
 
 .products-appear {
     opacity: 0;
