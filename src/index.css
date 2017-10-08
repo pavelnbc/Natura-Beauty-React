@@ -1,174 +1,227 @@
 body {
-    height:100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  min-width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 /*content*/
 .content {
-    position: relative;
-    padding: 20px 50px 0 50px;
-    width: 100%;
-    box-sizing: border-box;
+  position: relative;
+  padding: 20px 50px 0 50px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .hidContent {
-    opacity: 0.5;
+  opacity: 0.5;
 }
 
 .contentLayer {
-    min-width: 100vw;
-    min-height: 100vh;
-    background-color: rgba(0,0,0,0.5);
-    pointer-events: none;
-    transition: 700ms;
-    z-index: 1000;
+  min-width: 100vw;
+  min-height: 100vh;
+  opacity: 0.5;
+  pointer-events: none;
+  transition: 700ms;
+  z-index: 1000;
 }
 
 .supLayer {
-    width: 100%;
-    height: 100%;
-    pointer-events: auto;
-    z-index: 1000;
+  width: 100%;
+  height: 100%;
+  pointer-events: auto;
+  z-index: 1000;
 }
 
 .lock-scroll {
-    overflow: hidden;
+  overflow: hidden;
 }
-
 
 /*login*/
 
 .login-form {
-    width: 20%;
-    margin: 50px auto;
+  width: 20%;
+  margin: 50px auto;
 }
 
 .login-form input {
-    width: 250px;
-    border: 1px solid blue;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    padding: 10px;
-    font-size: 14px;
+  width: 250px;
+  border: 1px solid blue;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 14px;
 }
 
 .login-form button {
-    width: 100px;
-    margin: 0 80px;
+  width: 100px;
+  margin: 0 80px;
 }
 
 /*header-toolbar*/
 
 .header-title {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .navbar-default {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .navItem {
-    color: #777777;
-    font-family: Arial;
-    padding: 0;
+  color: #777777;
+  font-family: Arial;
+  padding: 0;
 }
 
 .navItem:hover {
-    text-decoration: none;
-    color: #333333;
+  text-decoration: none;
+  color: #333333;
 }
 
 .dropdown-menu {
-    min-width: 10px;
+  min-width: 10px;
 }
 
 .dropdown-menu li a {
-    padding: 7px;
+  padding: 7px;
 }
 
 .dropdown-item {
-    width: 20px;
-    color: #777777;
-    font-family: Arial;
+  width: 20px;
+  color: #777777;
+  font-family: Arial;
 }
 
 .dropdown-item:hover {
-    text-decoration: none;
-    color: #333333;
+  text-decoration: none;
+  color: #333333;
 }
 
 .fa-bars {
-    cursor: pointer;
-    padding-top: 11px;
+  cursor: pointer;
+  padding-top: 11px;
+}
+
+.shotNav {
+  margin-top: 9px;
+}
+
+/* Carousel-bar */
+
+.carousel-bar {
+  width: 100%;
+  height: 200px;
+  margin: 0 auto;
 }
 
 /*Menu-bar*/
 
 .mdc-permanent-drawer {
-    height: auto !important;
-    width: 270px !important;
-    position: fixed;
-    transition: margin, 300ms;
-    min-height: 100%;
-    z-index: 1001;
+  height: auto !important;
+  width: 270px !important;
+  position: fixed;
+  transition: margin, 300ms;
+  min-height: 100%;
+  z-index: 1001;
 }
 
 .list-group-item a {
-    color: #777777;
+  color: #777777;
 }
 
 .list-group-item:hover {
-    background-color: lightcyan;
+  background-color: lightcyan;
 }
 
 .slide-enter {
-    margin-left: -300px;
+  margin-left: -300px;
 }
 
 .slide-enter .slide-enter-active {
-    margin-left: 0;
-
+  margin-left: 0;
 }
 
 .slide-leave {
-    margin-left: -300px;
+  margin-left: -300px;
 }
 
 .slide-leave .slide-enter-leave {
-    margin-left: 0;
+  margin-left: 0;
 }
 
 /*LogIn*/
 
-.login-form input{
-    border: 1px solid #777777;
+.login-form input {
+  border: 1px solid #777777;
 }
 
 .login-form input:focus {
-    border: 1px solid #777777;
+  border: 1px solid #777777;
 }
 
 /*Products*/
 
 .product {
-    min-height: 250px;
-    text-align: center;
-    z-index: 100;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  min-height: 290px;
+  min-width: 200px;
+  max-width: 250px;
+  text-align: center;
+  z-index: 100;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
+.product .btn {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+}
+
+.product .price {
+    position: absolute;
+    bottom: 5px;
+    left: 70px;
+}
+
+.product .mg-selection div {
+    display: inline-block;
+    margin: 0 12px;
+}
+
+.product .mg-selection .indicator {
+    width: 30px;
+    margin-right: 0;
+}
+
+.product .mg-selection .mg {
+    margin-left: 0;
+}
+
+.product .quantity-selection div {
+    display: inline-block;
+    margin: 0 11px;
+}
+
+.product .quantity-selection .indicator {
+    width: 30px;
+    margin-right: 0;
+}
+
+.product .quantity-selection .pills {
+    margin-left: 0;
+}
 
 .products-appear {
-    opacity: 0;
+  opacity: 0;
 }
 
 .products-appear.products-appear-active {
-    opacity: 1;
-    transition: opacity, 700ms;
+  opacity: 1;
+  transition: opacity, 700ms;
 }

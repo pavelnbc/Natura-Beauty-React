@@ -20,11 +20,11 @@ function Products({match, isVisible, handleVision}) {
             <Row className="show-grid">
                 {medications.map(((product, index) => {
                     return (
-                        <Col xs={12} sm={4} md={3} lg={3}>
+                        <Col xs={12} xsPush={2} sm={4} smPush={2} smPush={0} md={3} lg={3}>
                             <ReactCSSTransitionGroup component="div"
                                                      transitionName="products"
                                                      transitionAppear={true}
-                                                     transitionAppearTimeout={700}>
+                                                     transitionAppearTimeout={500}>
                                 <Product key={index} medication={product}/>
                             </ReactCSSTransitionGroup>
                         </Col>

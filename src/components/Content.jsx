@@ -2,7 +2,7 @@ import React from 'react';
 
 function Content( {children, isMenuOpened, offMenu} ) {
     return (
-        <div onClick={isMenuOpened ? offMenu : null} className={`supLayer ${isMenuOpened ? "hidContent" : ""}`}>
+        <div onClick={isMenuOpened ? offMenu : null} className="supLayer">
             <div className={`content ${isMenuOpened ? "contentLayer" : ""}`}>
                 {children}
             </div>

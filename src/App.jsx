@@ -34,13 +34,13 @@ class App extends Component {
     };
 
     setProductsAppearance__menu() {
-        this.state.areProductsVisible = true;
+        this.state.areProductsVisible = this.state.menuIsOpened ? false : true;
 
         setTimeout(() => {
             this.setState({
                 areProductsVisible: true
             })
-        }, 100)
+        }, 200)
     }
 
     setProductsAppearance__ourProductsLink() {
@@ -50,7 +50,7 @@ class App extends Component {
             this.setState({
                 areProductsVisible: true
             })
-        }, 100)
+        }, 200)
     }
 
     login(user) {
@@ -74,16 +74,17 @@ class App extends Component {
     };
 
     menuCloser() {
-        this.setState({menuIsOpened: false});
-        this.body.classList.toggle("lock-scroll");
+        if (this.state.menuIsOpened) {
+            this.setState({menuIsOpened: false});
+            this.body.classList.toggle("lock-scroll");
+        }
     }
 
     render() {
         return (
             <div className="app">
 
-                <Toolbar user={this.state.user} isMenuOpened={this.state.menuIsOpened}
-                                                onMenu={this.handleMenu}
+                <Toolbar user={this.state.user} onMenu={this.handleMenu}
                                                 offMenu={this.menuCloser}
                                                 handleVision={this.setProductsAppearance__ourProductsLink}/>
                 <Route path="/" render={ () => <Menu isOpened={this.state.menuIsOpened} offMenu={this.menuCloser}/> }/>
@@ -97,7 +98,7 @@ class App extends Component {
                         <Route path="/about" component={About}/>
                         <Route path="/contact" component={Contacts}/>
                         <Route path="/policies" component={Policies}/>
-                        <Route path="/login" render={() => <Login isLogedIn={this.state.user} onLogin={this.login} />}/>
+                        <Route path="/login" render={() => <Login user={this.state.user} onLogin={this.login} />}/>
                         <Route path="/logout" render={() => <Logout onLogout={this.logout} />}/>
                     </Switch>
                 </Content>
