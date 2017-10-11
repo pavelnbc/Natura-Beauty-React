@@ -1,23 +1,28 @@
 import React from 'react';
 import { NavLink} from 'react-router-dom';
-import { Navbar, Nav, NavItem, NavDropdown, MenuItem, ListGroup, ListGroupItem, Grid, Row, Col, DropdownButton } from 'react-bootstrap';
+import { Navbar, Nav, NavItem, NavDropdown, MenuItem, Grid, Row, Col, DropdownButton } from 'react-bootstrap';
 
-function Toolbar({ user, onMenu, offMenu, isMenuOpened, handleVision}) {
+import SearchPlugin from './SearchPlugin';
+
+function Toolbar({ user, onMenu, offMenu, handleVision, onSearch}) {
     return (
         <Navbar>
             <Grid>
                 <Row className="show-grid">
-                    <Col xs={10} sm={4} md={3} lg={3}>
-                        <Navbar.Header>
-                            <Navbar.Brand>
-                                <i className="fa fa-bars fa-2x" aria-hidden="true" onClick={onMenu}></i>
-                            </Navbar.Brand>
-                            <Navbar.Brand>
-                                <NavLink className="header-title" onClick={offMenu} to="/">Natural Beauty</NavLink>
-                            </Navbar.Brand>
-                        </Navbar.Header>
+                    <Col xs={2} sm={1} md={1} lg={1}>
+                        <Navbar.Brand>
+                            <i className="fa fa-bars fa-2x" aria-hidden="true" onClick={onMenu}></i>
+                        </Navbar.Brand>
                     </Col>
-                    <Col xsHidden sm={8} md={9} lg={9}>
+                    <Col xsHidden sm={3} md={2} lg={3}>
+                        <Navbar.Brand>
+                            <NavLink className="header-title" onClick={offMenu} to="/">Natural Beauty</NavLink>
+                        </Navbar.Brand>
+                    </Col>
+                    <Col xs={8} sm={6} md={2} lg={3}>
+                        <SearchPlugin onSearch={onSearch}/>
+                    </Col>
+                    <Col xsHidden smHidden md={7} lg={5}>
                         <Nav pullRight={true} onClick={offMenu}>
                             <NavItem>
                                 <NavLink className="navItem" to="/products" onClick={handleVision}>Our Products</NavLink>
@@ -31,12 +36,11 @@ function Toolbar({ user, onMenu, offMenu, isMenuOpened, handleVision}) {
                             <NavItem>
                                 <NavLink className="navItem" to="/policies">Our Policies</NavLink>
                             </NavItem>
-                            <NavDropdown title="Enter" id="basic-nav-dropdown">
+                            <NavDropdown className="navItem" title="Enter" id="enter-dropdown">
                                 <MenuItem>
-                                    {user ?
-                                        <NavLink className="dropdown-item" to="/logout">Log out</NavLink>
-                                        :
-                                        <NavLink className="dropdown-item" to="/login">Log in</NavLink>}
+                                    {user
+                                        ? <NavLink className="dropdown-item" to="/logout">Log out</NavLink>
+                                        : <NavLink className="dropdown-item" to="/login">Log in</NavLink>}
                                 </MenuItem>
                                 <MenuItem>
                                     <NavLink className="dropdown-item" /*activeClassName="activeTab" */ to="/logout">Sign up</NavLink>
@@ -44,8 +48,12 @@ function Toolbar({ user, onMenu, offMenu, isMenuOpened, handleVision}) {
                             </NavDropdown>
                         </Nav>
                     </Col>
-                    <Col className="shotNav"  xs={2} smHidden mdHidden lgHidden>
-                      <DropdownButton pullRight bsStyle={'default'} title={'info'}>
+                    <Col className="shotNav"  xs={2} sm={2} mdHidden lgHidden>
+                      <DropdownButton pullRight bsStyle={'default'}
+                                      title={<i className="fa fa-caret-square-o-down" aria-hidden="true"></i>}
+                                      id="toolbar-dropdown"
+                                      bsSize="sm"
+                      >
                         <MenuItem eventKey="1">
                           <NavLink className="navItem" to="/products" onClick={handleVision}>Our Products</NavLink>
                         </MenuItem>
@@ -74,11 +82,5 @@ function Toolbar({ user, onMenu, offMenu, isMenuOpened, handleVision}) {
         </Navbar>
     )
 }
-
-Toolbar.propTypes = {
-    user: React.PropTypes.object,
-    onMenu: React.PropTypes.func.isRequired,
-    offMenu: React.PropTypes.func.isRequired
-};
 
 export default Toolbar

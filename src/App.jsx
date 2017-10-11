@@ -20,7 +20,8 @@ class App extends Component {
         this.state = {
             user: false,
             menuIsOpened: false,
-            areProductsVisible: false
+            areProductsVisible: false,
+            searchValue: ""
         };
 
         this.body = document.body;
@@ -29,6 +30,7 @@ class App extends Component {
         this.logout = this.logout.bind(this);
         this.handleMenu = this.handleMenu.bind(this);
         this.menuCloser = this.menuCloser.bind(this);
+        this.handleSearch = this.handleSearch.bind(this);
         this.setProductsAppearance__menu = this.setProductsAppearance__menu.bind(this);
         this.setProductsAppearance__ourProductsLink = this.setProductsAppearance__ourProductsLink.bind(this);
     };
@@ -36,11 +38,19 @@ class App extends Component {
     setProductsAppearance__menu() {
         this.state.areProductsVisible = this.state.menuIsOpened ? false : true;
 
-        setTimeout(() => {
+        this.timerID = setTimeout(() => {
             this.setState({
                 areProductsVisible: true
             })
         }, 200)
+    }
+
+    componentWillUpdate() {
+        clearInterval(this.timerID)
+    }
+
+    componentWillMount() {
+        clearInterval(this.timerID)
     }
 
     setProductsAppearance__ourProductsLink() {
@@ -75,9 +85,18 @@ class App extends Component {
 
     menuCloser() {
         if (this.state.menuIsOpened) {
-            this.setState({menuIsOpened: false});
+            this.setState({
+                menuIsOpened: false,
+                searchValue: ""
+            });
             this.body.classList.toggle("lock-scroll");
         }
+    }
+
+    handleSearch(searchValue) {
+        this.setState({
+            searchValue
+        });
     }
 
     render() {
@@ -86,7 +105,8 @@ class App extends Component {
 
                 <Toolbar user={this.state.user} onMenu={this.handleMenu}
                                                 offMenu={this.menuCloser}
-                                                handleVision={this.setProductsAppearance__ourProductsLink}/>
+                                                handleVision={this.setProductsAppearance__ourProductsLink}
+                                                onSearch={this.handleSearch}/>
                 <Route path="/" render={ () => <Menu isOpened={this.state.menuIsOpened} offMenu={this.menuCloser}/> }/>
 
                 <Content offMenu={this.menuCloser} isMenuOpened={this.state.menuIsOpened}>
@@ -94,7 +114,9 @@ class App extends Component {
                         <Route exact path="/" component={Home}/>
                         <Route exact path="/products/:category?" render={(props) => <Products isVisible={this.state.areProductsVisible}
                                                                                         handleVision={this.setProductsAppearance__menu}
-                                                                                        {...props}/>}/>
+                                                                                        searchMed={this.state.searchValue}
+                                                                                        {...props}/>}
+                        />
                         <Route path="/about" component={About}/>
                         <Route path="/contact" component={Contacts}/>
                         <Route path="/policies" component={Policies}/>
@@ -106,6 +128,5 @@ class App extends Component {
         )
     }
 }
-
 
 export default App;

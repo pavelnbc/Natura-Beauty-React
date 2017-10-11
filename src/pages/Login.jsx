@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import { Redirect } from 'react-router-dom';
-import FieldGroup from '../components/FieldGroup';
 import {Button, FormGroup, FormControl} from 'react-bootstrap';
 
 
@@ -45,10 +44,5 @@ class Login extends Component {
         )
     }
 }
-
-
-Login.propTypes = {
-    onLogin: React.PropTypes.func.isRequired
-};
 
 export default Login;

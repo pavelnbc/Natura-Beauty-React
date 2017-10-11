@@ -92,18 +92,3 @@ class Product extends Component {
 }
 
 export default Product;
-
-Product.propTypes = {
-    medication: React.PropTypes.object
-};
-
-/*
-<div class="mdc-card">
-    <section class="mdc-card__primary">
-        <h4 class="mdc-card__title mdc-card__title--large">{medication.title}</h4>
-        <p class="mdc-card__subtitle">{medication.ingredient}</p>
-    </section>
-    <section class="mdc-card__actions">
-        <button class="mdc-button mdc-button--compact mdc-card__action">Add to cart</button>
-    </section>
-</div>*/

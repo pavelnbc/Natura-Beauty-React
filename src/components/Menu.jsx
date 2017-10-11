@@ -36,21 +36,4 @@ function Menu({isOpened, offMenu}) {
     )
 }
 
-Menu.propTypes = {
-    isOpened: React.PropTypes.bool.isRequired
-};
-
 export default Menu;
-
-/*<ListGroupItem onClick={offMenu}>
- <NavLink className="navItem" to="/products">Our Products</NavLink>
- </ListGroupItem>
- <ListGroupItem onClick={offMenu}>
- <NavLink className="navItem" to="/about">About Us</NavLink>
- </ListGroupItem>
- <ListGroupItem onClick={offMenu}>
- <NavLink className="navItem" to="/contact">Contact Us</NavLink>
- </ListGroupItem>
- <ListGroupItem onClick={offMenu}>
- <NavLink className="navItem" to="/policies">Our Policies</NavLink>
- </ListGroupItem>*/
