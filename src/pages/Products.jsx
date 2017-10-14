@@ -1,6 +1,6 @@
 import React from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import {Grid, Row, Col} from 'react-bootstrap';
+import classnames from 'classnames';
 
 import Product from '../components/Product'
 
@@ -17,29 +17,25 @@ function Products({match, isVisible, handleVision, searchMed}) {
          }
     });
 
+    const productsClassName = classnames({
+        "products-are-hidden": true,
+        "products-are-visible": isVisible
+    });
+
     handleVision();
 
     return (
-        isVisible
-          ?
-        <Grid>
+        <Grid className={productsClassName}>
             <Row className="show-grid">
                 {searchMeds.map(((product, index) => {
                     return (
-                        <Col xs={12} xsPush={2} sm={4} smPush={2} mdPush={0} md={3} lg={3} key={index}>
-                            <ReactCSSTransitionGroup component="div"
-                                                     transitionName="products"
-                                                     transitionAppear={true}
-                                                     transitionAppearTimeout={500}>
-                                <Product key={index} medication={product}/>
-                            </ReactCSSTransitionGroup>
+                        <Col xs={12} sm={4} md={3} lg={3} key={index}>
+                            <Product key={index} medication={product}/>
                         </Col>
                     )
                 }))}
             </Row>
         </Grid>
-          :
-         null
     )
 }
 

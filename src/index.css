@@ -135,9 +135,14 @@ body {
   height: auto !important;
   width: 270px !important;
   position: fixed;
-  transition: margin, 300ms;
+  margin-left: -270px;
+  transition: margin-left, 300ms;
   min-height: 100%;
   z-index: 1001;
+}
+
+.menuOn {
+  margin-left: 0;
 }
 
 .list-group-item a {
@@ -146,22 +151,6 @@ body {
 
 .list-group-item:hover {
   background-color: lightcyan;
-}
-
-.slide-enter {
-  margin-left: -300px;
-}
-
-.slide-enter .slide-enter-active {
-  margin-left: 0;
-}
-
-.slide-leave {
-  margin-left: -300px;
-}
-
-.slide-leave .slide-enter-leave {
-  margin-left: 0;
 }
 
 /*LogIn*/
@@ -226,11 +215,11 @@ body {
     margin-left: 0;
 }
 
-.products-appear {
+.products-are-hidden {
   opacity: 0;
 }
 
-.products-appear.products-appear-active {
+.products-are-visible {
   opacity: 1;
-  transition: opacity, 700ms;
+  transition: opacity, 600ms;
 }

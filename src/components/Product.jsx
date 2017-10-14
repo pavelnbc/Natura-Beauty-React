@@ -3,7 +3,7 @@ import { Thumbnail, Button } from 'react-bootstrap';
 
 class Product extends Component {
     constructor({medication}) {
-        super(medication);
+        super({medication});
         this.dosage = medication.dosage;
         this.quantity = medication.quantity;
         this.price = medication.price;

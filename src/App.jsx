@@ -29,7 +29,7 @@ class App extends Component {
         this.login = this.login.bind(this);
         this.logout = this.logout.bind(this);
         this.handleMenu = this.handleMenu.bind(this);
-        this.menuCloser = this.menuCloser.bind(this);
+        this.menuCloserAndSearchCleaner = this.menuCloserAndSearchCleaner.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
         this.setProductsAppearance__menu = this.setProductsAppearance__menu.bind(this);
         this.setProductsAppearance__ourProductsLink = this.setProductsAppearance__ourProductsLink.bind(this);
@@ -42,25 +42,19 @@ class App extends Component {
             this.setState({
                 areProductsVisible: true
             })
-        }, 200)
-    }
-
-    componentWillUpdate() {
-        clearInterval(this.timerID)
-    }
-
-    componentWillMount() {
-        clearInterval(this.timerID)
+            clearTimeout(this.timerID);
+        }, 50)
     }
 
     setProductsAppearance__ourProductsLink() {
         this.state.areProductsVisible = false;
 
-        setTimeout(() => {
+        this.timerID1 = setTimeout(() => {
             this.setState({
                 areProductsVisible: true
             })
-        }, 200)
+            clearTimeout(this.timerID1);
+        }, 50)
     }
 
     login(user) {
@@ -83,7 +77,7 @@ class App extends Component {
         this.body.classList.toggle("lock-scroll");
     };
 
-    menuCloser() {
+    menuCloserAndSearchCleaner() {
         if (this.state.menuIsOpened) {
             this.setState({
                 menuIsOpened: false,
@@ -95,21 +89,21 @@ class App extends Component {
 
     handleSearch(searchValue) {
         this.setState({
-            searchValue
+            searchValue: searchValue
         });
     }
 
     render() {
         return (
             <div className="app">
-
                 <Toolbar user={this.state.user} onMenu={this.handleMenu}
-                                                offMenu={this.menuCloser}
+                                                offMenu={this.menuCloserAndSearchCleaner}
                                                 handleVision={this.setProductsAppearance__ourProductsLink}
-                                                onSearch={this.handleSearch}/>
-                <Route path="/" render={ () => <Menu isOpened={this.state.menuIsOpened} offMenu={this.menuCloser}/> }/>
+                                                searchValueToToolbar={this.state.searchValue}
+                                                onSearchToToolbar={this.handleSearch}/>
+                <Route path="/" render={ () => <Menu isOpened={this.state.menuIsOpened} offMenu={this.menuCloserAndSearchCleaner}/> }/>
 
-                <Content offMenu={this.menuCloser} isMenuOpened={this.state.menuIsOpened}>
+                <Content offMenu={this.menuCloserAndSearchCleaner} isMenuOpened={this.state.menuIsOpened}>
                     <Switch>
                         <Route exact path="/" component={Home}/>
                         <Route exact path="/products/:category?" render={(props) => <Products isVisible={this.state.areProductsVisible}

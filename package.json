@@ -9,6 +9,7 @@
     "@material/list": "^0.2.19",
     "@material/menu": "^0.4.7",
     "@material/toolbar": "^0.4.10",
+    "classnames": "^2.2.5",
     "material-components-web": "^0.21.1",
     "react": "^15.6.2",
     "react-addons-css-transition-group": "^15.6.0",

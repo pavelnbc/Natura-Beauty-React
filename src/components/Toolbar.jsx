@@ -4,25 +4,29 @@ import { Navbar, Nav, NavItem, NavDropdown, MenuItem, Grid, Row, Col, DropdownBu
 
 import SearchPlugin from './SearchPlugin';
 
-function Toolbar({ user, onMenu, offMenu, handleVision, onSearch}) {
+function Toolbar({ user, onMenu, offMenu, handleVision, searchValueToToolbar, onSearchToToolbar}) {
     return (
         <Navbar>
             <Grid>
                 <Row className="show-grid">
-                    <Col xs={2} sm={1} md={1} lg={1}>
-                        <Navbar.Brand>
-                            <i className="fa fa-bars fa-2x" aria-hidden="true" onClick={onMenu}></i>
-                        </Navbar.Brand>
+                    <Col xs={2} sm={3} md={3} lg={3}>
+                        <Row className="show-grid">
+                            <Col xs={2} sm={2} md={2} lg={2}>
+                                <Navbar.Brand>
+                                    <i className="fa fa-bars fa-2x" aria-hidden="true" onClick={onMenu}></i>
+                                </Navbar.Brand>
+                            </Col>
+                            <Col xsHidden sm={10} md={10} lg={10}>
+                                <Navbar.Brand>
+                                    <NavLink className="header-title" onClick={offMenu} to="/">Natural Beauty</NavLink>
+                                </Navbar.Brand>
+                            </Col>
+                        </Row>
                     </Col>
-                    <Col xsHidden sm={3} md={2} lg={3}>
-                        <Navbar.Brand>
-                            <NavLink className="header-title" onClick={offMenu} to="/">Natural Beauty</NavLink>
-                        </Navbar.Brand>
+                    <Col xs={8} sm={6} md={3} lg={3} lgOffset={1}>
+                        <SearchPlugin searchValueToPlg={searchValueToToolbar} onSearchToPlg={onSearchToToolbar}/>
                     </Col>
-                    <Col xs={8} sm={6} md={2} lg={3}>
-                        <SearchPlugin onSearch={onSearch}/>
-                    </Col>
-                    <Col xsHidden smHidden md={7} lg={5}>
+                    <Col xsHidden smHidden md={6} lg={5}>
                         <Nav pullRight={true} onClick={offMenu}>
                             <NavItem>
                                 <NavLink className="navItem" to="/products" onClick={handleVision}>Our Products</NavLink>
@@ -48,9 +52,9 @@ function Toolbar({ user, onMenu, offMenu, handleVision, onSearch}) {
                             </NavDropdown>
                         </Nav>
                     </Col>
-                    <Col className="shotNav"  xs={2} sm={2} mdHidden lgHidden>
+                    <Col className="shotNav"  xs={2} sm={3} mdHidden lgHidden>
                       <DropdownButton pullRight bsStyle={'default'}
-                                      title={<i className="fa fa-caret-square-o-down" aria-hidden="true"></i>}
+                                      title=""
                                       id="toolbar-dropdown"
                                       bsSize="sm"
                       >
