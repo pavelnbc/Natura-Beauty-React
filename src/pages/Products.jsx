@@ -6,9 +6,11 @@ import Product from '../components/Product'
 
 import products from '../data/products.json';
 
-function Products({match, isVisible, handleVision, searchMed}) {
+function Products({match, areVisible, handleVision, searchMed}) {
     const medications = products.filter((medication) => {
-        return match.params.category ? (medication.category === match.params.category) : products;
+        return match.params.category
+            ? (medication.category === match.params.category)
+            : products;
     });
 
     const searchMeds = medications.filter((med) => {
@@ -17,12 +19,13 @@ function Products({match, isVisible, handleVision, searchMed}) {
          }
     });
 
+    handleVision();
+
     const productsClassName = classnames({
         "products-are-hidden": true,
-        "products-are-visible": isVisible
+        "products-are-visible": areVisible
     });
 
-    handleVision();
 
     return (
         <Grid className={productsClassName}>

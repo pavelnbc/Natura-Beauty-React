@@ -19,7 +19,7 @@ class App extends Component {
 
         this.state = {
             user: false,
-            menuIsOpened: false,
+            isMenuOpened: false,
             areProductsVisible: false,
             searchValue: ""
         };
@@ -31,28 +31,16 @@ class App extends Component {
         this.handleMenu = this.handleMenu.bind(this);
         this.menuCloserAndSearchCleaner = this.menuCloserAndSearchCleaner.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
-        this.setProductsAppearance__menu = this.setProductsAppearance__menu.bind(this);
-        this.setProductsAppearance__ourProductsLink = this.setProductsAppearance__ourProductsLink.bind(this);
+        this.setProductsAppearance = this.setProductsAppearance.bind(this);
     };
 
-    setProductsAppearance__menu() {
-        this.state.areProductsVisible = this.state.menuIsOpened ? false : true;
-
-        this.timerID = setTimeout(() => {
-            this.setState({
-                areProductsVisible: true
-            })
-            clearTimeout(this.timerID);
-        }, 50)
-    }
-
-    setProductsAppearance__ourProductsLink() {
+    setProductsAppearance() {
         this.state.areProductsVisible = false;
 
         this.timerID1 = setTimeout(() => {
             this.setState({
                 areProductsVisible: true
-            })
+            });
             clearTimeout(this.timerID1);
         }, 50)
     }
@@ -72,17 +60,18 @@ class App extends Component {
 
     handleMenu() {
         this.setState({
-            menuIsOpened: !this.state.menuIsOpened
+            isMenuOpened: !this.state.isMenuOpened,
+            areProductsVisible: true
         });
         this.body.classList.toggle("lock-scroll");
     };
 
     menuCloserAndSearchCleaner() {
-        if (this.state.menuIsOpened) {
-            this.setState({
-                menuIsOpened: false,
-                searchValue: ""
-            });
+        this.setState({
+            isMenuOpened: false,
+            searchValue: ""
+        });
+        if(this.state.isMenuOpened) {
             this.body.classList.toggle("lock-scroll");
         }
     }
@@ -96,20 +85,24 @@ class App extends Component {
     render() {
         return (
             <div className="app">
-                <Toolbar user={this.state.user} onMenu={this.handleMenu}
-                                                offMenu={this.menuCloserAndSearchCleaner}
-                                                handleVision={this.setProductsAppearance__ourProductsLink}
-                                                searchValueToToolbar={this.state.searchValue}
-                                                onSearchToToolbar={this.handleSearch}/>
-                <Route path="/" render={ () => <Menu isOpened={this.state.menuIsOpened} offMenu={this.menuCloserAndSearchCleaner}/> }/>
+                <Toolbar user={this.state.user}
+                         onMenu={this.handleMenu}
+                         offMenu={this.menuCloserAndSearchCleaner}
+                         searchValueToToolbar={this.state.searchValue}
+                         onSearchToToolbar={this.handleSearch}
+                />
+                <Route path="/" render={ () => <Menu isOpened={this.state.isMenuOpened} offMenu={this.menuCloserAndSearchCleaner}/> }/>
 
-                <Content offMenu={this.menuCloserAndSearchCleaner} isMenuOpened={this.state.menuIsOpened}>
+                <Content offMenu={this.menuCloserAndSearchCleaner} isMenuOpened={this.state.isMenuOpened}>
                     <Switch>
                         <Route exact path="/" component={Home}/>
-                        <Route exact path="/products/:category?" render={(props) => <Products isVisible={this.state.areProductsVisible}
-                                                                                        handleVision={this.setProductsAppearance__menu}
-                                                                                        searchMed={this.state.searchValue}
-                                                                                        {...props}/>}
+                        <Route exact path="/products/:category?" render={
+                            (props) => <Products areVisible={this.state.areProductsVisible}
+                                        handleVision={this.setProductsAppearance}
+                                        searchMed={this.state.searchValue}
+                                        /*isMenuOpened={this.state.isMenuOpened}*/
+                                        {...props}/>
+                            }
                         />
                         <Route path="/about" component={About}/>
                         <Route path="/contact" component={Contacts}/>

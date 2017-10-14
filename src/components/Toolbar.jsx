@@ -29,7 +29,7 @@ function Toolbar({ user, onMenu, offMenu, handleVision, searchValueToToolbar, on
                     <Col xsHidden smHidden md={6} lg={5}>
                         <Nav pullRight={true} onClick={offMenu}>
                             <NavItem>
-                                <NavLink className="navItem" to="/products" onClick={handleVision}>Our Products</NavLink>
+                                <NavLink className="navItem" to="/products">Our Products</NavLink>
                             </NavItem>
                             <NavItem>
                                 <NavLink className="navItem" to="/about">About Us</NavLink>
@@ -47,7 +47,7 @@ function Toolbar({ user, onMenu, offMenu, handleVision, searchValueToToolbar, on
                                         : <NavLink className="dropdown-item" to="/login">Log in</NavLink>}
                                 </MenuItem>
                                 <MenuItem>
-                                    <NavLink className="dropdown-item" /*activeClassName="activeTab" */ to="/logout">Sign up</NavLink>
+                                    <NavLink className="dropdown-item" to="/logout">Sign up</NavLink>
                                 </MenuItem>
                             </NavDropdown>
                         </Nav>
@@ -59,7 +59,7 @@ function Toolbar({ user, onMenu, offMenu, handleVision, searchValueToToolbar, on
                                       bsSize="sm"
                       >
                         <MenuItem eventKey="1">
-                          <NavLink className="navItem" to="/products" onClick={handleVision}>Our Products</NavLink>
+                          <NavLink className="navItem" to="/products">Our Products</NavLink>
                         </MenuItem>
                         <MenuItem eventKey="2">
                           <NavLink className="navItem" to="/about">About Us</NavLink>
