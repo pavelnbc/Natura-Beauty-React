@@ -14,9 +14,14 @@ body {
 
 .content {
   position: relative;
-  padding: 20px 50px 0 50px;
+  padding: 20px 0;
   width: 100%;
   box-sizing: border-box;
+  z-index: 100;
+}
+
+.content .container {
+    width: 100%;
 }
 
 .contentLayer {
@@ -29,6 +34,12 @@ body {
 
 .lock-scroll {
   overflow: hidden;
+}
+
+/*side bars*/
+
+.left-side-panel {
+  margin-top: 20px;
 }
 
 /*login*/
@@ -138,7 +149,7 @@ body {
   margin-left: -270px;
   transition: margin-left, 300ms;
   min-height: 100%;
-  z-index: 1001;
+  z-index: 1000;
 }
 
 .menuOn {

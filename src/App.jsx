@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
 import {Route, Switch} from 'react-router-dom';
+import {Grid, Row, Col, Panel} from 'react-bootstrap';
 
 import Toolbar from './components/Toolbar';
 import Menu from './components/Menu';
 import Content from './components/Content';
+import LeftSideBar from './components/LeftSideBar';
 import Home from './pages/Home';
 import Products from './pages/Products';
 import About from './pages/About';
@@ -46,7 +48,6 @@ class App extends Component {
     }
 
     login(user) {
-        console.log(user);
         this.setState({
             user: user
         })
@@ -93,24 +94,33 @@ class App extends Component {
                 />
                 <Route path="/" render={ () => <Menu isOpened={this.state.isMenuOpened} offMenu={this.menuCloserAndSearchCleaner}/> }/>
 
-                <Content offMenu={this.menuCloserAndSearchCleaner} isMenuOpened={this.state.isMenuOpened}>
-                    <Switch>
-                        <Route exact path="/" component={Home}/>
-                        <Route exact path="/products/:category?" render={
-                            (props) => <Products areVisible={this.state.areProductsVisible}
-                                        handleVision={this.setProductsAppearance}
-                                        searchMed={this.state.searchValue}
-                                        /*isMenuOpened={this.state.isMenuOpened}*/
-                                        {...props}/>
-                            }
-                        />
-                        <Route path="/about" component={About}/>
-                        <Route path="/contact" component={Contacts}/>
-                        <Route path="/policies" component={Policies}/>
-                        <Route path="/login" render={() => <Login user={this.state.user} onLogin={this.login} />}/>
-                        <Route path="/logout" render={() => <Logout onLogout={this.logout} />}/>
-                    </Switch>
-                </Content>
+                <Grid>
+                    <Row className="show-grid">
+                        <Col xs={12} sm={3} md={2} lg={3}>
+                            <LeftSideBar />
+                        </Col>
+                        <Col xs={12} sm={9} md={2} lg={9} >
+                            <Content offMenu={this.menuCloserAndSearchCleaner} isMenuOpened={this.state.isMenuOpened}>
+                                <Switch>
+                                    <Route exact path="/" component={Home}/>
+                                    <Route exact path="/products/:category?" render={
+                                        (props) => <Products areVisible={this.state.areProductsVisible}
+                                                             handleVision={this.setProductsAppearance}
+                                                             searchMed={this.state.searchValue}
+                                            /*isMenuOpened={this.state.isMenuOpened}*/
+                                                             {...props}/>
+                                    }
+                                    />
+                                    <Route path="/about" component={About}/>
+                                    <Route path="/contact" component={Contacts}/>
+                                    <Route path="/policies" component={Policies}/>
+                                    <Route path="/login" render={() => <Login user={this.state.user} onLogin={this.login} />}/>
+                                    <Route path="/logout" render={() => <Logout onLogout={this.logout} />}/>
+                                </Switch>
+                            </Content>
+                        </Col>
+                    </Row>
+                </Grid>
             </div>
         )
     }

@@ -4,7 +4,7 @@ import { Navbar, Nav, NavItem, NavDropdown, MenuItem, Grid, Row, Col, DropdownBu
 
 import SearchPlugin from './SearchPlugin';
 
-function Toolbar({ user, onMenu, offMenu, handleVision, searchValueToToolbar, onSearchToToolbar}) {
+function Toolbar({ user, onMenu, offMenu, searchValueToToolbar, onSearchToToolbar}) {
     return (
         <Navbar>
             <Grid>
@@ -27,20 +27,20 @@ function Toolbar({ user, onMenu, offMenu, handleVision, searchValueToToolbar, on
                         <SearchPlugin searchValueToPlg={searchValueToToolbar} onSearchToPlg={onSearchToToolbar}/>
                     </Col>
                     <Col xsHidden smHidden md={6} lg={5}>
-                        <Nav pullRight={true} onClick={offMenu}>
+                        <Nav pullRight={true}>
                             <NavItem>
-                                <NavLink className="navItem" to="/products">Our Products</NavLink>
+                                <NavLink className="navItem" to="/products" onClick={offMenu}>Our Products</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink className="navItem" to="/about">About Us</NavLink>
+                                <NavLink className="navItem" to="/about" onClick={offMenu}>About Us</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink className="navItem" to="/contact">Contact Us</NavLink>
+                                <NavLink className="navItem" to="/contact" onClick={offMenu}>Contact Us</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink className="navItem" to="/policies">Our Policies</NavLink>
+                                <NavLink className="navItem" to="/policies" onClick={offMenu}>Our Policies</NavLink>
                             </NavItem>
-                            <NavDropdown className="navItem" title="Enter" id="enter-dropdown">
+                            <NavDropdown className="navItem" title="Enter" id="enter-dropdown" onClick={offMenu}>
                                 <MenuItem>
                                     {user
                                         ? <NavLink className="dropdown-item" to="/logout">Log out</NavLink>
@@ -57,6 +57,7 @@ function Toolbar({ user, onMenu, offMenu, handleVision, searchValueToToolbar, on
                                       title=""
                                       id="toolbar-dropdown"
                                       bsSize="sm"
+                                      onClick={offMenu}
                       >
                         <MenuItem eventKey="1">
                           <NavLink className="navItem" to="/products">Our Products</NavLink>

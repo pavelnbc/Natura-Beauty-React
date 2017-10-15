@@ -47,9 +47,7 @@ class Product extends Component {
     handleQuantity_decrease() {
         const minIndicator =  0;
         let quantityIndicator = this.state.quantityIndicator-- > minIndicator ? this.state.quantityIndicator : minIndicator;
-        this.setState({
-            quantityIndicator
-        })
+        this.state.quantityIndicator = quantityIndicator;
     }
 
     getPrice() {

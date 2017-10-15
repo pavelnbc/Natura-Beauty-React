@@ -8,24 +8,23 @@ class SearchPlugin extends Component {
 
         this.onSearch = onSearchToPlg;
 
-        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleChange(event) {
+    handleSubmit(event) {
         event.preventDefault();
-        this.onSearch(this.searchObject.value)
+        this.onSearch(this.searchObject.value.toString())
+        this.searchObject.value = "";
     }
 
     render() {
         const {searchValueToPlg} = this.props;
 
         return (
-            <form className="search-form">
+            <form className="search-form" onSubmit={this.handleSubmit}>
                 <FormControl
                     type="text"
                     placeholder="Search"
-                    value={searchValueToPlg}
-                    onChange={this.handleChange}
                     inputRef={(input) => this.searchObject = input}
                 />
                 <i className="fa fa-search" aria-hidden="true" onClick={this.handleSubmit}></i>
