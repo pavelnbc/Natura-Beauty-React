@@ -14,7 +14,6 @@ body {
 
 .content {
   position: relative;
-  padding: 20px 0;
   width: 100%;
   box-sizing: border-box;
   z-index: 100;
@@ -137,7 +136,7 @@ body {
 .carousel-bar {
   width: 100%;
   height: 200px;
-  margin: 0 auto;
+  margin: 20px auto;
 }
 
 /*Menu-bar*/
@@ -154,6 +153,10 @@ body {
 
 .menuOn {
   margin-left: 0;
+}
+
+.list-group-item {
+  margin-bottom: -2px;
 }
 
 .list-group-item a {
@@ -175,6 +178,10 @@ body {
 }
 
 /*Products*/
+.product-card {
+  margin-top: 20px;
+  margin-bottom: 0px;
+}
 
 .product {
   position: relative;
@@ -182,6 +189,7 @@ body {
   min-width: 200px;
   max-width: 250px;
   text-align: center;
+  margin-bottom: 0px;
   z-index: 100;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }

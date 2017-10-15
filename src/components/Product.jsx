@@ -2,60 +2,63 @@ import React, {Component} from 'react';
 import { Thumbnail, Button } from 'react-bootstrap';
 
 class Product extends Component {
-    constructor({medication}) {
-        super({medication});
-        this.dosage = medication.dosage;
-        this.quantity = medication.quantity;
-        this.price = medication.price;
+    constructor({ medication, setProdsVisibility }) {
+        super({ medication, setProdsVisibility });
+
+        this.medication = medication;
+
         this.state = {
             dosageIndicator: 0,
             quantityIndicator: 0,
-            priceIndicator: 0
+            priceIndicator: 0,
         };
 
-        this.handleDosage_increase = this.handleDosage_increase.bind(this);
-        this.handleDosage_decrease = this.handleDosage_decrease.bind(this);
-        this.handleQuantity_increase = this.handleQuantity_increase.bind(this);
-        this.handleQuantity_decrease = this.handleQuantity_decrease.bind(this);
+        this.handleDosage = this.handleDosage.bind(this);
+        this.handleQuantity = this.handleQuantity.bind(this);
         this.getPrice = this.getPrice.bind(this);
+        this.setProdsVisibility =setProdsVisibility;
      }
 
-    handleDosage_increase() {
-        const maxIndicator =  this.dosage.length - 1;
-        let dosageIndicator = this.state.dosageIndicator++ < maxIndicator ? this.state.dosageIndicator : maxIndicator;
+    handleDosage(action) {
+        if(action) {
+            const maxIndicator =  this.medication.dosage.length - 1;
+            var dosageIndicator = this.state.dosageIndicator++ < maxIndicator ? this.state.dosageIndicator : maxIndicator;
+        } else {
+            const minIndicator =  0;
+            var dosageIndicator = this.state.dosageIndicator-- > minIndicator ? this.state.dosageIndicator : minIndicator;
+        }
+
+        this.setProdsVisibility(true);
+
         this.setState({
             dosageIndicator
         })
     }
 
-    handleDosage_decrease() {
-        const minIndicator =  0;
-        let dosageIndicator = this.state.dosageIndicator-- > minIndicator ? this.state.dosageIndicator : minIndicator;
-        this.setState({
-            dosageIndicator
-        })
-    }
+    handleQuantity(action) {
+        if(action) {
+            const maxIndicator =  this.medication.quantity.length - 1;
+            var quantityIndicator = this.state.quantityIndicator++ < maxIndicator ? this.state.quantityIndicator : maxIndicator;
+        } else {
+            const minIndicator =  0;
+            var quantityIndicator = this.state.quantityIndicator-- > minIndicator ? this.state.quantityIndicator : minIndicator;
+        }
 
-    handleQuantity_increase() {
-        const maxIndicator =  this.quantity.length - 1;
-        let quantityIndicator = this.state.quantityIndicator++ < maxIndicator ? this.state.quantityIndicator : maxIndicator;
+        this.setProdsVisibility(true);
+
         this.setState({
             quantityIndicator
         })
     }
 
-    handleQuantity_decrease() {
-        const minIndicator =  0;
-        let quantityIndicator = this.state.quantityIndicator-- > minIndicator ? this.state.quantityIndicator : minIndicator;
-        this.state.quantityIndicator = quantityIndicator;
-    }
-
     getPrice() {
-        return this.price[this.state.dosageIndicator] * this.quantity[this.state.quantityIndicator];
+        return this.medication.price[this.state.dosageIndicator] * this.medication.quantity[this.state.quantityIndicator];
     }
 
     render() {
-        const {medication} = this.props;
+        const { medication } = this.props;
+
+        this.getPrice();
 
         return (
             <Thumbnail src={`/img/generic-viagra.jpg`} className="product">
@@ -64,22 +67,22 @@ class Product extends Component {
 
                 <h4 className="price"><span>$</span>{this.getPrice()}</h4>
                 <p className="mg-selection">
-                    <div className="arrow-left" onClick={this.handleDosage_decrease}>
+                    <div className="arrow-left" onClick={() => {this.handleDosage(false)}}>
                         <img src="/img/left-circular.png" alt=""/>
                     </div>
                     <div className="indicator">{medication.dosage[this.state.dosageIndicator]}</div>
                     <div className="mg">mg</div>
-                    <div className="arrow-right" onClick={this.handleDosage_increase}>
+                    <div className="arrow-right" onClick={() => {this.handleDosage(true)}}>
                         <img src="/img/right-circular.png" alt=""/>
                     </div>
                 </p>
                 <p className="quantity-selection">
-                    <div className="arrow-left" onClick={this.handleQuantity_decrease}>
+                    <div className="arrow-left" onClick={() => {this.handleQuantity(false)}}>
                         <img src="/img/left-circular.png" alt=""/>
                     </div>
                     <div className="indicator">{medication.quantity[this.state.quantityIndicator]}</div>
                     <div className="pills">pills</div>
-                    <div className="arrow-right" onClick={this.handleQuantity_increase}>
+                    <div className="arrow-right" onClick={() => {this.handleQuantity(true)}}>
                         <img src="/img/right-circular.png" alt=""/>
                     </div>
                 </p>

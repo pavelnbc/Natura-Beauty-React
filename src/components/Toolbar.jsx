@@ -35,7 +35,7 @@ function Toolbar({ user, onMenu, offMenu, searchValueToToolbar, onSearchToToolba
                                 <NavLink className="navItem" to="/about" onClick={offMenu}>About Us</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink className="navItem" to="/contact" onClick={offMenu}>Contact Us</NavLink>
+                                <NavLink className="navItem" to="/contact" onClick={offMenu}>Blog</NavLink>
                             </NavItem>
                             <NavItem>
                                 <NavLink className="navItem" to="/policies" onClick={offMenu}>Our Policies</NavLink>

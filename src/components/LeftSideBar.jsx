@@ -21,6 +21,9 @@ function LeftSideBar() {
                 <ListGroupItem>
                     <NavLink className="navItem" to="/" >Order Status</NavLink>
                 </ListGroupItem>
+                <ListGroupItem>
+                    <NavLink className="navItem" to="/contact">Contact Us</NavLink>
+                </ListGroupItem>
             </ListGroup>
         </aside>
     )

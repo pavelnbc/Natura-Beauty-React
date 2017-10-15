@@ -23,7 +23,7 @@ class App extends Component {
             user: false,
             isMenuOpened: false,
             areProductsVisible: false,
-            searchValue: ""
+            searchValue: "",
         };
 
         this.body = document.body;
@@ -34,6 +34,7 @@ class App extends Component {
         this.menuCloserAndSearchCleaner = this.menuCloserAndSearchCleaner.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
         this.setProductsAppearance = this.setProductsAppearance.bind(this);
+        this.handleProdsVisibility = this.handleProdsVisibility.bind(this);
     };
 
     setProductsAppearance() {
@@ -77,6 +78,12 @@ class App extends Component {
         }
     }
 
+    handleProdsVisibility(value) {
+        this.setState({
+            areProductsVisible: value
+        })
+    }
+
     handleSearch(searchValue) {
         this.setState({
             searchValue: searchValue
@@ -96,18 +103,18 @@ class App extends Component {
 
                 <Grid>
                     <Row className="show-grid">
-                        <Col xs={12} sm={3} md={2} lg={3}>
+                        <Col xsHidden sm={3} md={3} lg={3}>
                             <LeftSideBar />
                         </Col>
-                        <Col xs={12} sm={9} md={2} lg={9} >
+                        <Col xs={12} sm={9} md={9} lg={9} >
                             <Content offMenu={this.menuCloserAndSearchCleaner} isMenuOpened={this.state.isMenuOpened}>
                                 <Switch>
                                     <Route exact path="/" component={Home}/>
                                     <Route exact path="/products/:category?" render={
                                         (props) => <Products areVisible={this.state.areProductsVisible}
-                                                             handleVision={this.setProductsAppearance}
                                                              searchMed={this.state.searchValue}
-                                            /*isMenuOpened={this.state.isMenuOpened}*/
+                                                             handleVision={this.setProductsAppearance}
+                                                             onVisible={this.handleProdsVisibility}
                                                              {...props}/>
                                     }
                                     />
