@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import { Thumbnail, Button } from 'react-bootstrap';
 
 class Product extends Component {
-    constructor({ medication, setProdsVisibility }) {
-        super({ medication, setProdsVisibility });
+    constructor({ medication }) {
+        super({ medication });
 
         this.medication = medication;
 
@@ -16,7 +16,6 @@ class Product extends Component {
         this.handleDosage = this.handleDosage.bind(this);
         this.handleQuantity = this.handleQuantity.bind(this);
         this.getPrice = this.getPrice.bind(this);
-        this.setProdsVisibility =setProdsVisibility;
      }
 
     handleDosage(action) {
@@ -27,8 +26,6 @@ class Product extends Component {
             const minIndicator =  0;
             var dosageIndicator = this.state.dosageIndicator-- > minIndicator ? this.state.dosageIndicator : minIndicator;
         }
-
-        this.setProdsVisibility(true);
 
         this.setState({
             dosageIndicator
@@ -43,8 +40,6 @@ class Product extends Component {
             const minIndicator =  0;
             var quantityIndicator = this.state.quantityIndicator-- > minIndicator ? this.state.quantityIndicator : minIndicator;
         }
-
-        this.setProdsVisibility(true);
 
         this.setState({
             quantityIndicator
@@ -66,27 +61,27 @@ class Product extends Component {
                 <p>{medication.ingredient}</p>
 
                 <h4 className="price"><span>$</span>{this.getPrice()}</h4>
-                <p className="mg-selection">
-                    <div className="arrow-left" onClick={() => {this.handleDosage(false)}}>
+                <p className="dosage-selection">
+                    <div className="arrow arrow-left" onClick={() => {this.handleDosage(true)}}>
                         <img src="/img/left-circular.png" alt=""/>
                     </div>
                     <div className="indicator">{medication.dosage[this.state.dosageIndicator]}</div>
                     <div className="mg">mg</div>
-                    <div className="arrow-right" onClick={() => {this.handleDosage(true)}}>
+                    <div className="arrow arrow-right" onClick={() => {this.handleDosage(false)}}>
                         <img src="/img/right-circular.png" alt=""/>
                     </div>
                 </p>
                 <p className="quantity-selection">
-                    <div className="arrow-left" onClick={() => {this.handleQuantity(false)}}>
+              <div className="arrow arrow-left" onClick={() => { this.handleQuantity(true)}}>
                         <img src="/img/left-circular.png" alt=""/>
                     </div>
                     <div className="indicator">{medication.quantity[this.state.quantityIndicator]}</div>
                     <div className="pills">pills</div>
-                    <div className="arrow-right" onClick={() => {this.handleQuantity(true)}}>
+                    <div className="arrow arrow-right" onClick={() => { this.handleQuantity(false)}}>
                         <img src="/img/right-circular.png" alt=""/>
                     </div>
                 </p>
-                <Button bsStyle="primary" bsSize="xs">Add to card</Button>
+                <Button bsStyle="primary" bsSize="xs" className="submit-btn">Add to card</Button>
             </Thumbnail>
         )
     }

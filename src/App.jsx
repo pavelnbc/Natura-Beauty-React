@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Route, Switch} from 'react-router-dom';
+import {Route, Switch, Redirect} from 'react-router-dom';
 import {Grid, Row, Col, Panel} from 'react-bootstrap';
 
 import Toolbar from './components/Toolbar';
@@ -10,6 +10,11 @@ import Home from './pages/Home';
 import Products from './pages/Products';
 import About from './pages/About';
 import Contacts from './pages/Contacts';
+import NewOrder from './pages/NewOrder';
+import OrderReplacement from './pages/OrderReplacement';
+import FAQ from './pages/FAQ';
+import Discounts from './pages/Discounts';
+import Blog from './pages/Blog';
 import Policies from './pages/Policies';
 import Login from './pages/Login';
 import Logout from './pages/Logout';
@@ -22,7 +27,7 @@ class App extends Component {
         this.state = {
             user: false,
             isMenuOpened: false,
-            areProductsVisible: false,
+            isContentVisible: false,
             searchValue: "",
         };
 
@@ -31,21 +36,29 @@ class App extends Component {
         this.login = this.login.bind(this);
         this.logout = this.logout.bind(this);
         this.handleMenu = this.handleMenu.bind(this);
-        this.menuCloserAndSearchCleaner = this.menuCloserAndSearchCleaner.bind(this);
+        this.menuCloser = this.menuCloser.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
-        this.setProductsAppearance = this.setProductsAppearance.bind(this);
-        this.handleProdsVisibility = this.handleProdsVisibility.bind(this);
+        this.setContentAppearance = this.setContentAppearance.bind(this);
+        this.handleContentVisibility = this.handleContentVisibility.bind(this);
     };
 
-    setProductsAppearance() {
-        this.state.areProductsVisible = false;
+    setContentAppearance() {
+        this.state.isContentVisible = false;
 
         this.timerID1 = setTimeout(() => {
             this.setState({
-                areProductsVisible: true
+              isContentVisible: true
             });
             clearTimeout(this.timerID1);
         }, 50)
+    }
+
+    componentDidMount() {
+      this.setContentAppearance();
+    }
+
+    componentDidUpdate() {
+      this.setContentAppearance();
     }
 
     login(user) {
@@ -63,12 +76,12 @@ class App extends Component {
     handleMenu() {
         this.setState({
             isMenuOpened: !this.state.isMenuOpened,
-            areProductsVisible: true
+            isContentVisible: true
         });
         this.body.classList.toggle("lock-scroll");
     };
 
-    menuCloserAndSearchCleaner() {
+    menuCloser() {
         this.setState({
             isMenuOpened: false,
             searchValue: ""
@@ -78,15 +91,15 @@ class App extends Component {
         }
     }
 
-    handleProdsVisibility(value) {
+    handleContentVisibility(value) {
         this.setState({
-            areProductsVisible: value
+          isContentVisible: value
         })
     }
 
     handleSearch(searchValue) {
         this.setState({
-            searchValue: searchValue
+            searchValue
         });
     }
 
@@ -95,36 +108,45 @@ class App extends Component {
             <div className="app">
                 <Toolbar user={this.state.user}
                          onMenu={this.handleMenu}
-                         offMenu={this.menuCloserAndSearchCleaner}
+                         offMenu={this.menuCloser}
                          searchValueToToolbar={this.state.searchValue}
                          onSearchToToolbar={this.handleSearch}
+                         onVisible={this.handleContentVisibility}
                 />
-                <Route path="/" render={ () => <Menu isOpened={this.state.isMenuOpened} offMenu={this.menuCloserAndSearchCleaner}/> }/>
+                <Route path="/" render={() => <Menu isOpened={this.state.isMenuOpened} offMenu={this.menuCloser}/> }/>
 
                 <Grid>
                     <Row className="show-grid">
+                        {this.state.searchValue ? <Redirect to="/products" /> : null}
                         <Col xsHidden sm={3} md={3} lg={3}>
-                            <LeftSideBar />
+                          <LeftSideBar isMenuOpened={this.state.isMenuOpened} offMenu={this.menuCloser} />
                         </Col>
                         <Col xs={12} sm={9} md={9} lg={9} >
-                            <Content offMenu={this.menuCloserAndSearchCleaner} isMenuOpened={this.state.isMenuOpened}>
-                                <Switch>
-                                    <Route exact path="/" component={Home}/>
-                                    <Route exact path="/products/:category?" render={
-                                        (props) => <Products areVisible={this.state.areProductsVisible}
-                                                             searchMed={this.state.searchValue}
-                                                             handleVision={this.setProductsAppearance}
-                                                             onVisible={this.handleProdsVisibility}
-                                                             {...props}/>
-                                    }
-                                    />
-                                    <Route path="/about" component={About}/>
-                                    <Route path="/contact" component={Contacts}/>
-                                    <Route path="/policies" component={Policies}/>
-                                    <Route path="/login" render={() => <Login user={this.state.user} onLogin={this.login} />}/>
-                                    <Route path="/logout" render={() => <Logout onLogout={this.logout} />}/>
-                                </Switch>
-                            </Content>
+                          <Content offMenu={this.menuCloser} 
+                                   isMenuOpened={this.state.isMenuOpened}
+                                   isVisible={this.state.isContentVisible}
+                                   onVisible={this.handleContentVisibility}
+                          >
+                              <Switch>
+                                  <Route exact path="/" component={Home}/>
+                                  <Route exact path="/products/:category?" render={
+                                      (props) => <Products 
+                                                            searchMed={this.state.searchValue}
+                                                            {...props}/>
+                                  }
+                                  />
+                                  <Route path="/about" component={About}/>
+                                  <Route path="/blog" component={Blog} />
+                                  <Route path="/contact" component={Contacts}/>
+                                  <Route path="/policies" component={Policies}/>
+                                  <Route path="/ordering" component={NewOrder} />
+                                  <Route path="/reordering" component={OrderReplacement} />
+                                  <Route path="/FAQ" component={FAQ} />
+                                  <Route path="/Discounts" component={Discounts} />
+                                  <Route path="/login" render={() => <Login user={this.state.user} onLogin={this.login} />}/>
+                                  <Route path="/logout" render={() => <Logout onLogout={this.logout} />}/>
+                              </Switch>
+                          </Content>
                         </Col>
                     </Row>
                 </Grid>

@@ -6,9 +6,9 @@ import CarouselBar from '../components/CarouselBar';
 function Home() {
     return (
         <div className="homePage">
-            <CarouselBar />
-
             <h2>Welcome to our website</h2>
+
+            <CarouselBar />
 
             <p>Arrived compass prepare an on as. Reasonable particular on my it in sympathize.
                 Size now easy eat hand how. Unwilling he departure elsewhere dejection at.

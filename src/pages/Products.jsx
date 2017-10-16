@@ -6,7 +6,7 @@ import Product from '../components/Product'
 
 import products from '../data/products.json';
 
-function Products({match, areVisible, handleVision, searchMed, onVisible}) {
+function Products({match, searchMed}) {
     const medications = products.filter((medication) => {
         return match.params.category
             ? (medication.category === match.params.category)
@@ -19,22 +19,14 @@ function Products({match, areVisible, handleVision, searchMed, onVisible}) {
          }
     });
 
-    handleVision();
-
-    const productsClassName = classnames({
-        "products-are-hidden": true,
-        "products-are-visible": areVisible
-    });
-
     return (
-        <Grid className={productsClassName}>
+        <Grid>
             <Row className="show-grid">
                 {searchMeds.map(((product, index) => {
                     return (
                         <Col xs={12} sm={6} md={4} lg={4} key={index} className="product-card">
                             <Product key={index}
                                      medication={product}
-                                     setProdsVisibility={onVisible}
                             />
                         </Col>
                     )

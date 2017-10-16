@@ -3,8 +3,8 @@ import React, {Component} from 'react';
 import {FormControl} from 'react-bootstrap'
 
 class SearchPlugin extends Component {
-    constructor({ searchValueToPlg, onSearchToPlg }) {
-        super({ searchValueToPlg, onSearchToPlg });
+    constructor({ onSearchToPlg }) {
+        super({ onSearchToPlg });
 
         this.onSearch = onSearchToPlg;
 
@@ -18,8 +18,6 @@ class SearchPlugin extends Component {
     }
 
     render() {
-        const {searchValueToPlg} = this.props;
-
         return (
             <form className="search-form" onSubmit={this.handleSubmit}>
                 <FormControl

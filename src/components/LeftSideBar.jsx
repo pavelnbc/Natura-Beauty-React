@@ -1,25 +1,31 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import {ListGroup, ListGroupItem, NavItem} from 'react-bootstrap';
+import classNames from 'classnames';
 
-function LeftSideBar() {
+function LeftSideBar({ isMenuOpened, offMenu }) {
+    const sideBarClass = classNames({
+      "left-side-bar": true,
+      "contentLayer": isMenuOpened
+    });
+
     return (
-        <aside className="left-side-panel">
+        <aside className={sideBarClass} onClick={offMenu}>
             <ListGroup>
                 <ListGroupItem>
-                    <NavLink className="navItem" to="/">Place a new order</NavLink>
+                    <NavLink className="navItem" to="/ordering">Place a new order</NavLink>
                 </ListGroupItem>
                 <ListGroupItem>
-                    <NavLink className="navItem" to="/">Refill your previous order</NavLink>
+                    <NavLink className="navItem" to="/reordering">Refill your previous order</NavLink>
                 </ListGroupItem>
                 <ListGroupItem>
-                    <NavLink className="navItem" to="/">FAQ</NavLink>
+                    <NavLink className="navItem" to="/FAQ">FAQ</NavLink>
                 </ListGroupItem>
                 <ListGroupItem>
-                    <NavLink className="navItem" to="/" >Discounts</NavLink>
+                    <NavLink className="navItem" to="/discounts" >Discounts</NavLink>
                 </ListGroupItem>
                 <ListGroupItem>
-                    <NavLink className="navItem" to="/" >Order Status</NavLink>
+                    <a href="https://www.usps.com/" target="_blank" rel="noopener noreferrer" title="USPS.com">Order Status</a>
                 </ListGroupItem>
                 <ListGroupItem>
                     <NavLink className="navItem" to="/contact">Contact Us</NavLink>
