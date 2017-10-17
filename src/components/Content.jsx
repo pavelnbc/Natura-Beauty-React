@@ -2,19 +2,18 @@ import React from 'react';
 
 import classNames from 'classnames';
 
-function Content({ children, isMenuOpened, offMenu, isVisible, onVisible }) {
+function Content({ children, isMenuOpened, offMenu, isContentVisible, setContWithoutDisappear }) {
   const contentClass = classNames({
     "contentLayer": isMenuOpened
   });
 
   const wrapperClass = classNames({
-    "content": true,
     "content-is-hidden": true,
-    "content-is-visible": isVisible
+    "content-is-visible": isContentVisible
   });
 
   return (
-    <div className={wrapperClass} onClick={() => { offMenu(); onVisible(true) }}>
+    <div className={wrapperClass} onClick={() => { offMenu(); setContWithoutDisappear() }}>
       <div className={contentClass}>
         {children}
       </div>

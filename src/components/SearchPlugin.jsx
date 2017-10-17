@@ -3,32 +3,32 @@ import React, {Component} from 'react';
 import {FormControl} from 'react-bootstrap'
 
 class SearchPlugin extends Component {
-    constructor({ onSearchToPlg }) {
-        super({ onSearchToPlg });
+  constructor({ getSearchedMed }) {
+    super({ getSearchedMed });
 
-        this.onSearch = onSearchToPlg;
+        this.onSearch = getSearchedMed;
 
         this.handleSubmit = this.handleSubmit.bind(this);
-    }
+  }
 
-    handleSubmit(event) {
-        event.preventDefault();
-        this.onSearch(this.searchObject.value.toString())
-        this.searchObject.value = "";
-    }
+  handleSubmit(event) {
+      event.preventDefault();
+      this.onSearch(this.searchObject.value.toString())
+      this.searchObject.value = "";
+  }
 
-    render() {
-        return (
-            <form className="search-form" onSubmit={this.handleSubmit}>
-                <FormControl
-                    type="text"
-                    placeholder="Search"
-                    inputRef={(input) => this.searchObject = input}
-                />
-                <i className="fa fa-search" aria-hidden="true" onClick={this.handleSubmit}></i>
-            </form>
-        )
-    }
+  render() {
+      return (
+          <form className="search-form" onSubmit={this.handleSubmit}>
+              <FormControl
+                  type="text"
+                  placeholder="Search"
+                  inputRef={(input) => this.searchObject = input}
+              />
+              <i className="fa fa-search" aria-hidden="true" onClick={this.handleSubmit}></i>
+          </form>
+      )
+  }
 }
 
 export default SearchPlugin

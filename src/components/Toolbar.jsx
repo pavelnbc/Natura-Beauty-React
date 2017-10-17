@@ -4,7 +4,7 @@ import { Navbar, Nav, NavItem, NavDropdown, MenuItem, Grid, Row, Col, DropdownBu
 
 import SearchPlugin from './SearchPlugin';
 
-function Toolbar({ user, onMenu, offMenu, searchValueToToolbar, onSearchToToolbar, onVisible}) {
+function Toolbar({ user, onMenu, offMenu, searchValueToToolbar, getSearcValue, setContWithoutDisappear}) {
     return (
         <Navbar>
             <Grid>
@@ -24,7 +24,7 @@ function Toolbar({ user, onMenu, offMenu, searchValueToToolbar, onSearchToToolba
                         </Row>
                     </Col>
                     <Col xs={8} sm={6} md={3} lg={3} lgOffset={1}>
-                        <SearchPlugin onSearchToPlg={onSearchToToolbar}/>
+                        <SearchPlugin getSearchedMed={getSearcValue}/>
                     </Col>
                     <Col xsHidden smHidden md={6} lg={5}>
                         <Nav pullRight={true}>
@@ -43,7 +43,7 @@ function Toolbar({ user, onMenu, offMenu, searchValueToToolbar, onSearchToToolba
                             <NavDropdown className="navItem" 
                                          title="Enter" 
                                          id="enter-dropdown" 
-                                         onClick={() => { onVisible(true); offMenu() }}
+                                         onClick={() => { setContWithoutDisappear(); offMenu() }}
                             >
                                 <MenuItem>
                                     {user
@@ -61,7 +61,7 @@ function Toolbar({ user, onMenu, offMenu, searchValueToToolbar, onSearchToToolba
                                       title=""
                                       id="toolbar-dropdown"
                                       bsSize="sm"
-                                      onClick={() => { onVisible(true); offMenu() }}
+                                      onClick={() => { setContWithoutDisappear(); offMenu() }}
                       >
                         <MenuItem eventKey="1">
                           <NavLink className="navItem" to="/products">Our Products</NavLink>

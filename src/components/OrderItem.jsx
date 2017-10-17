@@ -1,15 +1,17 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import {BrowserRouter as Router} from 'react-router-dom';
 
-import './index.css';
-import 'material-components-web/dist/material-components-web.css';
-import "font-awesome/css/font-awesome.css"
+function OrderItem({medication}) {
+  return (
+    <div className="order-item">
+      <img src='' alt="med"/>
+      <div className="cart-med-title">
+        medication.title
+      </div>
+      <div className="cart-med-price">
+        medication.price
+      </div>
+    </div>
+  )
+}
 
-import App from './App';
-
-ReactDOM.render(
-    <Router>
-        <App />
-    </Router>,
-    document.getElementById('root'));
+export default OrderItem
