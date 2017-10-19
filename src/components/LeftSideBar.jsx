@@ -10,29 +10,33 @@ function LeftSideBar({ isMenuOpened, offMenu, setContWithoutDisappear }) {
     });
 
     return (
-      <aside className={sideBarClass} onClick={() => { offMenu(); setContWithoutDisappear()} }>
+      <aside className={sideBarClass} onClick={() => { offMenu()} }>
             <ListGroup>
-                <ListGroupItem>
-                    <NavLink className="navItem" to="/ordering">Place a new order</NavLink>
-                </ListGroupItem>
-                <ListGroupItem>
-                    <NavLink className="navItem" to="/reordering">Refill your previous order</NavLink>
-                </ListGroupItem>
-                <ListGroupItem>
-                    <NavLink className="navItem" to="/FAQ">FAQ</NavLink>
-                </ListGroupItem>
-                <ListGroupItem>
-                    <NavLink className="navItem" to="/discounts" >Discounts</NavLink>
-                </ListGroupItem>
-                <ListGroupItem>
-                    <a href="https://www.usps.com/" target="_blank" rel="noopener noreferrer" title="USPS.com">Order status</a>
-                </ListGroupItem>
-                <ListGroupItem>
-                    <NavLink className="navItem" to="/contact">Contact Us</NavLink>
-                </ListGroupItem>
+                <NavLink className="left-bar-item" to="/ordering">
+                    <ListGroupItem>Place a new order</ListGroupItem>
+                </NavLink>
+                <NavLink className="left-bar-item" to="/reordering">
+                    <ListGroupItem>Refill your previous order</ListGroupItem>
+                </NavLink>
+                <NavLink className="left-bar-item" to="/about">
+                    <ListGroupItem >About Us</ListGroupItem>
+                </NavLink>
+                <NavLink className="left-bar-item" to="/policies">
+                    <ListGroupItem >Our policies</ListGroupItem>
+                </NavLink>
+                <NavLink className="left-bar-item" to="/FAQ">
+                    <ListGroupItem>FAQ</ListGroupItem>
+                </NavLink>
+                <NavLink className="left-bar-item" to="/discounts">
+                    <ListGroupItem>Discounts</ListGroupItem>
+                </NavLink>
+                <NavLink className="left-bar-item" to="/contact">
+                    <ListGroupItem>Contact Us</ListGroupItem>
+                </NavLink>
             </ListGroup>
         </aside>
     )
 }
 
 export default LeftSideBar
+

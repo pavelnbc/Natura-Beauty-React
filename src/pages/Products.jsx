@@ -1,6 +1,5 @@
 import React from 'react';
 import {Grid, Row, Col} from 'react-bootstrap';
-import classnames from 'classnames';
 
 import Product from '../components/Product'
 

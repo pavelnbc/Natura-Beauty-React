@@ -1,16 +1,20 @@
 import React from 'react';
+import { ListGroupItem } from 'react-bootstrap'
 
-function OrderItem({medication}) {
+function OrderItem({ medication }) {
   return (
-    <div className="order-item">
-      <img src='' alt="med"/>
+    <ListGroupItem className="order-item">
+      <img src={`${medication.img}`} alt="med"/>
       <div className="cart-med-title">
-        medication.title
+          {medication.title}
+      </div>
+      <div className="cart-med-dosage-and-quantity">
+          {medication.dosage}mg × {medication.quantity}pills
       </div>
       <div className="cart-med-price">
-        medication.price
+          {medication.price}
       </div>
-    </div>
+    </ListGroupItem>
   )
 }
 

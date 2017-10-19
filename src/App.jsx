@@ -17,6 +17,7 @@ import FAQ from './pages/FAQ';
 import Discounts from './pages/Discounts';
 import Blog from './pages/Blog';
 import Policies from './pages/Policies';
+import Cart from './pages/Cart';
 import Login from './pages/Login';
 import Logout from './pages/Logout';
 
@@ -30,7 +31,8 @@ class App extends Component {
             isMenuOpened: false,
             isContentVisible: false,
             searchValue: "",
-            productCard: []
+            productCard: [],
+            totalPrice: 0
         };
 
         this.body = document.body;
@@ -106,16 +108,12 @@ class App extends Component {
         });
     }
 
-    handleCard(img, title, price) {
-      let orderItem = {
-        img: img,
-        title: title,
-        price: price
-      };
+    handleCard(img, title, price, dosage, quantity) {             // Отвечает за появление товаров в корзине
+      let orderItem = {img, title, price, dosage, quantity};
 
-      console.log(this.state.productCard)
       this.setState({
-        productCard: this.state.productCard.concat(orderItem)
+        productCard: this.state.productCard.concat(orderItem),
+        totalPrice: this.state.totalPrice + parseFloat(price)
       })
     }
 
@@ -125,7 +123,8 @@ class App extends Component {
                 <Toolbar user={this.state.user}
                          onMenu={this.handleMenu}
                          offMenu={this.setMenuClosed}
-                         getSearcValue={this.handleSearch}
+                         getSearchValue={this.handleSearch}
+                         totalAmount={this.state.totalPrice}
                          setContWithoutDisappear={this.setContentAppearWithoutDisappear}
                 />
                 <Route path="/" render={() => <Menu isMenuOpened={this.state.isMenuOpened} 
@@ -162,7 +161,10 @@ class App extends Component {
                                   <Route path="/ordering" component={NewOrder} />
                                   <Route path="/reordering" component={OrderReplacement} />
                                   <Route path="/FAQ" component={FAQ} />
-                                  <Route path="/Discounts" component={Discounts} />
+                                  <Route path="/discounts" component={Discounts} />
+                                  <Route path="/cart" render={() => <Cart productList={this.state.productCard}
+                                                                          totalAmount={this.state.totalPrice}/>}
+                                  />
                                   <Route path="/login" render={() => <Login user={this.state.user} onLogin={this.login} />}/>
                                   <Route path="/logout" render={() => <Logout onLogout={this.logout} />}/>
                               </Switch>

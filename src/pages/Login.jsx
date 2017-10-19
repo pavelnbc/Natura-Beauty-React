@@ -29,12 +29,12 @@ class Login extends Component {
                         <FormGroup>
                             <FormControl
                                 type="email"
-                                placeholder="Enter Email"
+                                placeholder="Email or login"
                                 inputRef={(input) => {this.userLogin = input}}
                             />
                             <FormControl
                                 type="password"
-                                placeholder="Enter password"
+                                placeholder="Password"
                                 inputRef={(input) => {this.userPassword = input}}
                             />
                         </FormGroup>
