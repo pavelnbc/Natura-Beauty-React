@@ -1,0 +1,30 @@
+[
+  {
+    "to": "/ordering",
+    "title": "Place a new order"
+  },
+  {
+    "to": "/reordering",
+    "title": "Refill your previous order"
+  },
+  {
+    "to": "/about",
+    "title": "About Us"
+  },
+  {
+    "to": "/policies",
+    "title": "Our policies"
+  },
+  {
+    "to": "/FAQ",
+    "title": "FAQ"
+  },
+  {
+    "to": "/discounts",
+    "title": "Discounts"
+  },
+  {
+    "to": "/contact",
+    "title": "Contact Us"
+  }
+]

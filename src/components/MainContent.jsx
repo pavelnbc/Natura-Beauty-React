@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 function Content({ children, isMenuOpened, offMenu, isContentVisible, setContWithoutDisappear }) {
   const contentClass = classNames({
-    "contentLayer": isMenuOpened
+    "content-layer": isMenuOpened
   });
 
   const wrapperClass = classNames({

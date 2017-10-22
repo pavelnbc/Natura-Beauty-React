@@ -3,33 +3,27 @@ import { NavLink } from "react-router-dom";
 import { ListGroup, ListGroupItem } from "react-bootstrap";
 import classNames from "classnames";
 
-import categories from "../data/categories.json";
+import menuLinks from '../data/menuLinks.json'
 
 function Menu({ isMenuOpened, offMenu }) {
   let menuClassName = classNames({
-    "mdc-permanent-drawer": true,
+    "menu-bar": true,
     "menuOn": isMenuOpened
   });
 
   return (
-    <div className={menuClassName}>
+    <aside className={menuClassName} onClick={() => { offMenu() }}>
       <ListGroup>
-        {categories.map((category, index) => {
-          return (
-            <ListGroupItem key={index}>
-              <NavLink
-                to={`/products/${category.id}`}
-                className="menuItem"
-                onClick={offMenu}
-              >
-                {category.title}
-              </NavLink>
-            </ListGroupItem>
-          );
-        })}
+          {menuLinks.map((link) => {
+            return (
+                <NavLink className="menu-item" to={link.to}>
+                  <ListGroupItem>{link.title}</ListGroupItem>
+                </NavLink>
+            )
+          })}
       </ListGroup>
-    </div>
-  );
+    </aside>
+  )
 }
 
 export default Menu;

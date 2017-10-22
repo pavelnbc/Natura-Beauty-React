@@ -4,10 +4,9 @@ import { Thumbnail, Button } from 'react-bootstrap';
 import classNames from 'classnames';
 
 class Product extends Component {
-  constructor({ medication, getItem }) {
-    super({ medication, getItem });
+  constructor({getItem }) {
+    super({ getItem });
 
-        this.medication = medication;
         this.getItem = getItem;
 
         this.state = {
@@ -67,6 +66,8 @@ class Product extends Component {
     }
 
     render() {
+        this.medication = this.props.medication;
+
         let productClassName = classNames({
             "product": true,
             "product-is-active": this.state.isProductActive
@@ -82,8 +83,10 @@ class Product extends Component {
                     <div className="arrow arrow-left" onClick={() => {this.handleDosage(true)}}>
                         <img src="/img/arrow-up.png" alt=""/>
                     </div>
-                    <div className="indicator">{this.medication.dosage[this.state.dosageIndicator]}</div>
-                    <div className="mg">mg</div>
+                    <div className="indicator">
+                        {this.medication.dosage[this.state.dosageIndicator]}
+                        <div className="mg">mg</div>
+                    </div>
                     <div className="arrow arrow-right" onClick={() => {this.handleDosage(false)}}>
                         <img src="/img/arrow-down.png" alt=""/>
                     </div>
@@ -92,8 +95,10 @@ class Product extends Component {
               <div className="arrow arrow-left" onClick={() => { this.handleQuantity(true)}}>
                         <img src="/img/arrow-up.png" alt=""/>
                     </div>
-                    <div className="indicator">{this.medication.quantity[this.state.quantityIndicator]}</div>
-                    <div className="pills">pills</div>
+                    <div className="indicator">
+                        {this.medication.quantity[this.state.quantityIndicator]}
+                        <div className="pills">pills</div>
+                    </div>
                     <div className="arrow arrow-right" onClick={() => { this.handleQuantity(false)}}>
                         <img src="/img/arrow-down.png" alt=""/>
                     </div>

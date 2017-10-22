@@ -4,9 +4,11 @@ import {Grid, Row, Col} from 'react-bootstrap';
 
 import Toolbar from './components/Toolbar';
 import Menu from './components/Menu';
-import Content from './components/Content';
-import LeftSideBar from './components/LeftSideBar';
+import MainContent from './components/MainContent';
+import LeftBarContent from './components/LeftBarContent';
+import ProdCategories from './components/ProdCategories';
 import RedirectToProds from './components/RedirectToProds';
+import LeftSideBanner from './components/LeftSideBanner';
 import Home from './pages/Home';
 import Products from './pages/Products';
 import About from './pages/About';
@@ -129,19 +131,24 @@ class App extends Component {
                 />
                 <Route path="/" render={() => <Menu isMenuOpened={this.state.isMenuOpened} 
                                                     offMenu={this.setMenuClosed}/> }
-                                              />
+                />
 
                 <Grid>
                     <Row className="show-grid">
                         <RedirectToProds searchValue={this.state.searchValue} />
                         <Col xsHidden sm={3} md={3} lg={3}>
-                          <LeftSideBar isMenuOpened={this.state.isMenuOpened}
-                                       offMenu={this.setMenuClosed} 
-                                       setContWithoutDisappear={this.setContentAppearWithoutDisappear}
-                          />
+                          <LeftBarContent isMenuOpened={this.state.isMenuOpened}
+                                          isContentVisible={this.state.isContentVisible} 
+                                          offMenu={this.setMenuClosed}
+                          >
+                            <Switch>
+                              <Route path="/products" component={ProdCategories} />
+                              <Route path="/" component={LeftSideBanner}/>
+                            </Switch>
+                          </LeftBarContent>
                         </Col>
                         <Col xs={12} sm={9} md={9} lg={9} >
-                          <Content offMenu={this.setMenuClosed} 
+                          <MainContent offMenu={this.setMenuClosed} 
                                    isMenuOpened={this.state.isMenuOpened}
                                    isContentVisible={this.state.isContentVisible}
                                    setContWithoutDisappear={this.setContentAppearWithoutDisappear}
@@ -168,7 +175,7 @@ class App extends Component {
                                   <Route path="/login" render={() => <Login user={this.state.user} onLogin={this.login} />}/>
                                   <Route path="/logout" render={() => <Logout onLogout={this.logout} />}/>
                               </Switch>
-                          </Content>
+                          </MainContent>
                         </Col>
                     </Row>
                 </Grid>

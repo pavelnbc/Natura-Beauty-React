@@ -2,13 +2,14 @@ import React from 'react';
 
 import CarouselBar from '../components/CarouselBar';
 
+import mainPageSlides from '../data/mainPageSlides.json'
 
 function Home() {
     return (
         <div className="homePage">
             <h2>Welcome to our website</h2>
 
-            <CarouselBar />
+            <CarouselBar interval="5000" slides={mainPageSlides} />
 
             <p>Arrived compass prepare an on as. Reasonable particular on my it in sympathize.
                 Size now easy eat hand how. Unwilling he departure elsewhere dejection at.
