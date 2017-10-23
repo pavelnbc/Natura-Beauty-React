@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import {ListGroup, ListGroupItem, NavItem} from 'react-bootstrap';
+import {ListGroup, ListGroupItem} from 'react-bootstrap';
+import FontAwesome from 'react-fontawesome';
 
 import categories from "../data/categories.json";
 
@@ -11,13 +12,11 @@ function LeftSideBar() {
         <ListGroup>
           {categories.map((category, index) => {
             return (
-              <NavLink
-                to={`/products/${category.id}`}
-                className="menuItem"
-              >
-                <ListGroupItem key={index}>
-                  {category.title}
-                </ListGroupItem>
+              <NavLink key={index} to={`/products/${category.id}`} className="menuItem">
+                    <ListGroupItem>
+                        <FontAwesome name="heartbeat" />
+                        {category.title}
+                    </ListGroupItem>
               </NavLink>
             );
           })}

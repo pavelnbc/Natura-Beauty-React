@@ -7,7 +7,9 @@ import products from '../data/products.json';
 
 function Products({ match, searchMed, getOrderItem }) {
     let medications = products.filter((medication) => {
-        return match.params.category ? (medication.category === match.params.category) : products;
+        return match.params.category
+            ? (medication.category === match.params.category)
+            : products;
     });
 
     let searchMeds = medications.filter((med) => {

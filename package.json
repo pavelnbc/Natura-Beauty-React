@@ -3,14 +3,15 @@
   "description": null,
   "version": "0.0.67",
   "dependencies": {
-    "react-router-dom": "4.2.2",
-    "react-dom": "15.6.2",
-    "react-bootstrap": "0.31.3",
-    "react-addons-css-transition-group": "15.6.2",
-    "react": "15.6.2",
-    "material-components-web": "0.21.1",
+    "classnames": "2.2.5",
     "font-awesome": "4.7.0",
-    "classnames": "2.2.5"
+    "glyphicons": "^0.2.0",
+    "react": "15.6.2",
+    "react-addons-css-transition-group": "15.6.2",
+    "react-bootstrap": "0.31.3",
+    "react-dom": "15.6.2",
+    "react-fontawesome": "^1.6.1",
+    "react-router-dom": "4.2.2"
   },
   "devDependencies": {
     "react-scripts": "1.0.0"

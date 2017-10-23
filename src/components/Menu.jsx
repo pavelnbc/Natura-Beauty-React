@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { ListGroup, ListGroupItem } from "react-bootstrap";
+import FontAwesome from 'react-fontawesome';
 import classNames from "classnames";
 
 import menuLinks from '../data/menuLinks.json'
@@ -14,10 +15,13 @@ function Menu({ isMenuOpened, offMenu }) {
   return (
     <aside className={menuClassName} onClick={() => { offMenu() }}>
       <ListGroup>
-          {menuLinks.map((link) => {
+          {menuLinks.map((link, index) => {
             return (
-                <NavLink className="menu-item" to={link.to}>
-                  <ListGroupItem>{link.title}</ListGroupItem>
+                <NavLink key={index} to={link.direction}>
+                  <ListGroupItem>
+                      <FontAwesome name={link.icon} />
+                      {link.title}
+                  </ListGroupItem>
                 </NavLink>
             )
           })}

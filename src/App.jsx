@@ -5,10 +5,11 @@ import {Grid, Row, Col} from 'react-bootstrap';
 import Toolbar from './components/Toolbar';
 import Menu from './components/Menu';
 import MainContent from './components/MainContent';
-import LeftBarContent from './components/LeftBarContent';
+import LeftBarContent from './pages/LeftBarContent';
 import ProdCategories from './components/ProdCategories';
 import RedirectToProds from './components/RedirectToProds';
 import LeftSideBanner from './components/LeftSideBanner';
+import RefundReturnPolicy from './components/RefundReturnPolicy';
 import Home from './pages/Home';
 import Products from './pages/Products';
 import About from './pages/About';
@@ -39,8 +40,6 @@ class App extends Component {
 
         this.body = document.body;
 
-        this.login = this.login.bind(this);
-        this.logout = this.logout.bind(this);
         this.handleMenu = this.handleMenu.bind(this);
         this.setMenuClosed = this.setMenuClosed.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
@@ -67,18 +66,6 @@ class App extends Component {
     componentDidUpdate() {
       this.setContentAppearance();
     }
-
-    login(user) {                     // Вход пользователя
-        this.setState({
-            user: user
-        })
-    };
-
-    logout() {                        // Выход пользователя
-        this.setState({
-            user: false
-        })
-    };
 
     handleMenu() {                    // Обработчик отображения панели меню
         this.setState({
@@ -110,12 +97,10 @@ class App extends Component {
         });
     }
 
-    handleCard(img, title, price, dosage, quantity) {             // Отвечает за появление товаров в корзине
-      let orderItem = {img, title, price, dosage, quantity};
-
+    handleCard(orderItem) {             // Отвечает за появление товаров в корзине
       this.setState({
         productCard: this.state.productCard.concat(orderItem),
-        totalPrice: this.state.totalPrice + parseFloat(price)
+        totalPrice: this.state.totalPrice + parseFloat(orderItem.price)
       })
     }
 
@@ -142,7 +127,8 @@ class App extends Component {
                                           offMenu={this.setMenuClosed}
                           >
                             <Switch>
-                              <Route path="/products" component={ProdCategories} />
+                              <Route path="/cart" component={RefundReturnPolicy}/>
+                              <Route path="/products" component={ProdCategories}/>
                               <Route path="/" component={LeftSideBanner}/>
                             </Switch>
                           </LeftBarContent>

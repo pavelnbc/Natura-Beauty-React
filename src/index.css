@@ -38,14 +38,12 @@ body {
 }
 
 
-/*Product categories*/
+/*left-bar-content*/
+
+    /*Product categories*/
 
 .prod-categories{
   margin-top: 20px;
-}
-
-.prod-categories .list-group-item {
-  margin-bottom: -1px;
 }
 
 .prod-categories a {
@@ -54,27 +52,42 @@ body {
   font-family: Arial;
   padding: 0;
   text-decoration: none;
-} 
-
-/*login*/
-
-.login-form {
-  width: 20%;
-  margin: 50px auto;
 }
 
-.login-form input {
-  width: 250px;
-  border: 1px solid blue;
-  border-radius: 5px;
-  margin-bottom: 10px;
+.prod-categories .list-group-item {
+  margin-bottom: -1px;
+}
+
+.prod-categories .fa-heartbeat {
+  margin-right: 7px;
+}
+
+    /*left-side-banner*/
+
+.left-side-banner {
+  margin-top: 20px;
+}
+
+.guarantees {
+  width: 240px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+    /*return/refund policy*/
+
+.return-refund-policy {
+  width: 100%;
+  margin-top: 20px;
   padding: 10px;
-  font-size: 14px;
+  border: 2px solid #ddd;
+  font-size: 11px;
 }
 
-.login-form button {
-  width: 100px;
-  margin: 0 80px;
+h5 {
+  font-weight: bold;
 }
 
 /*header-toolbar*/
@@ -172,6 +185,10 @@ body {
   background-color: white;
 }
 
+.menu-bar a{
+  text-decoration: none;
+}
+
 .menuOn {
   margin-left: 0;
 }
@@ -185,24 +202,11 @@ body {
 
 .menu-bar .list-group-item:hover {
   color: #333333;
-}
-
-.menu-bar .list-group-item a {
-  color: #777777;
-}
-
-.menu-bar .list-group-item:hover {
   background-color: lightcyan;
 }
 
-/*LogIn*/
-
-.login-form input {
-  border: 1px solid #777777;
-}
-
-.login-form input:focus {
-  border: 1px solid #777777;
+.menu-bar .fa {
+  margin-right: 20px;
 }
 
 /*Products*/
@@ -333,8 +337,4 @@ body {
 
 .checkout-btn {
   margin: 25px auto 0px;
-}
-
-.left-side-banner {
-  margin-top: 25px;
 }

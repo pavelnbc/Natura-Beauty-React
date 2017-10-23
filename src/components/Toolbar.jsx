@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink} from 'react-router-dom';
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem, Grid, Row, Col, DropdownButton } from 'react-bootstrap';
+import FontAwesome from 'react-fontawesome';
 
 import SearchPlugin from './SearchPlugin';
 
@@ -15,7 +16,7 @@ function Toolbar({ user, onMenu, offMenu, getSearchValue, totalAmount, setContWi
                         <Row className="show-grid">
                             <Col xs={2} sm={2} md={2} lg={2}>
                                 <Navbar.Brand>
-                                    <i className="fa fa-bars fa-2x" aria-hidden="true" onClick={onMenu}></i>
+                                    <FontAwesome name="bars" size="2x" onClick={onMenu}/>
                                 </Navbar.Brand>
                             </Col>
                             <Col xsHidden sm={10} md={10} lg={10}>
@@ -25,11 +26,11 @@ function Toolbar({ user, onMenu, offMenu, getSearchValue, totalAmount, setContWi
                             </Col>
                         </Row>
                     </Col>
-                    <Col xs={8} sm={6} md={3} lg={3} lgOffset={1}>
+                    <Col xs={8} sm={6} md={3} lg={3} lgOffset={1} mdOffset={1}>
                         <SearchPlugin getSearchedMed={getSearchValue}/>
                     </Col>
                     <Col xsHidden smHidden md={6} lg={5}>
-                        <Nav pullRight={true}>
+                        <Nav>
                             <NavItem className="navItem">
                                 <NavLink to="/products" onClick={offMenu}>Our Products</NavLink>
                             </NavItem>
@@ -39,25 +40,14 @@ function Toolbar({ user, onMenu, offMenu, getSearchValue, totalAmount, setContWi
                                      title="USPS.com"
                                      onClick={offMenu}
                             >
-                                        Order status
+                                Order status
                             </NavItem>
-                            <NavDropdown className="navItem" 
-                                         title="Enter" 
-                                         id="enter-dropdown" 
-                                         onClick={() => { setContWithoutDisappear(); offMenu() }}
-                            >
-                                <MenuItem>
-                                    {user
-                                        ? <NavLink className="dropdown-item" to="/logout">Log out</NavLink>
-                                        : <NavLink className="dropdown-item" to="/login">Log in</NavLink>}
-                                </MenuItem>
-                                <MenuItem>
-                                    <NavLink className="dropdown-item" to="/logout">Sign up</NavLink>
-                                </MenuItem>
-                            </NavDropdown>
-                            <MenuItem>
+                            <NavItem className="navItem">
+                                <NavLink to="/about" onClick={offMenu}>About us</NavLink>
+                            </NavItem>
+                            <NavItem>
                                 <div className="total">{totalAmount}</div>
-                            </MenuItem>
+                            </NavItem>
                             <NavItem className="navItem cart-icon">
                                 <NavLink  to="/cart" onClick={offMenu}>
                                     <img src="/img/cart.png" />
@@ -83,15 +73,6 @@ function Toolbar({ user, onMenu, offMenu, getSearchValue, totalAmount, setContWi
                                     rel="noopener noreferrer"
                           >
                               <a>Order status</a>
-                          </MenuItem>
-                          <MenuItem className="navItem" eventKey="3">
-                            {user ?
-                              <NavLink className="dropdown-item" to="/logout">Log out</NavLink>
-                              :
-                              <NavLink className="dropdown-item" to="/login">Log in</NavLink>}
-                          </MenuItem>
-                          <MenuItem className="navItem" eventKey="4">
-                            <NavLink /*activeClassName="activeTab" */ to="/logout">Sign up</NavLink>
                           </MenuItem>
                           <MenuItem className="navItem" eventKey="5">
                               <a href="#">{totalAmount}</a>
