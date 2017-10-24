@@ -1,9 +1,10 @@
 import React from 'react';
+import { PageHeader } from 'react-bootstrap';
 
 function Policies() {
     return (
         <div className="policies">
-            <h2>Our Policies</h2>
+            <PageHeader>Our Policies</PageHeader>
 
             <p>Believing neglected so so allowance existence departure in. In design active temper be uneasy.
                 Thirty for remove plenty regard you summer though. He preference connection astonished on of ye.

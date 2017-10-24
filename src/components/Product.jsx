@@ -112,7 +112,7 @@ class Product extends Component {
                             <img src="/img/arrow-down.png" alt=""/>
                         </div>
                     </p>
-                    <Button bsStyle="success"
+                    <Button bsStyle="info"
                             bsSize="xs"
                             className="submit-btn"
                             onMouseDown={() => {this.setState({isProductActive: true})}}

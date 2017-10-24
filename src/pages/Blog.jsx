@@ -1,9 +1,10 @@
 import React from 'react';
+import { PageHeader } from 'react-bootstrap';
 
 function Blog() {
   return (
     <div className="blog">
-      <h2>Blog</h2>
+      <PageHeader>Blog</PageHeader>
 
       <p>And sir dare view but over man. So at within mr to simple assure. Mr disposing continued 
       it offending arranging in we. Extremity as if breakfast agreement. Off now mistress provided 

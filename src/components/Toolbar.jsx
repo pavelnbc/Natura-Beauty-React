@@ -1,17 +1,17 @@
 import React from 'react';
 import { NavLink} from 'react-router-dom';
-import { Navbar, Nav, NavItem, NavDropdown, MenuItem, Grid, Row, Col, DropdownButton } from 'react-bootstrap';
+import { Navbar, Nav, MenuItem, Grid, Row, Col, DropdownButton } from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome';
 
 import SearchPlugin from './SearchPlugin';
 
-function Toolbar({ user, onMenu, offMenu, getSearchValue, totalAmount, setContWithoutDisappear}) {
-    var totalAmount = totalAmount.toFixed(2);
+function Toolbar({ onMenu, offMenu, getSearchValue, totalAmount, setContWithoutDisappear, toEmptySearch}) {
+    totalAmount = totalAmount.toFixed(2);
 
     return (
         <Navbar>
             <Grid>
-                <Row className="show-grid">
+                <Row className="show-grid" onClick={toEmptySearch}>
                     <Col xs={2} sm={3} md={3} lg={3}>
                         <Row className="show-grid">
                             <Col xs={2} sm={2} md={2} lg={2}>
@@ -30,29 +30,30 @@ function Toolbar({ user, onMenu, offMenu, getSearchValue, totalAmount, setContWi
                         <SearchPlugin getSearchedMed={getSearchValue}/>
                     </Col>
                     <Col xsHidden smHidden md={6} lg={5}>
-                        <Nav>
-                            <NavItem className="navItem">
-                                <NavLink to="/products" onClick={offMenu}>Our Products</NavLink>
-                            </NavItem>
-                            <NavItem className="navItem"
-                                     href="https://www.usps.com/"
-                                     target="_blank" rel="noopener noreferrer"
-                                     title="USPS.com"
-                                     onClick={offMenu}
+                        <Nav onClick={() => { toEmptySearch(); offMenu()}}>
+                          <li className="navItem">
+                            <NavLink to="/products">Our Products</NavLink>
+                          </li>
+                          <li className="navItem">
+                            <NavLink to="/about">About us</NavLink>
+                          </li>
+                          <li className="navItem">
+                            <a className="navItem"
+                              href="https://www.usps.com/"
+                              target="_blank" rel="noopener noreferrer"
+                              title="USPS.com"
                             >
-                                Order status
-                            </NavItem>
-                            <NavItem className="navItem">
-                                <NavLink to="/about" onClick={offMenu}>About us</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <div className="total">{totalAmount}</div>
-                            </NavItem>
-                            <NavItem className="navItem cart-icon">
-                                <NavLink  to="/cart" onClick={offMenu}>
-                                    <img src="/img/cart.png" />
-                                </NavLink>
-                            </NavItem>
+                              Order status
+                            </a>
+                          </li>
+                          <li className="navItem total">
+                            <a>{totalAmount}</a>
+                          </li>
+                          <li className="navItem cart-icon">
+                            <NavLink to="/cart">
+                              <img src="/img/cart.png" />
+                            </NavLink>
+                          </li>
                         </Nav>
                     </Col>
                     <Col className="shotNav"  xs={2} sm={3} mdHidden lgHidden>

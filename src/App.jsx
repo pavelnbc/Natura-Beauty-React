@@ -10,6 +10,7 @@ import ProdCategories from './components/ProdCategories';
 import RedirectToProds from './components/RedirectToProds';
 import LeftSideBanner from './components/LeftSideBanner';
 import RefundReturnPolicy from './components/RefundReturnPolicy';
+import Footer from './components/Footer';
 import Home from './pages/Home';
 import Products from './pages/Products';
 import About from './pages/About';
@@ -18,12 +19,8 @@ import NewOrder from './pages/NewOrder';
 import OrderReplacement from './pages/OrderReplacement';
 import FAQ from './pages/FAQ';
 import Discounts from './pages/Discounts';
-import Blog from './pages/Blog';
 import Policies from './pages/Policies';
 import Cart from './pages/Cart';
-import Login from './pages/Login';
-import Logout from './pages/Logout';
-
 
 class App extends Component {
     constructor(props) {
@@ -43,6 +40,7 @@ class App extends Component {
         this.handleMenu = this.handleMenu.bind(this);
         this.setMenuClosed = this.setMenuClosed.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
+        this.clearSearch = this.clearSearch.bind(this);
         this.handleCard = this.handleCard.bind(this);
         this.setContentAppearance = this.setContentAppearance.bind(this);
         this.setContentAppearWithoutDisappear = this.setContentAppearWithoutDisappear.bind(this);
@@ -78,7 +76,6 @@ class App extends Component {
     setMenuClosed() {                    // Отвечает за закрытие панели меню
         this.setState({
             isMenuOpened: false,
-            searchValue: "",
         });
         if(this.state.isMenuOpened) {
             this.body.classList.toggle("lock-scroll");
@@ -97,6 +94,12 @@ class App extends Component {
         });
     }
 
+    clearSearch() {
+      this.setState({
+        searchValue: ""
+      })
+    }
+
     handleCard(orderItem) {             // Отвечает за появление товаров в корзине
       this.setState({
         productCard: this.state.productCard.concat(orderItem),
@@ -111,10 +114,11 @@ class App extends Component {
                          onMenu={this.handleMenu}
                          offMenu={this.setMenuClosed}
                          getSearchValue={this.handleSearch}
+                         toEmptySearch={this.clearSearch}
                          totalAmount={this.state.totalPrice}
                          setContWithoutDisappear={this.setContentAppearWithoutDisappear}
                 />
-                <Route path="/" render={() => <Menu isMenuOpened={this.state.isMenuOpened} 
+                <Route path="/" render={() => <Menu isMenuOpened={this.state.isMenuOpened}
                                                     offMenu={this.setMenuClosed}/> }
                 />
 
@@ -123,18 +127,20 @@ class App extends Component {
                         <RedirectToProds searchValue={this.state.searchValue} />
                         <Col xsHidden sm={3} md={3} lg={3}>
                           <LeftBarContent isMenuOpened={this.state.isMenuOpened}
-                                          isContentVisible={this.state.isContentVisible} 
+                                          isContentVisible={this.state.isContentVisible}
                                           offMenu={this.setMenuClosed}
                           >
                             <Switch>
                               <Route path="/cart" component={RefundReturnPolicy}/>
                               <Route path="/products" component={ProdCategories}/>
-                              <Route path="/" component={LeftSideBanner}/>
+                              <Route path="/" render={() => <LeftSideBanner
+                                    setContWithoutDisappear={this.setContentAppearWithoutDisappear}/> }
+                              />
                             </Switch>
                           </LeftBarContent>
                         </Col>
                         <Col xs={12} sm={9} md={9} lg={9} >
-                          <MainContent offMenu={this.setMenuClosed} 
+                          <MainContent offMenu={this.setMenuClosed}
                                    isMenuOpened={this.state.isMenuOpened}
                                    isContentVisible={this.state.isContentVisible}
                                    setContWithoutDisappear={this.setContentAppearWithoutDisappear}
@@ -142,13 +148,12 @@ class App extends Component {
                               <Switch>
                                   <Route exact path="/" component={Home}/>
                                   <Route exact path="/products/:category?" render={
-                                      (props) => <Products searchMed={this.state.searchValue} 
+                                      (props) => <Products searchMed={this.state.searchValue}
                                                            getOrderItem={this.handleCard}
                                                            {...props}/>
                                   }
                                   />
                                   <Route path="/about" component={About}/>
-                                  <Route path="/blog" component={Blog} />
                                   <Route path="/contact" component={Contacts}/>
                                   <Route path="/policies" component={Policies}/>
                                   <Route path="/ordering" component={NewOrder} />
@@ -158,13 +163,12 @@ class App extends Component {
                                   <Route path="/cart" render={() => <Cart productList={this.state.productCard}
                                                                           totalAmount={this.state.totalPrice}/>}
                                   />
-                                  <Route path="/login" render={() => <Login user={this.state.user} onLogin={this.login} />}/>
-                                  <Route path="/logout" render={() => <Logout onLogout={this.logout} />}/>
                               </Switch>
                           </MainContent>
                         </Col>
                     </Row>
                 </Grid>
+                <Footer />
             </div>
         )
     }

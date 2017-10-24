@@ -1,9 +1,10 @@
 import React from 'react';
+import { PageHeader } from 'react-bootstrap';
 
 function FAQ() {
   return (
     <div className="faq">
-      <h2>Frequently Asked Questions</h2>
+      <PageHeader>Frequently Asked Questions</PageHeader>
 
       <p>Admiration we surrounded possession frequently he. Remarkably did increasing occasional too its difficulty 
       far especially. Known tiled but sorry joy balls. Bed sudden manner indeed fat now feebly. Face do with in need 

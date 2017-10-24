@@ -1,9 +1,10 @@
 import React from 'react';
+import { PageHeader } from 'react-bootstrap';
 
 function Discounts() {
   return (
     <div className="discounts">
-      <h2>Discounts</h2>
+      <PageHeader>Discounts</PageHeader>
 
       <p>Certainty listening no no behaviour existence assurance situation is. Because add why not esteems amiable him.
        Interested the unaffected mrs law friendship add principles. Indeed on people do merits to. 

@@ -1,9 +1,10 @@
 import React from 'react';
+import { PageHeader } from 'react-bootstrap';
 
 function NewOrder() {
   return (
     <div className="new-order">
-      <h2>How to place an order with our company</h2>
+      <PageHeader>How to place an order with our company</PageHeader>
 
       <p>Improve him believe opinion offered met and end cheered forbade. Friendly as stronger speedily by recurred.
        Son interest wandered sir addition end say. Manners beloved affixed picture men ask.

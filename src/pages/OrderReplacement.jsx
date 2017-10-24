@@ -1,9 +1,10 @@
 import React from 'react';
+import { PageHeader } from 'react-bootstrap';
 
 function OrderReplacement() {
   return (
     <div className="order-replacement">
-      <h2>How to initiate your order replacement</h2>
+      <PageHeader>How to initiate your order replacement</PageHeader>
 
       <p>Imagine was you removal raising gravity. Unsatiable understood or expression dissimilar so sufficient.
         Its party every heard and event gay. Advice he indeed things adieus in number so uneasy.

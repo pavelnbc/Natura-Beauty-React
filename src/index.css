@@ -46,6 +46,14 @@ body {
   margin-top: 20px;
 }
 
+.prod-categories .list-group-item {
+  margin-bottom: -1px;
+}
+
+.prod-categories .list-group-item:hover {
+  background-color: #eee;
+}
+
 .prod-categories a {
   color: #777777;
   font-size: 13px;
@@ -54,9 +62,6 @@ body {
   text-decoration: none;
 }
 
-.prod-categories .list-group-item {
-  margin-bottom: -1px;
-}
 
 .prod-categories .fa-heartbeat {
   margin-right: 7px;
@@ -99,6 +104,10 @@ h5 {
 
 .navbar-default {
   margin-bottom: 0;
+}
+
+.navItem:hover {
+  background-color: #eee;
 }
 
 .navItem a{
@@ -337,4 +346,12 @@ h5 {
 
 .checkout-btn {
   margin: 25px auto 0px;
+}
+
+.footer {
+  width: 97%;
+  height: 50px;
+  margin: 50px auto 2px;
+  padding: 10px 100px;
+  border-top: 1px solid lightcyan;
 }

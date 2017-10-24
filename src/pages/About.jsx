@@ -1,9 +1,10 @@
 import React from 'react';
+import { PageHeader } from 'react-bootstrap';
 
 function About() {
     return (
         <div className="aboutUs">
-            <h2>About Us</h2>
+            <PageHeader>About Us</PageHeader>
 
             <p>On am we offices expense thought. Its hence ten smile age means. Seven chief sight far point any.
                 Of so high into easy. Dashwoods eagerness oh extensive as discourse sportsman frankness.
