@@ -23,7 +23,7 @@ function Products({ match, searchMed, getOrderItem }) {
             <Row className="show-grid">
                   {searchMeds.map(((product, index) => {
                     return (
-                        <Col xs={12} sm={6} md={4} lg={4} key={index} className="product-card">
+                        <Col xs={12} sm={6} md={4} lg={4} key={index}>
                             <Product key={index}
                                      medication={product}
                                      getItem={getOrderItem}

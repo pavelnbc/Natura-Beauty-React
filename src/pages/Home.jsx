@@ -8,7 +8,7 @@ import mainPageSlides from "../data/mainPageSlides.json";
 function Home() {
   return (
     <div className="homePage">
-      <PageHeader>Welcome to our website</PageHeader>
+      <PageHeader>Welcome to Natural Beauty</PageHeader>
 
       <CarouselBar interval="5000" slides={mainPageSlides} />
 

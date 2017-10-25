@@ -26,7 +26,7 @@ function Cart({ productList, totalAmount }) {
           </div>
 
         : <div className="empty-card">
-                <p>Your card is empty</p>
+                <p>Your cart is empty</p>
           </div>
     )
 }

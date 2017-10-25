@@ -9,9 +9,9 @@ function Toolbar({ onMenu, offMenu, getSearchValue, totalAmount, setContWithoutD
     totalAmount = totalAmount.toFixed(2);
 
     return (
-        <Navbar>
+        <Navbar className="toolbar">
             <Grid>
-                <Row className="show-grid" onClick={toEmptySearch}>
+                <Row className="show-grid">
                     <Col xs={2} sm={3} md={3} lg={3}>
                         <Row className="show-grid">
                             <Col xs={2} sm={2} md={2} lg={2}>
@@ -21,12 +21,17 @@ function Toolbar({ onMenu, offMenu, getSearchValue, totalAmount, setContWithoutD
                             </Col>
                             <Col xsHidden sm={10} md={10} lg={10}>
                                 <Navbar.Brand>
-                                    <NavLink className="header-title" onClick={offMenu} to="/">Natural Beauty</NavLink>
+                                    <NavLink className="header-title" 
+                                      onClick={() => {offMenu(); toEmptySearch()}} 
+                                    to="/"
+                                    >
+                                      Natural Beauty
+                                    </NavLink>
                                 </Navbar.Brand>
                             </Col>
                         </Row>
                     </Col>
-                    <Col xs={8} sm={6} md={3} lg={3} lgOffset={1} mdOffset={1}>
+                    <Col xs={8} sm={6} md={3} lg={3} lgOffset={1}>
                         <SearchPlugin getSearchedMed={getSearchValue}/>
                     </Col>
                     <Col xsHidden smHidden md={6} lg={5}>

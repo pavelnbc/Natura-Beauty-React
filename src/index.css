@@ -7,7 +7,12 @@ body {
   justify-content: center;
   padding: 0;
   margin: 0;
+  background-color: #CBF0CB;
   box-sizing: border-box;
+}
+
+.app {
+  min-height: calc(100vh - 81px);
 }
 
 /*content*/
@@ -48,10 +53,11 @@ body {
 
 .prod-categories .list-group-item {
   margin-bottom: -1px;
+  background-color: lightskyblue;
 }
 
 .prod-categories .list-group-item:hover {
-  background-color: #eee;
+  background-color: lightgreen;
 }
 
 .prod-categories a {
@@ -65,6 +71,7 @@ body {
 
 .prod-categories .fa-heartbeat {
   margin-right: 7px;
+  color: darkred;
 }
 
     /*left-side-banner*/
@@ -97,7 +104,16 @@ h5 {
 
 /*header-toolbar*/
 
-.header-title {
+.toolbar {
+  background-color: #00C957;
+}
+
+.toolbar .container .fa-bars {
+  color: #ffffff;
+}
+
+.toolbar .container .header-title {
+  color: #ffffff;
   font-weight: bold;
   font-size: 15px;
 }
@@ -106,15 +122,9 @@ h5 {
   margin-bottom: 0;
 }
 
-.navItem:hover {
-  background-color: #eee;
-}
-
-.navItem a{
-  color: #777777;
+.toolbar .nav .navItem a{
+  color: #ffffff;
   font-size: 13px;
-  font-family: Arial;
-  padding: 0;
 }
 
 .navItem:hover a{
@@ -152,6 +162,10 @@ h5 {
 
 .total {
   cursor: default;
+}
+
+.container .navbar-nav .total a:hover {
+  color: white;
 }
 
 /*searchPlugin*/
@@ -220,19 +234,19 @@ h5 {
 
 /*Products*/
 
-.product-card {
-  margin-top: 20px;
-  margin-bottom: 0px;
-}
-
 .product {
   position: relative;
   min-height: 290px;
   min-width: 200px;
   max-width: 250px;
   text-align: center;
+  background-color: #E0FEE0;
+  margin-top: 20px;
   margin-bottom: 0px;
   z-index: 100;
+}
+
+.product:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -318,6 +332,7 @@ h5 {
   justify-content: space-between;
   align-items: center;
   font-weight: bold;
+  background-color: #EDEDED;
   border-radius: 0px !important;
 }
 
@@ -348,10 +363,39 @@ h5 {
   margin: 25px auto 0px;
 }
 
+/* contacts */ 
+
+.contacts p {
+  margin-bottom: 30px;
+}
+
+.contacts .contacts-field {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+}
+
+.contacts .contacts-field div:first-child {
+  font-weight: bold;
+}
+
+.contacts iframe {
+  margin-top: 20px;
+  border: none;
+}
+
+/* footer */
+
 .footer {
-  width: 97%;
-  height: 50px;
-  margin: 50px auto 2px;
-  padding: 10px 100px;
-  border-top: 1px solid lightcyan;
+  min-height: 50px;
+  width: 100%;
+  margin: 30px auto 0;
+  padding: 10px 50px;
+  border-top: 1px solid lightgray;
+  background-color: lightcyan;
+}
+
+.footer .copy-rights {
+  width: 300px;
+  margin: 0 auto;
 }
