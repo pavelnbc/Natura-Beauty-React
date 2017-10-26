@@ -10,6 +10,7 @@ function Toolbar({ onMenu, offMenu, getSearchValue, totalAmount, setContWithoutD
 
     return (
         <Navbar className="toolbar">
+            <a name="top"></a>
             <Grid>
                 <Row className="show-grid">
                     <Col xs={2} sm={3} md={3} lg={3}>

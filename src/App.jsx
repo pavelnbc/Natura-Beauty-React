@@ -11,6 +11,7 @@ import RedirectToProds from './components/RedirectToProds';
 import LeftSideBanner from './components/LeftSideBanner';
 import RefundReturnPolicy from './components/RefundReturnPolicy';
 import Footer from './components/Footer';
+import Anchor from './components/Anchor';
 import Home from './pages/Home';
 import Products from './pages/Products';
 import About from './pages/About';
@@ -170,6 +171,7 @@ class App extends Component {
                     </Row>
                 </Grid>
             </div> 
+            <Anchor />
             <Footer />
           </div>
         )
