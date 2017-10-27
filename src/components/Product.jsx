@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { NavLink } from 'react-router-dom';
 import { Thumbnail, Button } from 'react-bootstrap';
+import FontAwesome from 'react-fontawesome';
 
 import classNames from 'classnames';
 
@@ -89,26 +90,26 @@ class Product extends Component {
                     <h4 className="price"><span>$</span>{this.getPrice()}</h4>
                     <p className="dosage-selection">
                         <div className="arrow arrow-left" onClick={() => {this.handleDosage(true)}}>
-                            <img src="/img/arrow-up.png" alt=""/>
+                            <FontAwesome name="chevron-up" />
                         </div>
                         <div className="indicator">
                             {this.medication.dosage[this.state.dosageIndicator]}
                             <div className="mg">mg</div>
                         </div>
                         <div className="arrow arrow-right" onClick={() => {this.handleDosage(false)}}>
-                            <img src="/img/arrow-down.png" alt=""/>
+                            <FontAwesome name="chevron-down" />
                         </div>
                     </p>
                     <p className="quantity-selection">
                   <div className="arrow arrow-left" onClick={() => { this.handleQuantity(true)}}>
-                            <img src="/img/arrow-up.png" alt=""/>
+                            <FontAwesome name="chevron-up" />
                         </div>
                         <div className="indicator">
                             {this.medication.quantity[this.state.quantityIndicator]}
                             <div className="pills">pills</div>
                         </div>
                         <div className="arrow arrow-right" onClick={() => { this.handleQuantity(false)}}>
-                            <img src="/img/arrow-down.png" alt=""/>
+                            <FontAwesome name="chevron-down" />
                         </div>
                     </p>
                     <Button bsStyle="info"

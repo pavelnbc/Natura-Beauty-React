@@ -28,7 +28,6 @@ class App extends Component {
         super(props);
 
         this.state = {
-            user: false,
             isMenuOpened: false,
             isContentVisible: false,
             searchValue: "",
@@ -150,7 +149,7 @@ class App extends Component {
                               <Switch>
                                   <Route exact path="/" component={Home}/>
                                   <Route exact path="/products/:category?" render={
-                                      (props) => <Products searchMed={this.state.searchValue} 
+                                      (props) => <Products searchedMed={this.state.searchValue}
                                                            getOrderItem={this.handleCard}
                                                            {...props}/>
                                   }

@@ -5,7 +5,7 @@ import Product from '../components/Product'
 
 import products from '../data/products.json';
 
-function Products({ match, searchMed, getOrderItem }) {
+function Products({ match, searchedMed, getOrderItem }) {
     let medications = products.filter((medication) => {
         return match.params.category
             ? (medication.category === match.params.category)
@@ -13,13 +13,14 @@ function Products({ match, searchMed, getOrderItem }) {
     });
 
     let searchMeds = medications.filter((med) => {
-         if(~med.slug.indexOf(searchMed.toLocaleLowerCase())) {
+         if(~med.slug.indexOf(searchedMed.toLocaleLowerCase())) {
              return med
          }
     });
 
     return (
-        <Grid>
+        searchMeds.length
+        ? <Grid>
             <Row className="show-grid">
                   {searchMeds.map(((product, index) => {
                     return (
@@ -32,7 +33,10 @@ function Products({ match, searchMed, getOrderItem }) {
                     )
                 }))}
             </Row>
-        </Grid>
+          </Grid>
+        : <div className="empty-list">
+            <p>Nothing was found</p>
+          </div>
     )
 }
 
