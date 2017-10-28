@@ -10,8 +10,6 @@ function Home() {
     <div className="homePage">
       <PageHeader>Welcome to Natural Beauty</PageHeader>
 
-      <CarouselBar interval="5000" slides={mainPageSlides} />
-
       <p>
         Arrived compass prepare an on as. Reasonable particular on my it in
         sympathize. Size now easy eat hand how. Unwilling he departure elsewhere
@@ -120,6 +118,8 @@ function Home() {
         Indeed vanity excuse or mr lovers of on. By offer scale an stuff. Blush
         be sorry no sight. Sang lose of hour then he left find.
       </p>
+
+      <CarouselBar interval="5000" slides={mainPageSlides} />
     </div>
   );
 }

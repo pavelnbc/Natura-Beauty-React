@@ -1,3 +1,13 @@
+/* fonts */
+@font-face {
+  font-family: 'Wrexham Script';
+  src: url(http://allfont.ru/allfont.css?fonts=wrexham-script);
+}
+
+
+
+/* body */
+
 body {
   height: 100%;
   width: 100%;
@@ -7,34 +17,39 @@ body {
   justify-content: center;
   padding: 0;
   margin: 0;
-  background-color: #F7FBF7;
+  background-color: #fff;
   box-sizing: border-box;
 }
 
-.app {
-  min-height: calc(100vh - 81px);
-}
 
 /*content*/
 
-.content-is-hidden {
+.content {
+  min-height: calc(100vh - 81px);
+}
+
+.content .content-is-hidden {
   opacity: 0;
 }
 
-.content-is-hidden .container {
+.content .content-is-hidden .container {
     width: 100%;
 }
 
-.content-is-visible {
+.content .content-is-visible {
   opacity: 1;
   transition: opacity, 600ms;
+}
+
+.content h1 {
+  font-family: Georgia;
 }
 
 .lock-scroll {
   overflow: hidden;
 }
 
-.content-layer {
+.content .content-layer {
   width: 100%;
   height: 100%;
   opacity: 0.3;
@@ -42,6 +57,20 @@ body {
   transition: 300ms;
 }
 
+.content-without-shadow {
+  display: none;
+
+}
+
+.content-shadow {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: #7DA0C0;
+  opacity: 0.3;
+  z-index: 101;
+}
 
 /*left-bar-content*/
 
@@ -53,11 +82,14 @@ body {
 
 .prod-categories .list-group-item {
   margin-bottom: -1px;
-  background-color: #A0DFEE;
+  color: #0057A6;
+  background-color: #CEE8FF;
 }
 
 .prod-categories .list-group-item:hover {
-  background-color: #DEEDF1;
+  background-color: #91B2ED;
+  color: white;
+  transition: 200ms;
 }
 
 .prod-categories a {
@@ -70,7 +102,7 @@ body {
 
 
 .prod-categories .fa-heartbeat {
-  margin-right: 7px;
+  margin-right: 10px;
   color: darkred;
 }
 
@@ -105,7 +137,17 @@ h5 {
 /*header-toolbar*/
 
 .toolbar {
-  background-color: #00C957;
+  background-color: #3695eb;
+}
+
+.toolbar .nav .navItem:hover {
+  background-color: #4FACFF;
+  transition: 300ms;
+}
+
+.active-link {
+  background-color: #4FACFF !important;
+  color: #fff !important;
 }
 
 .toolbar .container .fa-bars {
@@ -113,9 +155,10 @@ h5 {
 }
 
 .toolbar .container .header-title {
+  font-family: 'Wrexham Script', Georgia;
   color: #ffffff;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 25px;
 }
 
 .navbar-default {
@@ -123,13 +166,15 @@ h5 {
 }
 
 .toolbar .nav .navItem a{
+  font-family: Georgia;
   color: #ffffff;
   font-size: 13px;
+  border: 3px solid transparent;
 }
 
-.navItem:hover a{
+.toolbar .nav .navItem  a:hover {
   text-decoration: none;
-  color: #333333;
+  color: #fff !important;
 }
 
 .dropdown-menu {
@@ -166,9 +211,12 @@ h5 {
   text-align: center;
 }
 
+.total a{
+  font-family: Arial !important;
+}
 
-.container .navbar-nav .total a:hover {
-  color: white;
+.container .navbar-nav .total{
+  background-color: #3695eb !important;
 }
 
 /*searchPlugin*/
@@ -201,14 +249,29 @@ h5 {
 
 .menu-bar {
   height: auto;
-  width: 270px;
+  width: 333px;
   position: fixed;
-  margin-left: -270px;
+  margin-left: -333px;
+  margin-top: -1px;
   transition: margin-left, 300ms;
   min-height: 100%;
-  z-index: 1000;
+  background-color: #1A64A6;
   border: 1px solid #ddd;
-  background-color: #629527;
+  border-top-color: #1A64A6;
+  z-index: 102;
+}
+
+.menu-bar .menu-logo {
+  margin-bottom: 30px;
+  text-align: center;
+  font-family: 'Wrexham Script', Georgia;
+  color: whitesmoke;
+}
+
+.menu-logo img{
+  width: 150px;
+  height: 140px;
+  margin-top: 10px;
 }
 
 .menu-bar a{
@@ -221,21 +284,29 @@ h5 {
 
 .menu-bar .list-group-item {
   border: none;
-  border-bottom: 1px solid lightcyan;
+  border-bottom: 1px solid #4A80B0;
   border-radius: 0;
-  color: black;
-  background-color: #629527;
-}
-
-.menu-bar .list-group-item:hover {
-  color: #333333;
-  background-color: lightcyan;
+  font-family: Georgia;
+  color: #DCEFFF !important;
+  background-color: inherit;
 }
 
 .menu-bar .fa {
-  margin-right: 20px;
-  color: orangered;
+  margin-right: 10px;
+  color: white;
 }
+
+.menu-bar .list-group-item:hover {
+  color: #065AA6 !important;
+  background-color: #8DC9FF;
+  transition: 200ms;
+}
+
+.menu-bar .list-group-item:hover .fa{
+  color: #065AA6 !important;
+}
+
+
 
 /*Products*/
 
@@ -245,14 +316,17 @@ h5 {
   min-width: 200px;
   max-width: 250px;
   text-align: center;
-  background-color: #E0FEE0;
+  background-color: #fff;
+  border: 1px solid #e2eefb;
   margin-top: 20px;
   margin-bottom: 0px;
   z-index: 100;
 }
 
 .product:hover {
+  background-color: #ECF6FF;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: 300ms;
 }
 
 .product > img {
@@ -301,6 +375,7 @@ h5 {
   text-align: center;
   font-size: 22px;
   font-weight: bold;
+  font-family: Georgia;
   color: #DDDDDD;
 }
 
@@ -330,6 +405,7 @@ h5 {
   font-size: 22px;
   font-weight: bold;
   margin: 80px auto;
+  font-family: Georgia;
   color: #DDDDDD;
 }
 
@@ -371,6 +447,7 @@ h5 {
 
 /* contacts */ 
 
+
 .contacts p {
   margin-bottom: 30px;
 }
@@ -386,7 +463,7 @@ h5 {
 }
 
 .contacts iframe {
-  margin-top: 20px;
+  margin-top: 30px;
   border: none;
 }
 
@@ -403,8 +480,12 @@ h5 {
 
 .footer .copy-rights {
   width: 300px;
-  margin: 0 auto;
-}
+  float: right;
+  right: 150px;
+  margin-top: 7px;
+  font-size: 13px;
+  color: grey;
+ }
 
 /* Anchor */
 
@@ -414,12 +495,12 @@ h5 {
   position: fixed;
   bottom: 70px;
   left: 100px;
-  border: 2px solid green;
+  border: 2px solid #0086FF;
   border-radius: 5px;
   opacity: 0;
   text-align: center;
 }
 
 .fa-angle-up {
-  color: darkred;
+  color: #40A5FF;
 }

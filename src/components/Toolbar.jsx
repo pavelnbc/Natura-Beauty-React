@@ -38,10 +38,10 @@ function Toolbar({ onMenu, offMenu, getSearchValue, totalAmount, setContWithoutD
                     <Col xsHidden smHidden md={6} lg={5}>
                         <Nav onClick={() => { toEmptySearch(); offMenu()}}>
                           <li className="navItem">
-                            <NavLink to="/products">Our Products</NavLink>
+                            <NavLink activeClassName="active-link" to="/products">Our Products</NavLink>
                           </li>
                           <li className="navItem">
-                            <NavLink to="/about">About us</NavLink>
+                            <NavLink activeClassName="active-link" to="/about">About us</NavLink>
                           </li>
                           <li className="navItem">
                             <a className="navItem"
@@ -56,7 +56,7 @@ function Toolbar({ onMenu, offMenu, getSearchValue, totalAmount, setContWithoutD
                             <a>{totalAmount}</a>
                           </li>
                           <li className="navItem cart-icon">
-                            <NavLink to="/cart">
+                            <NavLink activeClassName="active-link" to="/cart">
                               <img src="/img/cart.png" />
                             </NavLink>
                           </li>

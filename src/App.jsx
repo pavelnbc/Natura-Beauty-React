@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Route, Switch} from 'react-router-dom';
 import {Grid, Row, Col} from 'react-bootstrap';
 
+import ContentShadow from './components/ContentShadow';
 import Toolbar from './components/Toolbar';
 import Menu from './components/Menu';
 import MainContent from './components/MainContent';
@@ -109,8 +110,12 @@ class App extends Component {
 
     render() {
         return (
-          <div className="content">
-            <div className="app">
+          <div className="app">
+            <ContentShadow isMenuOpened={this.state.isMenuOpened} 
+                           offMenu={this.setMenuClosed}/>
+            <div className="content">
+                <Menu isMenuOpened={this.state.isMenuOpened}
+                      offMenu={this.setMenuClosed} />
                 <Toolbar user={this.state.user}
                          onMenu={this.handleMenu}
                          offMenu={this.setMenuClosed}
@@ -118,9 +123,6 @@ class App extends Component {
                          toEmptySearch={this.clearSearch}
                          totalAmount={this.state.totalPrice}
                          setContWithoutDisappear={this.setContentAppearWithoutDisappear}
-                />
-                <Route path="/" render={() => <Menu isMenuOpened={this.state.isMenuOpened} 
-                                                    offMenu={this.setMenuClosed}/> }
                 />
 
                 <Grid>

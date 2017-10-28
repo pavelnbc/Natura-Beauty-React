@@ -3,7 +3,7 @@ import Fontawesome from "react-fontawesome";
 
 class Anchor extends Component {
   handleScroll(){
-       this.anchor.style.opacity = document.documentElement.scrollTop / 500;
+    this.anchor.style.opacity = document.documentElement.scrollTop / 500 || document.body.scrollTop / 500;
   };
 
   componentDidMount() {

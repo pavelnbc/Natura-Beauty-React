@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import {BrowserRouter as Router} from 'react-router-dom';
 
 import './index.css';
-import "font-awesome/css/font-awesome.css"
+import "font-awesome/css/font-awesome.css";
+
 
 import App from './App';
 
