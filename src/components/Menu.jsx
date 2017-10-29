@@ -4,6 +4,8 @@ import { ListGroup, ListGroupItem } from "react-bootstrap";
 import FontAwesome from 'react-fontawesome';
 import classNames from "classnames";
 
+import SocialNetworks from './SocialNetworks';
+
 import menuLinks from '../data/menuLinks.json'
 
 function Menu({ isMenuOpened, offMenu }) {
@@ -33,6 +35,7 @@ function Menu({ isMenuOpened, offMenu }) {
             )
           })}
       </ListGroup>
+      <SocialNetworks />
     </aside>
   )
 }

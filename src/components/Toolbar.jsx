@@ -2,14 +2,20 @@ import React from 'react';
 import { NavLink} from 'react-router-dom';
 import { Navbar, Nav, MenuItem, Grid, Row, Col, DropdownButton } from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome';
+import classNames from 'classnames';
 
 import SearchPlugin from './SearchPlugin';
 
-function Toolbar({ onMenu, offMenu, getSearchValue, totalAmount, setContWithoutDisappear, toEmptySearch}) {
+function Toolbar({match, onMenu, offMenu, getSearchValue, totalAmount, setContWithoutDisappear, toEmptySearch}) {
     totalAmount = totalAmount.toFixed(2);
 
+    let toolbarClassName = classNames({
+        toolbar: true,
+        "folded-toolbar": match.params.pages
+    });
+
     return (
-        <Navbar className="toolbar">
+        <Navbar className={toolbarClassName}>
             <a name="top"></a>
             <Grid>
                 <Row className="show-grid">
@@ -55,7 +61,7 @@ function Toolbar({ onMenu, offMenu, getSearchValue, totalAmount, setContWithoutD
                           <li className="navItem total">
                             <a>{totalAmount}</a>
                           </li>
-                          <li className="navItem cart-icon">
+                              <li className="navItem cart-icon">
                             <NavLink activeClassName="active-link" to="/cart">
                               <img src="/img/cart.png" />
                             </NavLink>

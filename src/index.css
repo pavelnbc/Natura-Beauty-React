@@ -4,8 +4,6 @@
   src: url(http://allfont.ru/allfont.css?fonts=wrexham-script);
 }
 
-
-
 /* body */
 
 body {
@@ -17,10 +15,8 @@ body {
   justify-content: center;
   padding: 0;
   margin: 0;
-  background-color: #fff;
   box-sizing: border-box;
 }
-
 
 /*content*/
 
@@ -47,14 +43,6 @@ body {
 
 .lock-scroll {
   overflow: hidden;
-}
-
-.content .content-layer {
-  width: 100%;
-  height: 100%;
-  opacity: 0.3;
-  pointer-events: none;
-  transition: 300ms;
 }
 
 .content-without-shadow {
@@ -137,12 +125,24 @@ h5 {
 /*header-toolbar*/
 
 .toolbar {
-  background-color: #3695eb;
+  height: 640px;
+  background-image: url("/img/NB-logo.png");
+  background-repeat: no-repeat;
+  background-position: 50% 0%;
+  background-size: 2000px;
+  border-width: 0px;
+  transition: 600ms;
+}
+
+.folded-toolbar {
+  height: 56px;
+  transition: 600ms;
 }
 
 .toolbar .nav .navItem:hover {
   background-color: #4FACFF;
   transition: 300ms;
+  opacity: 1;
 }
 
 .active-link {
@@ -152,6 +152,7 @@ h5 {
 
 .toolbar .container .fa-bars {
   color: #ffffff;
+  opacity: 1;
 }
 
 .toolbar .container .header-title {
@@ -177,25 +178,6 @@ h5 {
   color: #fff !important;
 }
 
-.dropdown-menu {
-  min-width: 10px;
-}
-
-.dropdown-menu li a {
-  padding: 7px;
-}
-
-.dropdown-item{
-  width: 20px;
-  color: #777777;
-  font-family: Arial;
-}
-
-.dropdown-item:hover {
-  text-decoration: none;
-  color: #333333;
-}
-
 .fa-bars {
   cursor: pointer;
   padding-top: 11px;
@@ -216,7 +198,7 @@ h5 {
 }
 
 .container .navbar-nav .total{
-  background-color: #3695eb !important;
+  /*background-color: #3695eb !important;*/
 }
 
 /*searchPlugin*/
@@ -306,9 +288,19 @@ h5 {
   color: #065AA6 !important;
 }
 
+.menu-bar .social {
+  display: flex;
+  justify-content: space-between;
+  width: 170px;
+  margin: 120px auto 10px;
+}
+
+.menu-bar .social .fa {
+  margin: 0;
+}
 
 
-/*Products*/
+  /*Products*/
 
 .product {
   position: relative;
@@ -381,10 +373,11 @@ h5 {
 
 /*Cart bar*/
 
-.cart-icon {
-  width: 55px;
-  height: 55px;
-  margin-top: -10px;
+.cart-icon img{
+  margin-top: -5px;
+  width: 30px;
+  height: 23px;
+  /*margin-top: 10px;*/
 }
 
 .cart-bar {
@@ -470,19 +463,33 @@ h5 {
 /* footer */
 
 .footer {
+  display: flex;
+  justify-content: space-between;
   min-height: 50px;
   width: 100%;
   margin: 30px auto 0;
-  padding: 10px 50px;
+  padding: 10px 100px;
   border-top: 1px solid lightgray;
   background-color: lightcyan;
 }
 
+.footer .social {
+  display: flex;
+  justify-content: space-between;
+  width: 170px;
+}
+
+.footer .social .fa {
+  color: gray;
+}
+
+.footer .social .fa:hover {
+  opacity: 0.7;
+}
+
 .footer .copy-rights {
   width: 300px;
-  float: right;
-  right: 150px;
-  margin-top: 7px;
+  margin: auto 0;
   font-size: 13px;
   color: grey;
  }

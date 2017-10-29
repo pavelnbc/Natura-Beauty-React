@@ -116,14 +116,18 @@ class App extends Component {
             <div className="content">
                 <Menu isMenuOpened={this.state.isMenuOpened}
                       offMenu={this.setMenuClosed} />
-                <Toolbar user={this.state.user}
-                         onMenu={this.handleMenu}
-                         offMenu={this.setMenuClosed}
-                         getSearchValue={this.handleSearch}
-                         toEmptySearch={this.clearSearch}
-                         totalAmount={this.state.totalPrice}
-                         setContWithoutDisappear={this.setContentAppearWithoutDisappear}
-                />
+                <Route path="/:pages?" render={(props) => {
+                    return (<Toolbar user={this.state.user}
+                             onMenu={this.handleMenu}
+                             offMenu={this.setMenuClosed}
+                             getSearchValue={this.handleSearch}
+                             toEmptySearch={this.clearSearch}
+                             totalAmount={this.state.totalPrice}
+                             setContWithoutDisappear={this.setContentAppearWithoutDisappear}
+                             {...props}
+                            />
+                    )
+                }} />
 
                 <Grid>
                     <Row className="show-grid">
@@ -132,11 +136,11 @@ class App extends Component {
                           <LeftBarContent isMenuOpened={this.state.isMenuOpened}
                                           isContentVisible={this.state.isContentVisible} 
                                           offMenu={this.setMenuClosed}
-                          >
+                         >
                             <Switch>
                               <Route path="/cart" component={RefundReturnPolicy}/>
                               <Route path="/products" component={ProdCategories}/>
-                              <Route path="/" render={() => <LeftSideBanner 
+                              <Route path="/" render={() => <LeftSideBanner
                                     setContWithoutDisappear={this.setContentAppearWithoutDisappear}/> }
                               />
                             </Switch>
@@ -147,7 +151,7 @@ class App extends Component {
                                    isMenuOpened={this.state.isMenuOpened}
                                    isContentVisible={this.state.isContentVisible}
                                    setContWithoutDisappear={this.setContentAppearWithoutDisappear}
-                          >
+                         >
                               <Switch>
                                   <Route exact path="/" component={Home}/>
                                   <Route exact path="/products/:category?" render={
@@ -171,7 +175,7 @@ class App extends Component {
                         </Col>
                     </Row>
                 </Grid>
-            </div> 
+            </div>
             <Anchor />
             <Footer />
           </div>
