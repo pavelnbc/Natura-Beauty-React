@@ -9,7 +9,7 @@ function CarouselBar({interval, slides}) {
               <Carousel.Item>
                   <img width={slide.width} height={slide.height} alt={`${slide.width}x${slide.height}`} src={slide.img} />
                   <Carousel.Caption>
-                      <h3>{slide.label}</h3>
+                      <h2>{slide.label}</h2>
                       <p>{slide.description}</p>
                   </Carousel.Caption>
               </Carousel.Item>

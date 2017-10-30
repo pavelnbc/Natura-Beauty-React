@@ -101,11 +101,11 @@ body {
 }
 
 .guarantees {
-  width: 240px;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  margin-top: 30px;
+  justify-content: space-around;
+  margin-top: 50px;
 }
 
     /*return/refund policy*/
@@ -223,9 +223,16 @@ h5 {
 
 .carousel-bar {
   width: 100%;
-  height: 200px;
+  height: 410px;
   margin: 20px auto;
 }
+
+.carousel-bar h2 {
+  color: darkred;
+  font-weight: bold;
+}
+
+
 
 /*Menu-bar*/
 

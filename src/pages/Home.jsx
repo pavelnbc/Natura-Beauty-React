@@ -120,6 +120,14 @@ function Home() {
       </p>
 
       <CarouselBar interval="5000" slides={mainPageSlides} />
+
+        <div className="guarantees">
+            <img src="/img/guarantees/BBB.png" alt="BBB-img"/>
+            <img src="/img/guarantees/CIPA.png" alt="CIPA-img"/>
+            <img src="/img/guarantees/MIPA.png" alt="MIPA-img"/>
+            <img src="/img/guarantees/refund.gif" alt="MIPA-img"/>
+            <img src="/img/guarantees/Safety-check.png" alt="safety-check-img"/>
+        </div>
     </div>
   );
 }
