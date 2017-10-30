@@ -139,6 +139,10 @@ h5 {
   transition: 600ms;
 }
 
+.isFixed {
+  position: fixed;
+}
+
 .toolbar .nav .navItem:hover {
   background-color: #4FACFF;
   transition: 300ms;
@@ -152,7 +156,6 @@ h5 {
 
 .toolbar .container .fa-bars {
   color: #ffffff;
-  opacity: 1;
 }
 
 .toolbar .container .header-title {
@@ -197,10 +200,6 @@ h5 {
   font-family: Arial !important;
 }
 
-.container .navbar-nav .total{
-  /*background-color: #3695eb !important;*/
-}
-
 /*searchPlugin*/
 
 .search-form {
@@ -231,8 +230,6 @@ h5 {
   color: darkred;
   font-weight: bold;
 }
-
-
 
 /*Menu-bar*/
 
