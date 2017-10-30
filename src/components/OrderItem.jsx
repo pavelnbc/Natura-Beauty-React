@@ -4,7 +4,8 @@ import { ListGroupItem } from 'react-bootstrap'
 function OrderItem({ medication }) {
   return (
     <ListGroupItem className="order-item">
-      <img src={`${medication.img}`} alt="med"/>
+        <img src="/img/pills.png" alt="med"/>
+      {/*<img src={`${medication.img}`} alt="med"/>*/}
       <div className="cart-med-title">
           {medication.title}
       </div>

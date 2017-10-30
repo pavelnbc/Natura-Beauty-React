@@ -15,7 +15,6 @@ class Product extends Component {
             dosageIndicator: 0,
             quantityIndicator: 0,
             priceIndicator: 0,
-            isProductActive: false,
             saleCoefs: [1, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4]
         };
 
@@ -71,7 +70,6 @@ class Product extends Component {
 
         let productClassName = classNames({
             "product": true,
-            "product-is-active": this.state.isProductActive
         });
 
         let purchaseObj = {
@@ -83,50 +81,85 @@ class Product extends Component {
         };
 
         return (
-                <Thumbnail src={`/img/${this.medication.slug}.jpg`} className={productClassName}>
+                <Thumbnail src={`/img/pills.png`} className={productClassName}>
+                    <div className="controls">
+                        <h4 className="price"><span>$</span>{this.getPrice()}</h4>
+                        <p className="dosage-selection">
+                            <div className="arrow arrow-left" onClick={() => {this.handleDosage(true)}}>
+                                <FontAwesome name="chevron-up" size="2x" />
+                            </div>
+                            <div className="indicator">
+                                {this.medication.dosage[this.state.dosageIndicator]}
+                                <div className="mg">mg</div>
+                            </div>
+                            <div className="arrow arrow-right" onClick={() => {this.handleDosage(false)}}>
+                                <FontAwesome name="chevron-down" size="2x" />
+                            </div>
+                        </p>
+                        <p className="quantity-selection">
+                            <div className="arrow arrow-left" onClick={() => { this.handleQuantity(true)}}>
+                                <FontAwesome name="chevron-up" size="2x" />
+                            </div>
+                            <div className="indicator">
+                                {this.medication.quantity[this.state.quantityIndicator]}
+                                <div className="pills">pills</div>
+                            </div>
+                            <div className="arrow arrow-right" onClick={() => { this.handleQuantity(false)}}>
+                                <FontAwesome name="chevron-down" size="2x" />
+                            </div>
+                        </p>
+                        <Button bsStyle="info"
+                                bsSize="sm"
+                                className="submit-btn"
+                                onClick={() => {this.getItem(purchaseObj)}}
+                        >
+                            Add to card
+                        </Button>
+                    </div>
                     <h4>{this.medication.title}</h4>
                     <p>{this.medication.ingredient}</p>
-
-                    <h4 className="price"><span>$</span>{this.getPrice()}</h4>
-                    <p className="dosage-selection">
-                        <div className="arrow arrow-left" onClick={() => {this.handleDosage(true)}}>
-                            <FontAwesome name="chevron-up" />
-                        </div>
-                        <div className="indicator">
-                            {this.medication.dosage[this.state.dosageIndicator]}
-                            <div className="mg">mg</div>
-                        </div>
-                        <div className="arrow arrow-right" onClick={() => {this.handleDosage(false)}}>
-                            <FontAwesome name="chevron-down" />
-                        </div>
-                    </p>
-                    <p className="quantity-selection">
-                  <div className="arrow arrow-left" onClick={() => { this.handleQuantity(true)}}>
-                            <FontAwesome name="chevron-up" />
-                        </div>
-                        <div className="indicator">
-                            {this.medication.quantity[this.state.quantityIndicator]}
-                            <div className="pills">pills</div>
-                        </div>
-                        <div className="arrow arrow-right" onClick={() => { this.handleQuantity(false)}}>
-                            <FontAwesome name="chevron-down" />
-                        </div>
-                    </p>
-                    <Button bsStyle="info"
-                            bsSize="xs"
-                            className="submit-btn"
-                            onMouseDown={() => {this.setState({isProductActive: true})}}
-                            onMouseUp={() => {
-                                this.getItem(purchaseObj);
-                                this.setState({isProductActive: false})
-                                }
-                            }
-                    >
-                        Add to card
-                    </Button>
                 </Thumbnail>
         )
     }
 }
 
 export default Product;
+
+
+/* <h4 className="price"><span>$</span>{this.getPrice()}</h4>
+ <p className="dosage-selection">
+ <div className="arrow arrow-left" onClick={() => {this.handleDosage(true)}}>
+ <FontAwesome name="chevron-up" />
+ </div>
+ <div className="indicator">
+ {this.medication.dosage[this.state.dosageIndicator]}
+ <div className="mg">mg</div>
+ </div>
+ <div className="arrow arrow-right" onClick={() => {this.handleDosage(false)}}>
+ <FontAwesome name="chevron-down" />
+ </div>
+ </p>
+ <p className="quantity-selection">
+ <div className="arrow arrow-left" onClick={() => { this.handleQuantity(true)}}>
+ <FontAwesome name="chevron-up" />
+ </div>
+ <div className="indicator">
+ {this.medication.quantity[this.state.quantityIndicator]}
+ <div className="pills">pills</div>
+ </div>
+ <div className="arrow arrow-right" onClick={() => { this.handleQuantity(false)}}>
+ <FontAwesome name="chevron-down" />
+ </div>
+ </p>
+ <Button bsStyle="info"
+ bsSize="xs"
+ className="submit-btn"
+ onMouseDown={() => {this.setState({isProductActive: true})}}
+ onMouseUp={() => {
+ this.getItem(purchaseObj);
+ this.setState({isProductActive: false})
+ }
+ }
+ >
+ Add to card
+ </Button>*/
