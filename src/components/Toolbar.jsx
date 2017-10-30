@@ -19,7 +19,7 @@ function Toolbar({ match, onMenu, offMenu, getSearchValue, totalAmount, setContW
             <a name="top"></a>
             <Grid>
                 <Row className="show-grid">
-                    <Col xs={2} sm={3} md={3} lg={3}>
+                    <Col xs={2} sm={4} md={3} lg={3}>
                         <Row className="show-grid">
                             <Col xs={2} sm={2} md={2} lg={2}>
                                 <Navbar.Brand>
@@ -38,7 +38,7 @@ function Toolbar({ match, onMenu, offMenu, getSearchValue, totalAmount, setContW
                             </Col>
                         </Row>
                     </Col>
-                    <Col xs={8} sm={6} md={3} lg={3} lgOffset={1}>
+                    <Col xs={8} sm={5} md={3} lg={3} lgOffset={1}>
                         <SearchPlugin getSearchedMed={getSearchValue}/>
                     </Col>
                     <Col xsHidden smHidden md={6} lg={5}>

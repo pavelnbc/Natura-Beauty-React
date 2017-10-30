@@ -16,6 +16,7 @@ body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  background-color: antiquewhite;
 }
 
 /*content*/
@@ -162,7 +163,7 @@ h5 {
   font-family: 'Wrexham Script', Georgia;
   color: #ffffff;
   font-weight: bold;
-  font-size: 25px;
+  font-size: 23px;
 }
 
 .navbar-default {
@@ -227,7 +228,7 @@ h5 {
 }
 
 .carousel-bar h2 {
-  color: darkred;
+  color: darkblue;
   font-weight: bold;
 }
 
@@ -286,10 +287,6 @@ h5 {
   color: #065AA6 !important;
   background-color: #8DC9FF;
   transition: 200ms;
-}
-
-.menu-bar .list-group-item:hover .fa{
-  color: #065AA6 !important;
 }
 
 .menu-bar .social {
@@ -491,7 +488,7 @@ h5 {
   margin: 30px auto 0;
   padding: 10px 100px;
   border-top: 1px solid lightgray;
-  background-color: lightcyan;
+  background-color: lightblue;
 }
 
 .footer .social {
@@ -500,8 +497,16 @@ h5 {
   width: 170px;
 }
 
-.footer .social .fa {
-  color: gray;
+.footer .social .fa-facebook-square {
+  color: purple;
+}
+
+.footer .social .fa-twitter-square {
+  color: #00aced;
+}
+
+.footer .social .fa-pinterest-square {
+  color: red;
 }
 
 .footer .social .fa:hover {
