@@ -24,7 +24,7 @@ function Cart({ productList, totalAmount }) {
                 <Button className="checkout-btn" bsStyle="success" bsSize="md">To checkout!</Button>
             </aside>
           </div>
-
+ 
         : <div className="empty-card">
                 <p>Your cart is empty</p>
           </div>

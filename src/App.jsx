@@ -139,7 +139,9 @@ class App extends Component {
                          >
                             <Switch>
                               <Route path="/cart" component={RefundReturnPolicy}/>
-                              <Route path="/products" component={ProdCategories}/>
+                              <Route path="/products" render={() => {
+                                return <ProdCategories toEmptySearch={this.clearSearch}/>
+                              }}/>
                               <Route path="/" render={() => <LeftSideBanner
                                     setContWithoutDisappear={this.setContentAppearWithoutDisappear}/> }
                               />

@@ -13,7 +13,8 @@ class SearchPlugin extends Component {
 
   handleSubmit(event) {
       event.preventDefault();
-      this.onSearch(this.searchObject.value.toString());
+      let modifiedSearchValue = this.searchObject.value.toString().trim();
+      this.onSearch(modifiedSearchValue);
       this.searchObject.value = "";
   }
 

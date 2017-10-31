@@ -395,18 +395,18 @@ h5 {
   margin-top: -5px;
   width: 30px;
   height: 23px;
-  /*margin-top: 10px;*/
 }
 
 .cart-bar {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .purchase-bar {
   width: 65%;
+  flex: 3 0 450px;
+  margin: 20px 10px 0;
   height: 100%;
-  margin-top: 20px;
   border: 2px solid #DDDDDD;
   border-radius: 5px;
 }
@@ -437,12 +437,13 @@ h5 {
 .amount-bar {
   display: flex;
   flex-direction: column;
-  width: 30%;
   height: 120px;
   margin-top: 20px;
   padding: 13px;
   border: 3px solid #DDDDDD;
   border-radius: 5px;
+  flex: 1 0 200px;
+  margin: 20px 10px 0;
 }
 
 .amountContainer {
@@ -457,7 +458,6 @@ h5 {
 }
 
 /* contacts */ 
-
 
 .contacts p {
   margin-bottom: 30px;
