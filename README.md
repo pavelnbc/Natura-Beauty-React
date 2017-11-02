@@ -1,5 +1,9 @@
 https://github.com/mars/create-react-app-buildpack
 
+Есть люди, которые медленно адаптируются, есть такие, которых в пучину сталкивает конкуренция. В конкурентной среде выживает не самый талантливый, а самый устойчивый. 
+
+С. Плетикоса
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
