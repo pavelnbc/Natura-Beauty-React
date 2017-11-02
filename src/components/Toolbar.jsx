@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { NavLink} from 'react-router-dom';
-import { Navbar, Nav, MenuItem, Grid, Row, Col, DropdownButton } from 'react-bootstrap';
+import { Navbar, Nav, MenuItem, Grid, Row, Col, DropdownButton, ListGroup, ListGroupItem } from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome';
 import classNames from 'classnames';
 
 import SearchPlugin from './SearchPlugin';
 
-function Toolbar({ match, onMenu, offMenu, getSearchValue, totalAmount, setContWithoutDisappear, toEmptySearch }) {
+import categories from '../data/categories.json'
+
+function Toolbar({ match, onMenu, getSearchValue, totalAmount, setContWithoutDisappear, toEmptySearch }) {
     totalAmount = totalAmount.toFixed(2);
 
     let toolbarClassName = classNames({
@@ -16,7 +18,6 @@ function Toolbar({ match, onMenu, offMenu, getSearchValue, totalAmount, setContW
 
     return (
         <Navbar className={toolbarClassName}>
-            <a name="top"></a>
             <Grid>
                 <Row className="show-grid">
                     <Col xs={2} sm={4} md={3} lg={3}>
@@ -29,7 +30,8 @@ function Toolbar({ match, onMenu, offMenu, getSearchValue, totalAmount, setContW
                             <Col xsHidden sm={10} md={10} lg={10}>
                                 <Navbar.Brand>
                                     <NavLink className="header-title"
-                                             onClick={() => {offMenu(); toEmptySearch()}}
+                                             name="top"
+                                             onClick={toEmptySearch}
                                              to="/"
                                     >
                                         Natural Beauty
@@ -42,7 +44,7 @@ function Toolbar({ match, onMenu, offMenu, getSearchValue, totalAmount, setContW
                         <SearchPlugin getSearchedMed={getSearchValue}/>
                     </Col>
                     <Col xsHidden smHidden md={6} lg={5}>
-                        <Nav onClick={() => { toEmptySearch(); offMenu()}}>
+                        <Nav onClick={toEmptySearch}>
                             <li className="navItem">
                                 <NavLink activeClassName="active-link" to="/products">Our Products</NavLink>
                             </li>
@@ -73,7 +75,7 @@ function Toolbar({ match, onMenu, offMenu, getSearchValue, totalAmount, setContW
                                         title=""
                                         id="toolbar-dropdown"
                                         bsSize="sm"
-                                        onClick={() => { setContWithoutDisappear(); offMenu() }}
+                                        onClick={setContWithoutDisappear}
                         >
                             <MenuItem className="navItem" eventKey="1">
                                 <NavLink to="/products">Our Products</NavLink>
@@ -88,9 +90,29 @@ function Toolbar({ match, onMenu, offMenu, getSearchValue, totalAmount, setContW
                                 <a>Order status</a>
                             </MenuItem>
                             <MenuItem className="navItem" eventKey="5">
+                              <FontAwesome name="caret-down"/>
+                              <a>Categories</a>
+                              <ListGroup className="shotNav-categories">
+                                  {categories.map((category, index) => {
+                                    return (
+                                      <NavLink key={index}
+                                        to={`/products/${category.id}`}
+                                        className="menuItem"
+                                        onClick={toEmptySearch}
+                                      >
+                                        <ListGroupItem>
+                                          <FontAwesome name="heartbeat" />
+                                          {category.title}
+                                        </ListGroupItem>
+                                      </NavLink>
+                                    );
+                                  })}
+                              </ListGroup>
+                            </MenuItem>
+                            <MenuItem className="navItem shot-total" eventKey="6">
                                 <a href="#">{totalAmount}</a>
                             </MenuItem>
-                            <MenuItem className="navItem" eventKey="6">
+                            <MenuItem className="navItem" eventKey="7">
                                 <NavLink  to="/cart">
                                     Cart
                                 </NavLink>

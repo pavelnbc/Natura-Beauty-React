@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Route, Switch} from 'react-router-dom';
 import {Grid, Row, Col} from 'react-bootstrap';
 
+import Content from './components/Content';
 import ContentShadow from './components/ContentShadow';
 import Toolbar from './components/Toolbar';
 import Menu from './components/Menu';
@@ -113,20 +114,18 @@ class App extends Component {
           <div className="app">
             <ContentShadow isMenuOpened={this.state.isMenuOpened} 
                            offMenu={this.setMenuClosed}/>
-            <div className="content">
+            <Content>
                 <Menu isMenuOpened={this.state.isMenuOpened}
                       offMenu={this.setMenuClosed} />
                 <Route path="/:pages?" render={(props) => {
-                    return (<Toolbar user={this.state.user}
-                             onMenu={this.handleMenu}
-                             offMenu={this.setMenuClosed}
-                             getSearchValue={this.handleSearch}
-                             toEmptySearch={this.clearSearch}
-                             totalAmount={this.state.totalPrice}
-                             setContWithoutDisappear={this.setContentAppearWithoutDisappear}
-                             {...props}
-                            />
-                    )
+                  return (<Toolbar  onMenu={this.handleMenu}
+                                    getSearchValue={this.handleSearch}
+                                    toEmptySearch={this.clearSearch}
+                                    totalAmount={this.state.totalPrice}
+                                    setContWithoutDisappear={this.setContentAppearWithoutDisappear}
+                                    {...props}
+                          />
+                  )
                 }} />
 
                 <Grid>
@@ -135,7 +134,6 @@ class App extends Component {
                         <Col xsHidden sm={3} md={3} lg={3}>
                           <LeftBarContent isMenuOpened={this.state.isMenuOpened}
                                           isContentVisible={this.state.isContentVisible} 
-                                          offMenu={this.setMenuClosed}
                          >
                             <Switch>
                               <Route path="/cart" component={RefundReturnPolicy}/>
@@ -149,10 +147,8 @@ class App extends Component {
                           </LeftBarContent>
                         </Col>
                         <Col xs={12} sm={9} md={9} lg={9} >
-                          <MainContent offMenu={this.setMenuClosed} 
-                                   isMenuOpened={this.state.isMenuOpened}
-                                   isContentVisible={this.state.isContentVisible}
-                                   setContWithoutDisappear={this.setContentAppearWithoutDisappear}
+                          <MainContent isContentVisible={this.state.isContentVisible}
+                                       setContWithoutDisappear={this.setContentAppearWithoutDisappear}
                          >
                               <Switch>
                                   <Route exact path="/" component={Home}/>
@@ -175,10 +171,12 @@ class App extends Component {
                               </Switch>
                           </MainContent>
                         </Col>
+                        <Col xsHidden>
+                          <Anchor />
+                        </Col>
                     </Row>
                 </Grid>
-            </div>
-            <Anchor />
+            </Content>
             <Footer />
           </div>
         )

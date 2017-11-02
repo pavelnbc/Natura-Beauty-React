@@ -2,7 +2,7 @@ import React from 'react';
 
 import classNames from 'classnames';
 
-function Content({ children, isMenuOpened, offMenu, isContentVisible, setContWithoutDisappear }) {
+function MainContent({ children, isContentVisible, setContWithoutDisappear }) {
 
   const contentClass = classNames({
     "content-is-hidden": true,
@@ -10,10 +10,10 @@ function Content({ children, isMenuOpened, offMenu, isContentVisible, setContWit
   });
 
   return (
-    <div className={contentClass} onClick={() => { offMenu(); setContWithoutDisappear() }}>
+    <div className={contentClass} onClick={setContWithoutDisappear}>
       {children}
     </div>
   )
 }
 
-export default Content
+export default MainContent

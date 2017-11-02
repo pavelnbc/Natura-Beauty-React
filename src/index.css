@@ -22,7 +22,7 @@ body {
 /*content*/
 
 .content {
-  min-height: calc(100vh - 81px);
+  min-height: calc(100vh - 82px);
 }
 
 .content .content-is-hidden {
@@ -115,9 +115,9 @@ body {
   width: 100%;
   margin-top: 20px;
   padding: 10px;
-  background-color: white;
   border: 2px solid #ddd;
   font-size: 11px;
+  background-color: white;
 }
 
 h5 {
@@ -141,14 +141,10 @@ h5 {
   transition: 600ms;
 }
 
-.isFixed {
-  position: fixed;
-}
 
 .toolbar .nav .navItem:hover {
   background-color: #4FACFF;
   transition: 300ms;
-  opacity: 1;
 }
 
 .active-link {
@@ -192,6 +188,48 @@ h5 {
   margin-top: 9px;
 }
 
+.shotNav .dropdown-menu {
+  background-color: antiquewhite;
+}
+
+.shotNav .navItem {
+  position: relative;
+}
+
+.shotNav .navItem a:hover {
+  background-color: lightcyan;
+}
+
+.shotNav .navItem a {
+  text-decoration: none;
+}
+
+.shotNav li .shotNav-categories{
+  display: none;
+}
+
+.shotNav li .shotNav-categories a span{
+   background-color: cyan;
+   border-width: 0;
+   border-radius: 3px !important;
+}
+
+.shotNav li .shotNav-categories a span:hover{
+   background-color: deepskyblue;
+}
+
+.shotNav .navItem:hover .shotNav-categories{
+  position: absolute;
+  left: -180px;
+  top: 0px;
+  display: block;
+  z-index: 100;
+}
+
+.shotNav .fa {
+  margin-right: 5px;
+}
+
 .total {
   width: 70px;
   cursor: default;
@@ -200,6 +238,11 @@ h5 {
 
 .total a{
   font-family: Arial !important;
+}
+
+.shotNav .shot-total a{
+  background-color: antiquewhite !important;
+  cursor: default !important;
 }
 
 /*searchPlugin*/
@@ -236,18 +279,26 @@ h5 {
 /*Menu-bar*/
 
 .menu-bar {
-  height: auto;
-  width: 333px;
   position: fixed;
-  margin-left: -333px;
-  margin-top: -1px;
-  transition: margin-left, 300ms;
   min-height: 100%;
+  width: 333px;
+  margin-left: -333px;
+  transition: margin-left, 300ms;
   background-color: #1A64A6;
   border: 1px solid #ddd;
   border-top-color: #1A64A6;
   z-index: 102;
 }
+
+.menuOn {
+  margin-left: 0;
+}
+
+.menu-bar-content {
+  height: calc(100vh - 91px);
+  overflow: hidden;
+}
+
 
 .menu-bar .menu-logo {
   margin-bottom: 30px;
@@ -262,12 +313,23 @@ h5 {
   margin-top: 10px;
 }
 
-.menu-bar a{
-  text-decoration: none;
+.menu-bar .list-group {
+  height: calc(100vh - 350px); 
+  overflow: auto;
+} 
+
+.menu-bar .list-group::-webkit-scrollbar {
+  width: 6px;
+  border-radius: 7px;
+  background-color: white;
 }
 
-.menuOn {
-  margin-left: 0;
+
+
+.menu-bar .list-group::-webkit-scrollbar-thumb  {
+  border-radius: 5px;
+  border: 1px solid white;
+  background-color: #0057A6;
 }
 
 .menu-bar .list-group-item {
@@ -277,6 +339,10 @@ h5 {
   font-family: Georgia;
   color: #DCEFFF !important;
   background-color: inherit;
+}
+
+.menu-bar a{
+  text-decoration: none;
 }
 
 .menu-bar .fa {
@@ -294,7 +360,8 @@ h5 {
   display: flex;
   justify-content: space-between;
   width: 170px;
-  margin: 120px auto 10px;
+  height: 50px;
+  margin: 30px auto 20px;
 }
 
 .menu-bar .social .fa {
@@ -325,18 +392,15 @@ h5 {
   margin-top: -700px;
   margin-left: -13px;
   transition: 500ms;
-  z-index: 105;
   border: 1px solid transparent;
   border-radius: 5px;
 }
 
 .product:hover .controls {
   margin-top: -223px;
-  background-color: #1240AB;
   background-color: rgba(18, 64, 171, 0.8);
   transition: 300ms;
 }
-
 
 .product .controls .fa {
   color: whitesmoke;
@@ -400,14 +464,15 @@ h5 {
 
 .cart-bar {
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
 
 .purchase-bar {
+  width: 65%;
   flex: 3 0 450px;
   margin: 20px 10px 0;
   height: 100%;
-  background-color: whitesmoke;
   border: 2px solid #DDDDDD;
   border-radius: 5px;
 }
@@ -435,20 +500,21 @@ h5 {
   height: 120px;
 }
 
-.amount-bar {
-  flex: 1 0 200px;
+.delivery-amount-bar {
   display: flex;
   flex-direction: column;
-  height: 120px;
+  height: 200px;
   margin-top: 20px;
   padding: 13px;
   background-color: white;
   border: 3px solid #DDDDDD;
   border-radius: 5px;
+  flex: 1 0 200px;
   margin: 20px 10px 0;
+  font-size: 13px;
 }
 
-.amountContainer {
+.amount-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -460,6 +526,7 @@ h5 {
 }
 
 /* contacts */ 
+
 
 .contacts p {
   margin-bottom: 30px;
@@ -484,11 +551,11 @@ h5 {
 
 .footer {
   display: flex;
-  justify-content: space-between;
-  min-height: 50px;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  height: 50px;
   width: 100%;
-  margin: 30px auto 0;
-  padding: 10px 100px;
+  margin: 30px auto 0px;
   border-top: 1px solid lightgray;
   background-color: lightblue;
 }
@@ -497,6 +564,7 @@ h5 {
   display: flex;
   justify-content: space-between;
   width: 170px;
+  margin: auto 0;
 }
 
 .footer .social .fa-facebook-square {
