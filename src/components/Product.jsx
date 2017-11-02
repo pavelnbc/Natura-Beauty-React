@@ -20,7 +20,6 @@ class Product extends Component {
 
         this.handleDosage = this.handleDosage.bind(this);
         this.handleQuantity = this.handleQuantity.bind(this);
-        this.handlePurchase = this.handlePurchase.bind(this);
         this.getPrice = this.getPrice.bind(this);
   }
 
@@ -58,11 +57,6 @@ class Product extends Component {
             * this.state.saleCoefs[this.state.quantityIndicator];
 
         return (price.toFixed(2))
-    }
-
-
-    handlePurchase() {
-      this.getItem('img', this.medication.title, this.getPrice())
     }
 
     render() {
@@ -124,42 +118,3 @@ class Product extends Component {
 }
 
 export default Product;
-
-
-/* <h4 className="price"><span>$</span>{this.getPrice()}</h4>
- <p className="dosage-selection">
- <div className="arrow arrow-left" onClick={() => {this.handleDosage(true)}}>
- <FontAwesome name="chevron-up" />
- </div>
- <div className="indicator">
- {this.medication.dosage[this.state.dosageIndicator]}
- <div className="mg">mg</div>
- </div>
- <div className="arrow arrow-right" onClick={() => {this.handleDosage(false)}}>
- <FontAwesome name="chevron-down" />
- </div>
- </p>
- <p className="quantity-selection">
- <div className="arrow arrow-left" onClick={() => { this.handleQuantity(true)}}>
- <FontAwesome name="chevron-up" />
- </div>
- <div className="indicator">
- {this.medication.quantity[this.state.quantityIndicator]}
- <div className="pills">pills</div>
- </div>
- <div className="arrow arrow-right" onClick={() => { this.handleQuantity(false)}}>
- <FontAwesome name="chevron-down" />
- </div>
- </p>
- <Button bsStyle="info"
- bsSize="xs"
- className="submit-btn"
- onMouseDown={() => {this.setState({isProductActive: true})}}
- onMouseUp={() => {
- this.getItem(purchaseObj);
- this.setState({isProductActive: false})
- }
- }
- >
- Add to card
- </Button>*/
