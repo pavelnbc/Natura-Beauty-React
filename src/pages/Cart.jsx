@@ -3,17 +3,14 @@ import {ListGroup, Button, Radio } from 'react-bootstrap'
 
 import OrderItem from "../components/OrderItem";
 
-
-// СРОЧНО РАСЧЕШИ КОД !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
 class Cart extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
       delivery: 15,
-      isRadioChecked: true
-    }
+      isRadioChecked: false,
+    };
 
     this.handleDelivery = this.handleDelivery.bind(this);
   }
@@ -21,9 +18,12 @@ class Cart extends Component {
   handleDelivery(event) {
     this.setState({
         delivery: parseFloat(event.target.value),
-        isRadioChecked: !this.state.isRadioChecked
     })
   }
+
+//   componentDidMount() {
+//       this.state.defaultChecked = this.state.isRadioChecked
+// }
 
   render() {
     let { productList, totalAmount } = this.props;
@@ -42,15 +42,19 @@ class Cart extends Component {
             <div className="delivery-container" onChange={this.handleDelivery}>
               <Radio name="delivery"
                      value="15"
-                     checked={this.state.isRadioChecked}
+                     defaultChecked={true}
               >
                 Regular delivery method <b>($15)</b>
               </Radio>
               <Radio name="delivery"
-                     value="35"
-                     checked={!this.state.isRadioChecked}
+                     value="30"
               >
-                Trackable air delivery <b>($35)</b>
+                Trackable courier delivery <b>($35)</b>
+              </Radio>
+              <Radio name="delivery"
+                     value="45"
+              >
+                  Air delivery mail <b>($45)</b>
               </Radio>
             </div>
             <div className="amount-container">

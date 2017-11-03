@@ -24,6 +24,7 @@ import FAQ from './pages/FAQ';
 import Discounts from './pages/Discounts';
 import Policies from './pages/Policies';
 import Cart from './pages/Cart';
+import NotFound from './pages/NotFound';
 
 class App extends Component {
     constructor(props) {
@@ -168,6 +169,7 @@ class App extends Component {
                                   <Route path="/cart" render={() => <Cart productList={this.state.productCard}
                                                                           totalAmount={this.state.totalPrice}/>}
                                   />
+                                  <Route component={NotFound}/>
                               </Switch>
                           </MainContent>
                         </Col>

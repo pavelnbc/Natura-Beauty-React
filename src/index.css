@@ -157,10 +157,10 @@ h5 {
 }
 
 .toolbar .container .header-title {
-  font-family: 'Wrexham Script', Georgia;
+  font-family: Georgia;  /*'Wrexham Script'*/
   color: #ffffff;
   font-weight: bold;
-  font-size: 23px;
+  font-size: 20px;
 }
 
 .navbar-default {
@@ -503,7 +503,7 @@ h5 {
 .delivery-amount-bar {
   display: flex;
   flex-direction: column;
-  height: 200px;
+  height: 250px;
   margin-top: 20px;
   padding: 13px;
   background-color: white;
@@ -606,4 +606,12 @@ h5 {
 
 .fa-angle-up {
   color: #40A5FF;
+}
+
+.not-found {
+  width: 210px;
+  height: 30px;
+  margin: 70px auto;
+  color: grey;
+  text-align: center;
 }
