@@ -35,7 +35,7 @@ function Products({ match, searchedMed, getOrderItem }) {
             </Row>
           </Grid>
         : <div className="empty-list">
-        <p>Nothing was found</p>
+            <p>Nothing was found</p>
           </div>
     )
 }

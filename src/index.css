@@ -314,7 +314,7 @@ h5 {
 }
 
 .menu-bar .list-group {
-  height: calc(100vh - 350px); 
+  height: calc(100vh - 355px);
   overflow: auto;
 } 
 

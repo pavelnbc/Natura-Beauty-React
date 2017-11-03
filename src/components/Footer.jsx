@@ -7,7 +7,7 @@ function Footer() {
   return (
     <footer className="footer">
         <SocialNetworks />
-        <div className="copy-rights">Natural Beauty All Rights Reserved &copy;2017</div>
+        <div className="copy-rights">Natural Beauty All Rights Reserved &copy;{new Date().getFullYear()}</div>
     </footer>
   )
 }
