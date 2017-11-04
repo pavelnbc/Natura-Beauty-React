@@ -132,7 +132,7 @@ class App extends Component {
                 <Grid>
                     <Row className="show-grid">
                         <RedirectToProds searchValue={this.state.searchValue} />
-                        <Col xsHidden sm={3} md={3} lg={3}>
+                        <Col xsHidden sm={4} md={3} lg={3}>
                           <LeftBarContent isMenuOpened={this.state.isMenuOpened}
                                           isContentVisible={this.state.isContentVisible} 
                          >
@@ -147,7 +147,7 @@ class App extends Component {
                             </Switch>
                           </LeftBarContent>
                         </Col>
-                        <Col xs={12} sm={9} md={9} lg={9} >
+                        <Col xs={12} sm={8} md={9} lg={9} >
                           <MainContent isContentVisible={this.state.isContentVisible}
                                        setContWithoutDisappear={this.setContentAppearWithoutDisappear}
                          >

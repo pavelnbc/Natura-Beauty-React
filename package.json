@@ -1,25 +1,26 @@
 {
   "name": "natural-beauty",
-  "description": null,
-  "version": "0.0.67",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "classnames": "2.2.5",
-    "font-awesome": "4.7.0",
-    "glyphicons": "^0.2.0",
-    "react": "15.6.2",
-    "react-addons-css-transition-group": "15.6.2",
-    "react-bootstrap": "0.31.3",
-    "react-dom": "15.6.2",
-    "react-fontawesome": "^1.6.1",
-    "react-router-dom": "4.2.2"
-  },
-  "devDependencies": {
-    "react-scripts": "1.0.0"
+    "@material/button": "^0.7.0",
+    "@material/list": "^0.2.19",
+    "@material/menu": "^0.4.7",
+    "@material/toolbar": "^0.4.10",
+    "material-components-web": "^0.21.1",
+    "react": "^15.6.1",
+    "react-addons-css-transition-group": "^15.6.0",
+    "react-dom": "^15.6.1",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.0.13"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "font-awesome": "^4.7.0"
   }
 }
