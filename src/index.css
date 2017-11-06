@@ -156,7 +156,6 @@ h5 {
   font-family: Georgia;  /*'Wrexham Script'*/
   color: #ffffff;
   font-weight: bold;
-  font-size: 20px;
 }
 
 .navbar-default {
@@ -184,15 +183,20 @@ h5 {
 }
 
 .shotNav .dropdown-menu {
-  background-color: antiquewhite;
+  padding: 0;
+}
+
+.shotNav .dropdown-menu li{
+  background-color: cyan;
+}
+
+.shotNav .dropdown-menu li:hover a{
+  background-color: royalblue;
+  color: whitesmoke;
 }
 
 .shotNav .navItem {
   position: relative;
-}
-
-.shotNav .navItem a:hover {
-  background-color: lightcyan;
 }
 
 .shotNav .navItem a {
@@ -203,22 +207,24 @@ h5 {
   display: none;
 }
 
-.shotNav li .shotNav-categories a span{
-   background-color: cyan;
-   border-width: 0;
-   border-radius: 3px !important;
-}
-
-.shotNav li .shotNav-categories a span:hover{
-   background-color: deepskyblue;
-}
-
 .shotNav .navItem:hover .shotNav-categories{
+  display: block;
   position: absolute;
   left: -180px;
   top: 0px;
-  display: block;
   z-index: 100;
+}
+
+.shotNav li .shotNav-categories a > span{
+  background-color: cyan;
+  color: #337ab7;
+  border-width: 0;
+  border-radius: 0;
+}
+
+.shotNav li .shotNav-categories a > span:hover{  /*доработай здесь!!!*/
+  background-color: royalblue;
+  color: whitesmoke;
 }
 
 .shotNav .fa {
@@ -236,7 +242,6 @@ h5 {
 }
 
 .shotNav .shot-total a{
-  background-color: antiquewhite !important;
   cursor: default !important;
 }
 
@@ -380,8 +385,7 @@ h5 {
   text-align: center;
   background-color: #fff;
   border: 1px solid #e2eefb;
-  margin-top: 20px;
-  margin-bottom: 0px;
+  margin: 20px auto 0px;
   overflow: hidden;
   z-index: 100;
 }
@@ -458,9 +462,17 @@ h5 {
 /*Cart bar*/
 
 .cart-icon img{
+  position: relative;
   margin-top: -5px;
   width: 30px;
   height: 23px;
+}
+
+.product-amount {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  font-family: Arial !important;
 }
 
 .cart-bar {

@@ -34,7 +34,7 @@ class App extends Component {
             isMenuOpened: false,
             isContentVisible: false,
             searchValue: "",
-            productCard: [],
+            productCart: [],
             totalPrice: 0
         };
 
@@ -105,7 +105,7 @@ class App extends Component {
 
     handleCard(orderItem) {             // Отвечает за появление товаров в корзине
       this.setState({
-        productCard: this.state.productCard.concat(orderItem),
+        productCart: this.state.productCart.concat(orderItem),
         totalPrice: this.state.totalPrice + parseFloat(orderItem.price)
       })
     }
@@ -124,6 +124,7 @@ class App extends Component {
                                     toEmptySearch={this.clearSearch}
                                     totalAmount={this.state.totalPrice}
                                     setContWithoutDisappear={this.setContentAppearWithoutDisappear}
+                                    productAmount={this.state.productCart.length}
                                     {...props}
                           />
                   )
@@ -166,7 +167,7 @@ class App extends Component {
                                   <Route path="/reordering" component={OrderReplacement} />
                                   <Route path="/FAQ" component={FAQ} />
                                   <Route path="/discounts" component={Discounts} />
-                                  <Route path="/cart" render={() => <Cart productList={this.state.productCard}
+                                  <Route path="/cart" render={() => <Cart productList={this.state.productCart}
                                                                           totalAmount={this.state.totalPrice}/>}
                                   />
                                   <Route component={NotFound}/>

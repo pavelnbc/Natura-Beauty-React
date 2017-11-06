@@ -8,7 +8,7 @@ import SearchPlugin from './SearchPlugin';
 
 import categories from '../data/categories.json'
 
-function Toolbar({ match, onMenu, getSearchValue, totalAmount, setContWithoutDisappear, toEmptySearch }) {
+function Toolbar({ match, onMenu, getSearchValue, totalAmount, setContWithoutDisappear, toEmptySearch, productAmount }) {
     totalAmount = totalAmount.toFixed(2);
 
     let toolbarClassName = classNames({
@@ -65,6 +65,7 @@ function Toolbar({ match, onMenu, getSearchValue, totalAmount, setContWithoutDis
                             </li>
                             <li className="navItem cart-icon">
                                 <NavLink activeClassName="active-link" to="/cart">
+                                    <span className="product-amount">{productAmount ? productAmount : null}</span>
                                     <img src="/img/cart.png" />
                                 </NavLink>
                             </li>
