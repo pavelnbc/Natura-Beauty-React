@@ -8,7 +8,9 @@ function Content({ children }) {
     });
 
     return (
-        <Route render={() => {children}} />
+        <main>
+            {children}
+        </main>
     )
 }
 

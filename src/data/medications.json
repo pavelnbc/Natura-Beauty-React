@@ -1,0 +1,109 @@
+[
+  {
+    "slug": "generic-viagra",
+    "title": "Generic Viagra",
+    "ingredient": "Sildenafil Citrate"
+  },
+  {
+    "slug": "generic-cialis",
+    "title": "Generic Cialis",
+    "ingredient": "Tadalafil"
+  },
+  {
+    "slug": "kamagra-brand",
+    "title": "Kamagra®",
+    "ingredient": "Sildenafil Citrate"
+  },
+  {
+    "slug": "generic-levitra",
+    "title": "Generic Levitra",
+    "ingredient": "Vardenafil"
+  },
+  {
+    "slug": "generic-lasix",
+    "title": "Generic Lasix",
+    "ingredient": "Furosemide"
+  },
+  {
+    "slug": "generic-propecia",
+    "title": "Generic Propecia",
+    "ingredient": "Finasteride"
+  },
+  {
+    "slug": "generic-priligy",
+    "title": "Generic Priligy",
+    "ingredient": "Dapoxetine"
+  },
+  {
+    "slug": "albuterol",
+    "title": "Albuterol",
+    "ingredient": "Salbutamol"
+  },
+  {
+    "slug": "bambec",
+    "title": "Bambec",
+    "ingredient": "Bambuterol"
+  },
+  {
+    "slug": "deltasone",
+    "title": "Deltasone",
+    "ingredient": "Prednisone"
+  },
+  {
+    "slug": "serevent",
+    "title": "Serevent",
+    "ingredient": "Salmeterol"
+  },
+  {
+    "slug": "Celexa",
+    "title": "Celexa",
+    "ingredient": "Citalopram"
+  },
+  {
+    "slug": "effexor",
+    "title": "Effexor",
+    "ingredient": "Venlafaxine"
+  },
+  {
+    "slug": "lexapro",
+    "title": "Lexapro",
+    "ingredient": "Escitalopram"
+  },
+  {
+    "slug": "thorazine",
+    "title": "Thorazine",
+    "ingredient": "Chlorpromazine"
+  },
+  {
+    "slug": "Paxil",
+    "title": "Paxil",
+    "ingredient": "Paroxetine"
+  },
+  {
+    "slug": "lipitor",
+    "title": "Lipitor",
+    "ingredient": "Atorvastatin"
+  },
+  {
+    "slug": "mevacor",
+    "title": "Mevacor",
+    "ingredient": "Lovastatin"
+  },
+  {
+    "slug": "zetia",
+    "title": "Zetia",
+    "ingredient": "Ezetimibe"
+  },
+  {
+    "slug": "zocor",
+    "title": "Zocor",
+    "ingredient": "Simvastatin"
+  },
+  {
+    "slug": "tricor",
+    "title": "Tricor",
+    "ingredient": "Fenofibrate"
+  }
+]
+
+

@@ -6,7 +6,7 @@ import Content from './components/Content';
 import ContentShadow from './components/ContentShadow';
 import Toolbar from './components/Toolbar';
 import Menu from './components/Menu';
-import MainContent from './components/MainContent';
+import MainContent from './pages/MainContent';
 import LeftBarContent from './pages/LeftBarContent';
 import ProdCategories from './components/ProdCategories';
 import RedirectToProds from './components/RedirectToProds';
@@ -16,6 +16,7 @@ import Footer from './components/Footer';
 import Anchor from './components/Anchor';
 import Home from './pages/Home';
 import Products from './pages/Products';
+import Medication from './pages/Medication';
 import About from './pages/About';
 import Contacts from './pages/Contacts';
 import NewOrder from './pages/NewOrder';
@@ -149,17 +150,17 @@ class App extends Component {
                           </LeftBarContent>
                         </Col>
                         <Col xs={12} sm={8} md={9} lg={9} >
-                          <MainContent isContentVisible={this.state.isContentVisible}
-                                       setContWithoutDisappear={this.setContentAppearWithoutDisappear}
-                         >
+                          <MainContent isContentVisible={this.state.isContentVisible}>
                               <Switch>
                                   <Route exact path="/" component={Home}/>
                                   <Route exact path="/products/:category?" render={
                                       (props) => <Products searchedMed={this.state.searchValue}
                                                            getOrderItem={this.handleCard}
+                                                           setContWithoutDisappear={this.setContentAppearWithoutDisappear}
                                                            {...props}/>
                                   }
                                   />
+                                  <Route path="/products/:category/:medication" component={Medication}/>
                                   <Route path="/about" component={About}/>
                                   <Route path="/contact" component={Contacts}/>
                                   <Route path="/policies" component={Policies}/>

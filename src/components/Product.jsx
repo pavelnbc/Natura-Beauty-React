@@ -61,6 +61,7 @@ class Product extends Component {
 
     render() {
         this.medication = this.props.medication;
+        this.appearance = this.props.handleAppearance;
 
         let productClassName = classNames({
             "product": true,
@@ -75,44 +76,49 @@ class Product extends Component {
         };
 
         return (
-                <Thumbnail src={`/img/pills.png`} className={productClassName}>
-                    <div className="controls">
-                        <h4 className="price"><span>$</span>{this.getPrice()}</h4>
-                        <p className="dosage-selection">
-                            <div className="arrow arrow-left" onClick={() => {this.handleDosage(true)}}>
-                                <FontAwesome name="chevron-up" size="2x" />
-                            </div>
-                            <div className="indicator">
-                                {this.medication.dosage[this.state.dosageIndicator]}
-                                <div className="mg">mg</div>
-                            </div>
-                            <div className="arrow arrow-right" onClick={() => {this.handleDosage(false)}}>
-                                <FontAwesome name="chevron-down" size="2x" />
-                            </div>
-                        </p>
-                        <p className="quantity-selection">
-                            <div className="arrow arrow-left" onClick={() => { this.handleQuantity(true)}}>
-                                <FontAwesome name="chevron-up" size="2x" />
-                            </div>
-                            <div className="indicator">
-                                {this.medication.quantity[this.state.quantityIndicator]}
-                                <div className="pills">pills</div>
-                            </div>
-                            <div className="arrow arrow-right" onClick={() => { this.handleQuantity(false)}}>
-                                <FontAwesome name="chevron-down" size="2x" />
-                            </div>
-                        </p>
-                        <Button bsStyle="info"
-                                bsSize="sm"
-                                className="submit-btn"
-                                onClick={() => {this.getItem(purchaseObj)}}
-                        >
-                            Add to card
-                        </Button>
-                    </div>
-                    <h4>{this.medication.title}</h4>
-                    <p>{this.medication.ingredient}</p>
-                </Thumbnail>
+            <Thumbnail src={`/img/pills.png`} className={productClassName}>
+                <div className="controls" onClick={this.appearance}>
+                    <h4 className="price"><span>$</span>{this.getPrice()}</h4>
+                    <p className="dosage-selection">
+                        <div className="arrow arrow-left" onClick={() => {this.handleDosage(true)}}>
+                            <FontAwesome name="chevron-up" size="2x" />
+                        </div>
+                        <div className="indicator">
+                            {this.medication.dosage[this.state.dosageIndicator]}
+                            <div className="mg">mg</div>
+                        </div>
+                        <div className="arrow arrow-right" onClick={() => {this.handleDosage(false)}}>
+                            <FontAwesome name="chevron-down" size="2x" />
+                        </div>
+                    </p>
+                    <p className="quantity-selection">
+                        <div className="arrow arrow-left" onClick={() => { this.handleQuantity(true)}}>
+                            <FontAwesome name="chevron-up" size="2x" />
+                        </div>
+                        <div className="indicator">
+                            {this.medication.quantity[this.state.quantityIndicator]}
+                            <div className="pills">pills</div>
+                        </div>
+                        <div className="arrow arrow-right" onClick={() => { this.handleQuantity(false)}}>
+                            <FontAwesome name="chevron-down" size="2x" />
+                        </div>
+                    </p>
+                    <Button bsStyle="info"
+                            bsSize="sm"
+                            className="submit-btn"
+                            onClick={() => {this.getItem(purchaseObj)}}
+                    >
+                        Add to card
+                    </Button>
+                </div>
+                <NavLink to={`/products/${this.medication.category}/${this.medication.slug}`}
+                         className="info-btn"
+                >
+                    <img src="img/Infobox.png"/>
+                </NavLink>
+                <h4>{this.medication.title}</h4>
+                <p>{this.medication.ingredient}</p>
+            </Thumbnail>
         )
     }
 }

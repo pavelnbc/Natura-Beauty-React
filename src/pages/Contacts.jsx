@@ -14,7 +14,7 @@ function Contacts() {
 
           <div className="contacts-field">
             <div>Toll free number </div>
-            <div>1-476-30-50</div>
+            <div>1-800-476-30-50</div>
           </div>
 
           <div className="contacts-field">

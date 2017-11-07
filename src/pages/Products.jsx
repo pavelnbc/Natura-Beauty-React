@@ -5,12 +5,12 @@ import Product from '../components/Product'
 
 import products from '../data/products.json';
 
-function Products({ match, searchedMed, getOrderItem }) {
-    let medications = products.filter((medication) => {
-        return match.params.category
-            ? (medication.category === match.params.category)
-            : products;
-    });
+function Products({ match, searchedMed, getOrderItem, setContWithoutDisappear }) {
+    let medications = match.params.category
+                      ? products.filter((medication) => {
+                            return medication.category === match.params.category
+                        })
+                      : products;
 
     let searchMeds = medications.filter((med) => {
          if(~med.slug.indexOf(searchedMed.toLocaleLowerCase())) {
@@ -28,6 +28,7 @@ function Products({ match, searchedMed, getOrderItem }) {
                             <Product key={index}
                                      medication={product}
                                      getItem={getOrderItem}
+                                     handleAppearance={setContWithoutDisappear}
                             />
                         </Col>
                     )

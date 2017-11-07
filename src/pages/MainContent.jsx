@@ -2,7 +2,7 @@ import React from 'react';
 
 import classNames from 'classnames';
 
-function MainContent({ children, isContentVisible, setContWithoutDisappear }) {
+function MainContent({ children, isContentVisible }) {
 
   const contentClass = classNames({
     "content-is-hidden": true,
@@ -10,7 +10,7 @@ function MainContent({ children, isContentVisible, setContWithoutDisappear }) {
   });
 
   return (
-    <div className={contentClass} onClick={setContWithoutDisappear}>
+    <div className={contentClass} >
       {children}
     </div>
   )
