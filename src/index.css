@@ -491,6 +491,12 @@ h5 {
 }
 
 /*Cart bar*/
+.cart-bar {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  position: relative;
+}
 
 .cart-icon img{
   position: relative;
@@ -503,14 +509,11 @@ h5 {
   position: absolute;
   bottom: 8px;
   left: 8px;
-  font-family: Arial !important;
+  font-family: Arial;
+  font-size: 9px;
 }
 
-.cart-bar {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
+
 
 .purchase-bar {
   width: 65%;
@@ -567,6 +570,19 @@ h5 {
 
 .checkout-btn {
   margin: 25px auto 0px;
+}
+
+.cart-close-btn {
+  position: absolute;
+  right: 8px;
+  top: 3px;
+  font-size: 15px;
+  color: lightgrey;
+  cursor: pointer;
+}
+
+.cart-close-btn:hover {
+  color: grey;
 }
 
 /* contacts */ 

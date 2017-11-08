@@ -15,7 +15,8 @@ class Product extends Component {
             dosageIndicator: 0,
             quantityIndicator: 0,
             priceIndicator: 0,
-            saleCoefs: [1, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4]
+            saleCoefs: [1, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4],
+            orderID: 0
         };
 
         this.handleDosage = this.handleDosage.bind(this);
@@ -63,20 +64,17 @@ class Product extends Component {
         this.medication = this.props.medication;
         this.appearance = this.props.handleAppearance;
 
-        let productClassName = classNames({
-            "product": true,
-        });
-
         let purchaseObj = {
             img: `/img/${this.medication.slug}.jpg`,
             title: this.medication.title,
             price: this.getPrice(),
+            id: this.state.orderID++,
             dosage: this.medication.dosage[this.state.dosageIndicator],
             quantity: this.medication.quantity[this.state.quantityIndicator]
         };
 
         return (
-            <Thumbnail src={`/img/pills.png`} className={productClassName}>
+            <Thumbnail src={`/img/pills.png`} className="product">
                 <div className="controls" onClick={this.appearance}>
                     <h4 className="price"><span>$</span>{this.getPrice()}</h4>
                     <p className="dosage-selection">

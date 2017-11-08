@@ -46,6 +46,7 @@ class App extends Component {
         this.handleSearch = this.handleSearch.bind(this);
         this.clearSearch = this.clearSearch.bind(this);
         this.handleCard = this.handleCard.bind(this);
+        this.deleteCartItem = this.deleteCartItem.bind(this);
         this.setContentAppearance = this.setContentAppearance.bind(this);
         this.setContentAppearWithoutDisappear = this.setContentAppearWithoutDisappear.bind(this);
     };
@@ -111,6 +112,16 @@ class App extends Component {
       })
     }
 
+    deleteCartItem(id) {
+        let productCart = this.state.productCart.filter((item) => {
+            return item.id !== id
+        });
+
+        this.setState({
+           productCart: productCart
+        })
+    }
+
     render() {
         return (
           <div className="app">
@@ -169,7 +180,10 @@ class App extends Component {
                                   <Route path="/FAQ" component={FAQ} />
                                   <Route path="/discounts" component={Discounts} />
                                   <Route path="/cart" render={() => <Cart productList={this.state.productCart}
-                                                                          totalAmount={this.state.totalPrice}/>}
+                                                                          totalAmount={this.state.totalPrice}
+                                                                          deleteOrderItem={this.deleteCartItem}
+                                                                          setContWithoutDisappear={this.setContentAppearWithoutDisappear}/>}
+
                                   />
                                   <Route component={NotFound}/>
                               </Switch>

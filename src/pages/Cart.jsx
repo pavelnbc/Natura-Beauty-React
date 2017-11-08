@@ -1,7 +1,7 @@
 import React, { Component }from "react";
 import {ListGroup, Button, Radio } from 'react-bootstrap'
 
-import OrderItem from "../components/OrderItem";
+import CartItem from "../components/CartItem";
 
 class Cart extends Component {
   constructor(props) {
@@ -11,6 +11,7 @@ class Cart extends Component {
       delivery: 15,
       isRadioChecked: false,
     };
+
 
     this.handleDelivery = this.handleDelivery.bind(this);
   }
@@ -26,7 +27,7 @@ class Cart extends Component {
 // }
 
   render() {
-    let { productList, totalAmount } = this.props;
+    let { productList, totalAmount, deleteOrderItem, setContWithoutDisappear } = this.props;
 
     totalAmount = (totalAmount + parseFloat(this.state.delivery)).toFixed(2);
 
@@ -35,7 +36,11 @@ class Cart extends Component {
         ? <div className="cart-bar">
           <ListGroup className="purchase-bar">
             {productList.map((prod, index) => {
-              return <OrderItem key={index} medication={prod} />
+              return <CartItem key={index}
+                               medication={prod}
+                               deleteItem={deleteOrderItem}
+                               setContWithoutDisappear={setContWithoutDisappear}
+                     />
             })}
           </ListGroup>
           <aside className="delivery-amount-bar">
@@ -84,7 +89,7 @@ class Cart extends Component {
 //         ? <div className="cart-bar">
 //             <ListGroup className="purchase-bar">
 //                 {productList.map((prod, index) => {
-//                     return <OrderItem key={index} medication={prod} />
+//                     return <CartItem key={index} medication={prod} />
 //                 })}
 //             </ListGroup>
 //             <aside className="delivery-amount-bar">

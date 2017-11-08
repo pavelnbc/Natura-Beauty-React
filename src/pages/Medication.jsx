@@ -4,11 +4,9 @@ import medications from '../data/medications.json'
 
 function Medication({ match }) {
     let medication = medications.find((med) => {
-        return med.slug == match.params.medication
+        return med.slug === match.params.medication
     });
 
-    console.log(medication.slug);
-    console.log(match.params.medication);
     return (
         <main className="product-page">
             <img src="/img/pills.png" alt="medication"/>
