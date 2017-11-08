@@ -12,6 +12,7 @@ import ProdCategories from './components/ProdCategories';
 import RedirectToProds from './components/RedirectToProds';
 import LeftSideBanner from './components/LeftSideBanner';
 import RefundReturnPolicy from './components/RefundReturnPolicy';
+import Commercial from './components/Commercial';
 import Footer from './components/Footer';
 import Anchor from './components/Anchor';
 import Home from './pages/Home';
@@ -108,7 +109,7 @@ class App extends Component {
     handleCard(orderItem) {             // Отвечает за появление товаров в корзине
       this.setState({
         productCart: this.state.productCart.concat(orderItem),
-        totalPrice: this.state.totalPrice + parseFloat(orderItem.price)
+        totalPrice: this.state.totalPrice + orderItem.price
       })
     }
 
@@ -158,6 +159,7 @@ class App extends Component {
                                     setContWithoutDisappear={this.setContentAppearWithoutDisappear}/> }
                               />
                             </Switch>
+                            <Commercial />
                           </LeftBarContent>
                         </Col>
                         <Col xs={12} sm={8} md={9} lg={9} >

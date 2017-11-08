@@ -1,9 +1,9 @@
 import React from 'react';
 
-import medications from '../data/medications.json'
+import products from '../data/products.json'
 
 function Medication({ match }) {
-    let medication = medications.find((med) => {
+    let medication = products.find((med) => {
         return med.slug === match.params.medication
     });
 

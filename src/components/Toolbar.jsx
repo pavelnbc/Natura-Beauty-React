@@ -60,7 +60,7 @@ function Toolbar({ match, onMenu, getSearchValue, totalAmount, setContWithoutDis
                                     Order status
                                 </a>
                             </li>
-                            <li className="navItem total">
+                            <li className="navItem total" onClick={setContWithoutDisappear}>
                                 <a>{totalAmount}</a>
                             </li>
                             <li className="navItem cart-icon">
