@@ -126,11 +126,9 @@ class App extends Component {
     render() {
         return (
           <div className="app">
-            <ContentShadow isMenuOpened={this.state.isMenuOpened} 
-                           offMenu={this.setMenuClosed}/>
             <Content>
-                <Menu isMenuOpened={this.state.isMenuOpened}
-                      offMenu={this.setMenuClosed} />
+                <Menu isMenuOpened={this.state.isMenuOpened} offMenu={this.setMenuClosed} />
+                <ContentShadow isMenuOpened={this.state.isMenuOpened} offMenu={this.setMenuClosed} />
                 <Route path="/:pages?" render={(props) => {
                   return (<Toolbar  onMenu={this.handleMenu}
                                     getSearchValue={this.handleSearch}

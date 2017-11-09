@@ -51,8 +51,8 @@ body {
 
 }
 
-.content-shadow {
-  display: block;
+.content-shadow {     /*Когда будешь расширять блок на всю страницу другим способом (если надо будет), не забудь что нужно*/
+  display: block;     /*выставить z-index выше чем у других елементов страницы, чтобы блок шел выше всех остальных блоков*/
   width: 100%;
   height: 100%;
   position: fixed;
@@ -415,6 +415,14 @@ h5 {
   margin-bottom: 40px;
 }
 
+.product-page .nav-btns{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 40%;
+  margin-top: 30px;
+}
+
 .controls {
   width: 100%;
   height: 100%;
@@ -524,8 +532,6 @@ h5 {
   font-family: Arial;
   font-size: 9px;
 }
-
-
 
 .purchase-bar {
   width: 65%;

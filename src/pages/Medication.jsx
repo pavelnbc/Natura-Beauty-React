@@ -1,4 +1,7 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+
+import { Button } from 'react-bootstrap';
 
 import products from '../data/products.json'
 
@@ -10,7 +13,6 @@ function Medication({ match }) {
     return (
         <main className="product-page">
             <img src="/img/pills.png" alt="medication"/>
-
             <h2>{medication.title}</h2>
             <hr/>
             <h4>{medication.ingredient}</h4>
@@ -32,6 +34,18 @@ function Medication({ match }) {
                     Thing do taste on we manor. Him had wound use found hoped. Of distrusts immediate enjoyment curiosity do.
                     Marianne numerous saw thoughts the humoured.
                 </p>
+            </div>
+            <div className="nav-btns">
+                <NavLink to="./">
+                    <Button bsStyle="info" bsSyze="md">
+                        Products in this category
+                    </Button>
+                </NavLink>
+                <NavLink to="/products">
+                    <Button bsStyle="success" bsSyze="md">
+                        Back to all products
+                    </Button>
+                </NavLink>
             </div>
         </main>
     )
