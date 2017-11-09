@@ -112,7 +112,7 @@ class Product extends Component {
                 <NavLink to={`/products/${this.medication.category}/${this.medication.slug}`}
                          className="info-btn"
                 >
-                    <img src="img/triangle.png"/>
+                    <img src="/img/triangle.png"/>
                 </NavLink>
                 <h4>{this.medication.title}</h4>
                 <p>{this.medication.ingredient}</p>

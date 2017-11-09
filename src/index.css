@@ -489,7 +489,7 @@ h5 {
   right: -50px;
   bottom: 0px;
   transition: bottom 500ms;
-  z-index: 102;
+  z-index: 103;
 }
 
 .product:hover .info-btn {

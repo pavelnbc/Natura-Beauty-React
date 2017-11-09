@@ -36,7 +36,7 @@ function Medication({ match }) {
                 </p>
             </div>
             <div className="nav-btns">
-                <NavLink to="./">
+                <NavLink to={`/products/${medication.category}`}>
                     <Button bsStyle="info" bsSyze="md">
                         Products in this category
                     </Button>
