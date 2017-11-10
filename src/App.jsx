@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Route, Switch} from 'react-router-dom';
 import {Grid, Row, Col} from 'react-bootstrap';
+import axios from 'axios';
 
 import Content from './components/Content';
 import ContentShadow from './components/ContentShadow';
@@ -28,6 +29,7 @@ import Policies from './pages/Policies';
 import Cart from './pages/Cart';
 import NotFound from './pages/NotFound';
 
+
 class App extends Component {
     constructor(props) {
         super(props);
@@ -37,7 +39,8 @@ class App extends Component {
             isContentVisible: false,
             searchValue: "",
             productCart: [],
-            totalPrice: 0
+            totalPrice: 0,
+            products: []
         };
 
         this.body = document.body;
@@ -64,9 +67,14 @@ class App extends Component {
     }
 
     componentDidMount() {
-      this.setContentAppearance();
+      this.setContentAppearance();      // Запуск плавного появления элементов компонента при загрузке и обновлении еомпонента
+
+        axios.get('http://localhost:3000/api/products')
+         .then(response => response.data)
+         .then(products => this.setState({products: products}))
+         .catch(error => console.error(error))
     }
-                                      // Запуск плавного появления элементов компонента при загрузке и обновлении еомпонента
+
     componentDidUpdate() {
       this.setContentAppearance();
     }
@@ -168,6 +176,7 @@ class App extends Component {
                                       (props) => <Products searchedMed={this.state.searchValue}
                                                            getOrderItem={this.handleCard}
                                                            setContWithoutDisappear={this.setContentAppearWithoutDisappear}
+                                                           products={this.state.products}
                                                            {...props}/>
                                   }
                                   />
