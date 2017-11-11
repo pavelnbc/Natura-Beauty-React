@@ -6,12 +6,15 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const products = require('./api/products');
+const categories = require('./api/categories');
+const mainPageSlides = require('./api/mainPageSlides');
+const menuLinks = require('./api/menuLinks');
+const prodCart = [];
+var totalAmount = 0;
 
 const app = express();
 
-let nextId = 4;
-
-app.set('port', (process.env.PORT || 3000));
+app.set('port', (process.env.PORT || 4000));
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
@@ -24,6 +27,33 @@ app.use((req, res, next) => {
 
 app.get('/api/products', (req, res) => {
     res.send(products);
+});
+
+app.get('/api/categories', (req, res) => {
+    res.send(categories)
+});
+
+app.get('/api/mainPageSlides', (req, res) => {
+    res.send(mainPageSlides)
+});
+
+app.get('/api/menuLinks', (req, res) => {
+    res.send(menuLinks)
+});
+
+app.get('/api/productCart', (req, res) => {
+    const orderDetails = {
+        totalAmount: totalAmount,
+        prodCart: prodCart
+    };
+    res.send(orderDetails)
+});
+
+app.post('/api/productCart', (req, res) => {
+    let good = req.body.orderItem;
+
+    prodCart.push(good);
+    totalAmount += good.price;
 });
 
 /*app.post('/api/todos', (req, res) => {

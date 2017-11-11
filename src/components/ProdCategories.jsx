@@ -3,9 +3,9 @@ import { NavLink } from 'react-router-dom';
 import {ListGroup, ListGroupItem} from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome';
 
-import categories from "../data/categories.json";
+// import categories from "../../api/categories.json";
 
-function ProdCategories({ toEmptySearch }) {
+function ProdCategories({ categories, toEmptySearch }) {
 
     return (
       <div className="prod-categories">

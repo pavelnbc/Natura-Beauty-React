@@ -29,6 +29,8 @@ import Policies from './pages/Policies';
 import Cart from './pages/Cart';
 import NotFound from './pages/NotFound';
 
+// import products from "./data/products"
+// import categories from "./data/categories.json";
 
 class App extends Component {
     constructor(props) {
@@ -40,7 +42,10 @@ class App extends Component {
             searchValue: "",
             productCart: [],
             totalPrice: 0,
-            products: []
+            products: [],
+            categories: [],
+            mainPageSlides: [],
+
         };
 
         this.body = document.body;
@@ -49,7 +54,7 @@ class App extends Component {
         this.setMenuClosed = this.setMenuClosed.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
         this.clearSearch = this.clearSearch.bind(this);
-        this.handleCard = this.handleCard.bind(this);
+        this.handleCart = this.handleCart.bind(this);
         this.deleteCartItem = this.deleteCartItem.bind(this);
         this.setContentAppearance = this.setContentAppearance.bind(this);
         this.setContentAppearWithoutDisappear = this.setContentAppearWithoutDisappear.bind(this);
@@ -67,12 +72,42 @@ class App extends Component {
     }
 
     componentDidMount() {
-      this.setContentAppearance();      // Запуск плавного появления элементов компонента при загрузке и обновлении еомпонента
+        axios.get('/api/products')
+            .then(response => response.data)
+            .then(products => this.setState({products}))
+            .catch(this.handleError);
 
-        axios.get('http://localhost:3000/api/products')
-         .then(response => response.data)
-         .then(products => this.setState({products: products}))
-         .catch(error => console.error(error))
+        axios.get('/api/categories')
+            .then(response => response.data)
+            .then(categories => this.setState({categories}))
+            .catch(this.handleError);
+
+        axios.get('/api/mainPageSlides')
+            .then(response => response.data)
+            .then(mainPageSlides => this.setState({mainPageSlides}))
+            .catch(this.handleError);
+
+        axios.get('api/menuLinks')
+            .then(response => response.data)
+            .then(menuLinks => this.setState({menuLinks}))
+            .catch(this.handleError);
+
+        axios.get('api/productCart')
+            .then(response => response.data)
+            .then(productCart => this.setState({productCart}))
+            .catch(this.handleError);
+
+        axios.get('/api/productCart')
+            .then(response => response.data)
+            .then(orderDetails => {
+                this.setState({
+                    productCart: orderDetails.prodCart,
+                    totalPrice: orderDetails.totalAmount
+                })
+            })
+            .catch(this.handleError);
+        
+        this.setContentAppearance();      // Запуск плавного появления элементов компонента при загрузке и обновлении еомпонента
     }
 
     componentDidUpdate() {
@@ -114,10 +149,12 @@ class App extends Component {
       })
     }
 
-    handleCard(orderItem) {             // Отвечает за появление товаров в корзине
+    handleCart(orderItem) {             // Отвечает за появление товаров в корзине
+      axios.post('/api/productCart', { orderItem });
+
       this.setState({
-        productCart: this.state.productCart.concat(orderItem),
-        totalPrice: this.state.totalPrice + orderItem.price
+          productCart: this.state.productCart.concat(orderItem),
+          totalPrice: this.state.totalPrice + orderItem.price
       })
     }
 
@@ -129,6 +166,10 @@ class App extends Component {
         this.setState({
            productCart: productCart
         })
+    }
+
+    handleError(error) {
+        console.error(error)
     }
 
     render() {
@@ -144,6 +185,7 @@ class App extends Component {
                                     totalAmount={this.state.totalPrice}
                                     setContWithoutDisappear={this.setContentAppearWithoutDisappear}
                                     productAmount={this.state.productCart.length}
+                                    categories={this.state.categories}
                                     {...props}
                           />
                   )
@@ -159,7 +201,7 @@ class App extends Component {
                             <Switch>
                               <Route path="/cart" component={RefundReturnPolicy}/>
                               <Route path="/products" render={() => {
-                                return <ProdCategories toEmptySearch={this.clearSearch}/>
+                                return <ProdCategories categories={this.state.categories} toEmptySearch={this.clearSearch}/>
                               }}/>
                               <Route path="/" render={() => <LeftSideBanner
                                     setContWithoutDisappear={this.setContentAppearWithoutDisappear}/> }
@@ -171,14 +213,14 @@ class App extends Component {
                         <Col xs={12} sm={8} md={9} lg={9} >
                           <MainContent isContentVisible={this.state.isContentVisible}>
                               <Switch>
-                                  <Route exact path="/" component={Home}/>
+                                  <Route exact path="/" render={() => <Home mainPageSlides={this.state.mainPageSlides}/>}/>
                                   <Route exact path="/products/:category?" render={
                                       (props) => <Products searchedMed={this.state.searchValue}
-                                                           getOrderItem={this.handleCard}
-                                                           setContWithoutDisappear={this.setContentAppearWithoutDisappear}
+                                                           getOrderItem={this.handleCart}
                                                            products={this.state.products}
+                                                           setContWithoutDisappear={this.setContentAppearWithoutDisappear}
                                                            {...props}/>
-                                  }
+                                        }
                                   />
                                   <Route path="/products/:category/:medication" component={Medication}/>
                                   <Route path="/about" component={About}/>

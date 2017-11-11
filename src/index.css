@@ -631,7 +631,6 @@ h5 {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  height: 50px;
   width: 100%;
   margin: 30px auto 0px;
   border-top: 1px solid lightgray;
@@ -640,9 +639,9 @@ h5 {
 
 .footer .social {
   display: flex;
-  justify-content: space-between;
-  width: 170px;
-  margin: auto 0;
+  justify-content: space-around;
+  width: 200px;
+  margin: 5px auto;
 }
 
 .footer .social .fa-facebook-square {
@@ -662,8 +661,7 @@ h5 {
 }
 
 .footer .copy-rights {
-  width: 300px;
-  margin: auto 0;
+  margin: auto;
   font-size: 13px;
   color: grey;
  }

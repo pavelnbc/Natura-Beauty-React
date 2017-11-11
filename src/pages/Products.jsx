@@ -3,9 +3,7 @@ import {Grid, Row, Col} from 'react-bootstrap';
 
 import Product from '../components/Product'
 
-// import products from '../data/products.json';
-
-function Products({ match, searchedMed, getOrderItem, setContWithoutDisappear, products }) {
+function Products({ match, searchedMed, getOrderItem, products, setContWithoutDisappear }) {
     let medications = match.params.category
                       ? products.filter((medication) => {
                             return medication.category === match.params.category
