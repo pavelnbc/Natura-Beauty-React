@@ -41,14 +41,27 @@ app.get('/api/externalData', (req, res) => {
 app.post('/api/productCart', (req, res) => {
     let good = req.body.orderItem;
 
+    // console.log(req.params);
+
     productCart.push(good);
     totalPrice += good.price;
 });
 
 app.delete('/api/productCart/:id', (res, req) => {
-    productCart = productCart.filter((product) => {
-        return product.id !== req.params.id
+    console.log(req.req.params.id);
+    const index = productCart.findIndex((product) => {
+        return product.id === req.req.params.id
     });
+
+    console.log(index);
+
+    productCart.splice(index, 1);
+
+    // let newProductCart = productCart.filter((product) => { product.id !== parseFloat(req.req.params.id) });
+    //
+    // console.log(productCart);
+    //
+    // productCart = newProductCart
 });
 
 /*

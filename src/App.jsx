@@ -144,8 +144,6 @@ class App extends Component {
             return item.id !== id
         });
 
-        console.log(this.state.productCart)
-
         this.setState({
            productCart: productCart
         })
