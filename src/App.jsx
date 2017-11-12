@@ -72,41 +72,20 @@ class App extends Component {
     }
 
     componentDidMount() {
-        axios.get('/api/products')
+        axios.get('api/externalData')
             .then(response => response.data)
-            .then(products => this.setState({products}))
-            .catch(this.handleError);
-
-        axios.get('/api/categories')
-            .then(response => response.data)
-            .then(categories => this.setState({categories}))
-            .catch(this.handleError);
-
-        axios.get('/api/mainPageSlides')
-            .then(response => response.data)
-            .then(mainPageSlides => this.setState({mainPageSlides}))
-            .catch(this.handleError);
-
-        axios.get('api/menuLinks')
-            .then(response => response.data)
-            .then(menuLinks => this.setState({menuLinks}))
-            .catch(this.handleError);
-
-        axios.get('api/productCart')
-            .then(response => response.data)
-            .then(productCart => this.setState({productCart}))
-            .catch(this.handleError);
-
-        axios.get('/api/productCart')
-            .then(response => response.data)
-            .then(orderDetails => {
+            .then(externalData => {
                 this.setState({
-                    productCart: orderDetails.prodCart,
-                    totalPrice: orderDetails.totalAmount
+                    products: externalData.products,
+                    categories: externalData.categories,
+                    mainPageSlides: externalData.mainPageSlides,
+                    menuLinks: externalData.menuLinks,
+                    totalPrice: externalData.totalPrice,
+                    productCart: externalData.productCart
                 })
             })
             .catch(this.handleError);
-        
+
         this.setContentAppearance();      // Запуск плавного появления элементов компонента при загрузке и обновлении еомпонента
     }
 
@@ -159,9 +138,13 @@ class App extends Component {
     }
 
     deleteCartItem(id) {
+        axios.delete(`/api/productCart/${id}`);
+
         let productCart = this.state.productCart.filter((item) => {
             return item.id !== id
         });
+
+        console.log(this.state.productCart)
 
         this.setState({
            productCart: productCart

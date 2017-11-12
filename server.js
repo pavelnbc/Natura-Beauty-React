@@ -9,8 +9,8 @@ const products = require('./api/products');
 const categories = require('./api/categories');
 const mainPageSlides = require('./api/mainPageSlides');
 const menuLinks = require('./api/menuLinks');
-const prodCart = [];
-var totalAmount = 0;
+let productCart = [];
+let totalPrice = 0;
 
 const app = express();
 
@@ -25,49 +25,33 @@ app.use((req, res, next) => {
     next();
 });
 
-app.get('/api/products', (req, res) => {
-    res.send(products);
-});
-
-app.get('/api/categories', (req, res) => {
-    res.send(categories)
-});
-
-app.get('/api/mainPageSlides', (req, res) => {
-    res.send(mainPageSlides)
-});
-
-app.get('/api/menuLinks', (req, res) => {
-    res.send(menuLinks)
-});
-
-app.get('/api/productCart', (req, res) => {
-    const orderDetails = {
-        totalAmount: totalAmount,
-        prodCart: prodCart
+app.get('/api/externalData', (req, res) => {
+    var data = {
+        products: products,
+        categories: categories,
+        mainPageSlides: mainPageSlides,
+        menuLinks: menuLinks,
+        totalPrice: totalPrice,
+        productCart: productCart
     };
-    res.send(orderDetails)
+
+    res.send(data);
 });
 
 app.post('/api/productCart', (req, res) => {
     let good = req.body.orderItem;
 
-    prodCart.push(good);
-    totalAmount += good.price;
+    productCart.push(good);
+    totalPrice += good.price;
 });
 
-/*app.post('/api/todos', (req, res) => {
-    const todo = {
-        id: nextId++,
-        title: req.body.title,
-        completed: false
-    };
-
-    todos.push(todo);
-
-    res.send(todo);
+app.delete('/api/productCart/:id', (res, req) => {
+    productCart = productCart.filter((product) => {
+        return product.id !== req.params.id
+    });
 });
 
+/*
 app.put('/api/todos/:id', (req, res) => {
     const todo = todos.find(todo => todo.id == req.params.id);
 
@@ -98,13 +82,6 @@ app.delete('/api/todos/:id', (req, res) => {
     res.sendStatus(204);
 });
 
-app.get('*', (req, res) => {
-    fs.readFile(`${__dirname}/public/index.html`, (error, html) => {
-        if (error) throw error;
-
-        res.setHeader('Content-Type', 'text/html');
-        res.end(html);
-    });
 });*/
 
 app.listen(app.get('port'), () => console.log(`Server is listening: http://localhost:${app.get('port')}`));
