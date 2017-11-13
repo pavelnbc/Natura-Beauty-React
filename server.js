@@ -38,31 +38,81 @@ app.get('/api/externalData', (req, res) => {
     res.send(data);
 });
 
-app.post('/api/productCart', (req, res) => {
+app.post('/api/externalData', (req, res) => {
+    console.log(req.body.orderItem);
+    console.log(req.body);
     let good = req.body.orderItem;
 
-    // console.log(req.params);
 
     productCart.push(good);
     totalPrice += good.price;
 });
 
-app.delete('/api/productCart/:id', (res, req) => {
-    console.log(req.req.params.id);
+app.delete('/api/externalData/:id', (req, res) => {
     const index = productCart.findIndex((product) => {
-        return product.id === req.req.params.id
+        return product.id == req.params.id
     });
 
-    console.log(index);
-
     productCart.splice(index, 1);
-
-    // let newProductCart = productCart.filter((product) => { product.id !== parseFloat(req.req.params.id) });
-    //
-    // console.log(productCart);
-    //
-    // productCart = newProductCart
 });
+
+/*
+    app.get('/api/products', (req, res) => {
+     // var data = {
+     //     products,
+     //     categories,
+     //     mainPageSlides,
+     //     menuLinks,
+     //     totalPrice,
+     //     productCart
+     // };
+
+     res.send(productCart);
+     });
+
+     app.post('/api/products', (req, res) => {
+     let good = req.body;
+     console.log(good);
+     console.log(req.body);
+
+     good.id = productCart.length
+     productCart.push(good);
+     totalPrice += good.price;
+
+     res.send(good)
+     });
+
+     app.delete('/api/products/:id', (req, res) => {
+     const product = productCart.find((product) => {
+     return product.id != req.params.id
+     });
+
+     productCart = productCart.filter((product) => {
+     return product.id != req.params.id
+     });
+
+     res.send(product)
+     });
+
+     app.get('/api/products/:id', (req, res) => {
+     const product = productCart.find((product) => {
+     return product.id != req.params.id
+     });
+
+     res.send(product)
+     });
+
+     app.put('/api/products/:id', (req, res) => {
+     const productIndex = productCart.findIndex((product) => {
+     return product.id != req.params.id
+     });
+     const productId = productCart[productIndex].id
+     productCart[productIndex] = req.body
+     productCart[productIndex].id = productId
+     res.send(product)
+     });
+ */
+
 
 /*
 app.put('/api/todos/:id', (req, res) => {

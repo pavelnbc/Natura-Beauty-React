@@ -61,14 +61,15 @@ class App extends Component {
     };
 
     setContentAppearance() {          // Отвечает за плавное появление элементов компонента
-        this.state.isContentVisible = false;
-
-        this.timerID1 = setTimeout(() => {
+        this.timerID = setTimeout(() => {
             this.setState({
               isContentVisible: true
             });
-            clearTimeout(this.timerID1);
-        }, 50)
+
+            clearTimeout(this.timerID);
+        });
+
+        this.state.isContentVisible = false;
     }
 
     componentDidMount() {
@@ -94,6 +95,7 @@ class App extends Component {
     }
 
     handleMenu() {                    // Обработчик отображения панели меню
+        console.log(this.state.isContentVisible);
         this.setState({
             isMenuOpened: !this.state.isMenuOpened,
             isContentVisible: true
@@ -129,7 +131,7 @@ class App extends Component {
     }
 
     handleCart(orderItem) {             // Отвечает за появление товаров в корзине
-      axios.post('/api/productCart', { orderItem });
+      axios.post('/api/externalData', { orderItem });
 
       this.setState({
           productCart: this.state.productCart.concat(orderItem),
@@ -138,7 +140,7 @@ class App extends Component {
     }
 
     deleteCartItem(id) {
-        axios.delete(`/api/productCart/${id}`);
+        axios.delete(`/api/externalData/${id}`);
 
         let productCart = this.state.productCart.filter((item) => {
             return item.id !== id

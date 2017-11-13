@@ -9,7 +9,6 @@ import SearchPlugin from './SearchPlugin';
 // import categories from '../../api/categories.json'
 
 function Toolbar({ match, onMenu, getSearchValue, totalAmount, setContWithoutDisappear, toEmptySearch, productAmount, categories }) {
-    console.log(totalAmount)
     totalAmount = totalAmount.toFixed(2);
 
     let toolbarClassName = classNames({
