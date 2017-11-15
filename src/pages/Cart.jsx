@@ -1,5 +1,6 @@
 import React, { Component }from "react";
 import {ListGroup, Button, Radio } from 'react-bootstrap'
+import EmptyPage from '../components/EmptyPage';
 
 import CartItem from "../components/CartItem";
 
@@ -34,45 +35,42 @@ class Cart extends Component {
     return (
       productList.length
         ? <div className="cart-bar">
-          <ListGroup className="purchase-bar">
-            {productList.map((prod, index) => {
-              return <CartItem key={index}
-                               medication={prod}
-                               deleteItem={deleteOrderItem}
-                               setContWithoutDisappear={setContWithoutDisappear}
-                     />
-            })}
-          </ListGroup>
-          <aside className="delivery-amount-bar">
-            <div className="delivery-container" onChange={this.handleDelivery}>
-              <Radio name="delivery"
-                     value="15"
-                     defaultChecked={true}
-              >
-                Regular delivery method <b>($15)</b>
-              </Radio>
-              <Radio name="delivery"
-                     value="30"
-              >
-                Trackable courier delivery <b>($35)</b>
-              </Radio>
-              <Radio name="delivery"
-                     value="45"
-              >
-                  Air delivery mail <b>($45)</b>
-              </Radio>
-            </div>
-            <div className="amount-container">
-              <div>Total amount: </div>
-              <div>{ totalAmount }</div>
-            </div>
-            <Button className="checkout-btn" bsStyle="success" bsSize="md">To checkout!</Button>
-          </aside>
-        </div>
-
-        : <div className="empty-card">
-          <p>Your cart is empty</p>
-        </div>
+            <ListGroup className="purchase-bar">
+              {productList.map((prod, index) => {
+                return <CartItem key={index}
+                                 medication={prod}
+                                 deleteItem={deleteOrderItem}
+                                 setContWithoutDisappear={setContWithoutDisappear}
+                       />
+              })}
+            </ListGroup>
+            <aside className="delivery-amount-bar">
+              <div className="delivery-container" onChange={this.handleDelivery}>
+                <Radio name="delivery"
+                       value="15"
+                       defaultChecked={true}
+                >
+                  Regular delivery method <b>($15)</b>
+                </Radio>
+                <Radio name="delivery"
+                       value="30"
+                >
+                  Trackable courier delivery <b>($35)</b>
+                </Radio>
+                <Radio name="delivery"
+                       value="45"
+                >
+                    Air delivery mail <b>($45)</b>
+                </Radio>
+              </div>
+              <div className="amount-container">
+                <div>Total amount: </div>
+                <div>{ totalAmount }</div>
+              </div>
+              <Button className="checkout-btn" bsStyle="success" bsSize="md">To checkout!</Button>
+            </aside>
+          </div>
+        : <EmptyPage content="Your cart is empty" />
     )
   }
 }

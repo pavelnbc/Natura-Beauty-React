@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 
 const products = require('./api/products');
 const categories = require('./api/categories');
-const mainPageSlides = require('./api/mainPageSlides');
+const homePageSlides = require('./api/homePageSlides');
 const menuLinks = require('./api/menuLinks');
 let productCart = [];
 let totalPrice = 0;
@@ -25,35 +25,51 @@ app.use((req, res, next) => {
     next();
 });
 
-app.get('/api/externalData', (req, res) => {
+app.get("/api/v1/products", (req, res) => {
+    res.send(products);
+});
+
+app.get("/api/v1/categories", (req, res) => {
+    res.send(categories);
+});
+
+app.get("/api/v1/homePageSlides", (req, res) => {
+    res.send(homePageSlides)
+});
+
+app.get("/api/v1/menuLinks", (req, res) => {
+    res.send(menuLinks)
+});
+
+app.get('/api/v1/cartData', (req, res) => {
     var data = {
-        products: products,
-        categories: categories,
-        mainPageSlides: mainPageSlides,
-        menuLinks: menuLinks,
         totalPrice: totalPrice,
         productCart: productCart
     };
-
     res.send(data);
 });
 
-app.post('/api/externalData', (req, res) => {
-    console.log(req.body.orderItem);
-    console.log(req.body);
+app.post('/api/v1/cartData', (req, res) => {
     let good = req.body.orderItem;
-
+    good.id = productCart.length;
 
     productCart.push(good);
     totalPrice += good.price;
+
+    res.send(good)
 });
 
-app.delete('/api/externalData/:id', (req, res) => {
+app.delete('/api/v1/cartData/:id', (req, res) => {
     const index = productCart.findIndex((product) => {
         return product.id == req.params.id
     });
 
+    if (index === -1) return res.sendStatus(404);
+
+    totalPrice -= productCart[index].price;
     productCart.splice(index, 1);
+
+    res.sendStatus(204);
 });
 
 /*
@@ -114,37 +130,5 @@ app.delete('/api/externalData/:id', (req, res) => {
  */
 
 
-/*
-app.put('/api/todos/:id', (req, res) => {
-    const todo = todos.find(todo => todo.id == req.params.id);
-
-    if (!todo) return res.sendStatus(404);
-
-    todo.title = req.body.title || todo.title;
-
-    res.json(todo);
-});
-
-app.patch('/api/todos/:id', (req, res) => {
-    const todo = todos.find(todo => todo.id == req.params.id);
-
-    if (!todo) return res.sendStatus(404);
-
-    todo.completed = !todo.completed;
-
-    res.json(todo);
-});
-
-app.delete('/api/todos/:id', (req, res) => {
-    const index = todos.findIndex(todo => todo.id == req.params.id);
-
-    if (index === -1) return res.sendStatus(404);
-
-    todos.splice(index, 1);
-
-    res.sendStatus(204);
-});
-
-});*/
 
 app.listen(app.get('port'), () => console.log(`Server is listening: http://localhost:${app.get('port')}`));
