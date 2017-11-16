@@ -176,11 +176,12 @@ h5 {
 }
 
 .toolbar .nav .navItem a{
+  height: 50px !important;
   font-family: Georgia;
   color: #ffffff !important;
   font-size: 0.825em;
   border: 3px solid transparent;
-  padding: 12px 15px;
+  padding-top: 13px !important;
 }
 
 .toolbar .nav .navItem a:hover {
@@ -456,6 +457,11 @@ h5 {
   transition: 300ms;
 }
 
+.product:hover .info-btn {
+  right: 0px;
+  transition: 300ms;
+}
+
 .product .controls .fa {
   color: whitesmoke;
 }
@@ -505,11 +511,6 @@ h5 {
   bottom: 0px;
   transition: bottom 500ms;
   z-index: 103;
-}
-
-.product:hover .info-btn {
-  right: 0px;
-  transition: 300ms;
 }
 
 .product .info-btn:hover {
