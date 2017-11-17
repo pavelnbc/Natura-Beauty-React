@@ -65,10 +65,11 @@ class App extends Component {
         this.state.isContentVisible = false;
     }
 
-    componentWillMount() {
+    componentDidMount() {
         axios.get('https://our-natural-beauty-server.herokuapp.com/api/v1/cartData')
             .then(response => response.data)
             .then(cartData => {
+                console.log(cartData)
                 this.setState({
                     totalPrice: cartData.totalPrice,
                     productCart: cartData.productCart
