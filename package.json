@@ -16,7 +16,7 @@
     "react-scripts": "1.0.13"
   },
 
-  "proxy": "http://our-natural-beauty-server.herokuapp.com",
+  "proxy": "http://localhost:5000",
 
   "scripts": {
     "start": "react-scripts start",
