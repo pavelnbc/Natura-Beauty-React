@@ -66,6 +66,9 @@ class App extends Component {
     }
 
     componentWillMount() {
+        // let server = our-natural-beauty-server.herokuapp.com
+        // axios.get(`${server}/app/v1/products`)               try to arrange axios.get this way
+        
         axios.get('api/v1/cartData')
             .then(response => response.data)
             .then(cartData => {
@@ -75,7 +78,9 @@ class App extends Component {
                 })
             })
             .catch(this.handleError);
-
+    }
+    
+    componentWillMount() {
         this.setContentAppearance();      // Запуск плавного появления элементов компонента при загрузке и обновлении еомпонента
     }
 
