@@ -16,7 +16,7 @@ class Home extends Component {
     }
 
     componentWillMount() {
-        axios.get("api/v1/homePageSlides")
+        axios.get("https://our-natural-beauty-server.herokuapp.com/api/v1/homePageSlides")
             .then(response => response.data)
             .then(homePageSlides => this.setState({homePageSlides}))
             .catch(error => console.error(error))
