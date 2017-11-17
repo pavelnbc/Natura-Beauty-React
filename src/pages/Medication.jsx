@@ -16,7 +16,7 @@ class Medication extends Component {
     }
 
     componentWillMount() {
-        axios.get("/api/v1/products")
+        axios.get("https://our-natural-beauty-server.herokuapp.com/api/v1/products")
             .then(response => response.data)
             .then(products => this.setState({ products }))
     }

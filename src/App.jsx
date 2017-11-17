@@ -66,9 +66,7 @@ class App extends Component {
     }
 
     componentWillMount() {
-        // const server = "our-natural-beauty-server.herokuapp.com";
-
-        axios.get('/api/v1/cartData')
+        axios.get('https://our-natural-beauty-server.herokuapp.com/api/v1/cartData')
             .then(response => response.data)
             .then(cartData => {
                 this.setState({

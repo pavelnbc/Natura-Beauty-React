@@ -21,7 +21,7 @@ class Menu extends Component {
   }
 
   componentWillMount() {
-    axios.get("/api/v1/menuLinks")
+    axios.get("https://our-natural-beauty-server.herokuapp.com/api/v1/menuLinks")
         .then(response => response.data)
         .then(menuLinks => this.setState({ menuLinks }))
         .catch(error => console.error(error))

@@ -23,7 +23,7 @@ class Toolbar extends Component {
     }
 
     componentWillMount() {
-        axios.get("/api/v1/categories")
+        axios.get("https://our-natural-beauty-server.herokuapp.com/api/v1/categories")
             .then(response => response.data)
             .then(categories => this.setState({categories}))
             .catch(error => console.error(error))
