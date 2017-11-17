@@ -116,7 +116,7 @@ class App extends Component {
     }
 
     handleCart(orderItem) {             // Отвечает за появление товаров в корзине
-      axios.post('/api/v1/cartData', { orderItem })
+      axios.post('https://our-natural-beauty-server.herokuapp.com/api/v1/cartData', { orderItem })
           .then(response => response.data)
           .then(good => {
               this.setState({
@@ -128,7 +128,7 @@ class App extends Component {
     }
 
     deleteCartItem(id) {
-        axios.delete(`/api/v1/cartData/${id}`)
+        axios.delete(`https://our-natural-beauty-server.herokuapp.com/api/v1/cartData/${id}`)
             .then(() => {
                 let deletedItem = null;
 
