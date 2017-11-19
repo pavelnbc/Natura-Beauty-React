@@ -39,7 +39,7 @@ body {
 }
 
 .content h1 {
-  font-family: Georgia;
+  font-family: Georgia Serif;
 }
 
 .lock-scroll {
@@ -143,11 +143,9 @@ h5 {
 
 .toolbar {
   height: 640px;
-  background-image: url("/img/NB-logo.png");
-  background-repeat: no-repeat;
-  background-position: 50% 0%;
-  background-size: 2000px;
-  border-width: 0px;
+  background: url("/img/NB-logo.png") no-repeat 50% 0;
+  background-size: cover;
+  border-width: 0;
   transition: 600ms;
 }
 
@@ -231,7 +229,7 @@ h5 {
   display: block;
   position: absolute;
   left: -180px;
-  top: 0px;
+  top: 0;
   z-index: 100;
 }
 
@@ -411,7 +409,7 @@ h5 {
   text-align: center;
   background-color: #fff;
   border: 1px solid #e2eefb;
-  margin: 20px auto 0px;
+  margin: 20px auto 0;
   overflow: hidden;
   z-index: 100;
 }
@@ -458,7 +456,7 @@ h5 {
 }
 
 .product:hover .info-btn {
-  right: 0px;
+  right: 0;
   transition: 300ms;
 }
 
@@ -498,7 +496,7 @@ h5 {
 }
 
 .product .submit-btn {
-  margin: 100px auto 0px;
+  margin: 100px auto 0;
   background-color: white;
   font-family: Arial;
   color: blue;
@@ -508,7 +506,7 @@ h5 {
 .product .info-btn {
   position: absolute;
   right: -50px;
-  bottom: 0px;
+  bottom: 0;
   transition: bottom 500ms;
   z-index: 103;
 }
@@ -555,7 +553,7 @@ h5 {
   align-items: center;
   font-weight: bold;
   background-color: white;
-  border-radius: 0px !important;
+  border-radius: 0 !important;
 }
 
 .order-item img{
@@ -567,7 +565,6 @@ h5 {
   display: flex;
   flex-direction: column;
   height: 250px;
-  margin-top: 20px;
   padding: 13px;
   background-color: white;
   border: 3px solid #DDDDDD;
@@ -585,7 +582,7 @@ h5 {
 }
 
 .checkout-btn {
-  margin: 25px auto 0px;
+  margin: 25px auto 0;
 }
 
 .cart-close-btn {
@@ -630,7 +627,7 @@ h5 {
   justify-content: space-around;
   flex-wrap: wrap;
   width: 100%;
-  margin: 30px auto 0px;
+  margin: 30px auto 0;
   border-top: 1px solid lightgray;
   background-color: lightblue;
 }
