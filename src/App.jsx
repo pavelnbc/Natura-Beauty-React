@@ -51,6 +51,7 @@ class App extends Component {
         this.handleCart = this.handleCart.bind(this);
         this.deleteCartItem = this.deleteCartItem.bind(this);
         this.setContentAppearance = this.setContentAppearance.bind(this);
+        this.serverLink = "https://our-natural-beauty-server.herokuapp.com";
     };
 
     setContentAppearance() {          // Отвечает за плавное появление элементов компонента
@@ -69,7 +70,6 @@ class App extends Component {
         axios.get('https://our-natural-beauty-server.herokuapp.com/api/v1/cartData')
             .then(response => response.data)
             .then(cartData => {
-                console.log(cartData)
                 this.setState({
                     totalPrice: cartData.totalPrice,
                     productCart: cartData.productCart
@@ -79,7 +79,7 @@ class App extends Component {
     }
     
     componentWillMount() {
-        this.setContentAppearance();      // Запуск плавного появления элементов компонента при загрузке и обновлении еомпонента
+        this.setContentAppearance();      // Запуск плавного появления элементов компонента при загрузке и обновлении компонента
     }
 
     componentDidUpdate() {
@@ -110,14 +110,14 @@ class App extends Component {
         });
     }
 
-    clearSearch() {
+    clearSearch() {                    // Очищение строки поиска
       this.setState({
         searchValue: ""
       })
     }
 
     handleCart(orderItem) {             // Отвечает за появление товаров в корзине
-      axios.post('https://our-natural-beauty-server.herokuapp.com/api/v1/cartData', { orderItem })
+      axios.post(`${this.serverLink}/api/v1/cartData`, { orderItem })
           .then(response => response.data)
           .then(good => {
               this.setState({
@@ -126,10 +126,11 @@ class App extends Component {
                   isContentVisible: true
               })
           })
+          .catch(App.handleError)
     }
 
-    deleteCartItem(id) {
-        axios.delete(`https://our-natural-beauty-server.herokuapp.com/api/v1/cartData/${id}`)
+    deleteCartItem(id) {        // Удаление товаров из корзины
+        axios.delete(`${this.serverLink}/api/v1/cartData/${id}`)
             .then(() => {
                 let deletedItem = null;
 
@@ -146,15 +147,18 @@ class App extends Component {
                     isContentVisible: true
                 })
             })
+            .catch(App.handleError)
     }
 
-    handleError(error) {
+
+
+    static handleError(error) {
         console.error(error)
     }
 
     render() {
         return (
-          <div className="app">
+          <main className="app">
             <Content>
                 <Menu isMenuOpened={this.state.isMenuOpened} offMenu={this.setMenuClosed} />
                 <ContentShadow isMenuOpened={this.state.isMenuOpened} offMenu={this.setMenuClosed} />
@@ -224,7 +228,7 @@ class App extends Component {
                 </Grid>
             </Content>
             <Footer />
-          </div>
+          </main>
         )
     }
 }
