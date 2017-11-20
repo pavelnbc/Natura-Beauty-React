@@ -72,7 +72,8 @@ class App extends Component {
             .then(cartData => {
                 this.setState({
                     totalPrice: cartData.totalPrice,
-                    productCart: cartData.productCart
+                    productCart: cartData.productCart,
+                    isContentVisible: true
                 })
             })
             .catch(this.handleError);

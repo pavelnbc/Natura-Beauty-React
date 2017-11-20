@@ -19,6 +19,15 @@ class Toolbar extends Component {
 
         this.state = {
             categories: []
+        };
+
+        this.onEmptySearch = this.onEmptySearch.bind(this);
+    }
+
+    onEmptySearch(event) {
+        console.log(event.target);
+        if(!event.target.classList.contains("total")) {
+            this.setEmptySearch()
         }
     }
 
@@ -30,7 +39,7 @@ class Toolbar extends Component {
     }
 
     render() {
-        let { match, totalAmount, productAmount} = this.props;
+        let { match, totalAmount, productAmount, searchMed} = this.props;
         totalAmount = totalAmount ? totalAmount.toFixed(2) : "0.00";
 
         let toolbarClassName = classNames({
@@ -63,10 +72,10 @@ class Toolbar extends Component {
                             </Row>
                         </Col>
                         <Col xs={8} sm={5} md={3} lg={3} lgOffset={1}>
-                            <SearchPlugin getSearchedMed={this.getSearchValue}/>
+                            <SearchPlugin searchedItem={searchMed} getSearchedMed={this.getSearchValue}/>
                         </Col>
                         <Col xsHidden smHidden md={6} lg={5}>
-                            <Nav onClick={this.setEmptySearch}>
+                            <Nav onClick={this.onEmptySearch}>
                                 <li className="navItem">
                                     <NavLink activeClassName="active-link" to="/products">Our Products</NavLink>
                                 </li>
@@ -82,8 +91,8 @@ class Toolbar extends Component {
                                         Order status
                                     </a>
                                 </li>
-                                <li className="navItem total">
-                                    <a>{totalAmount}</a>
+                                <li className="navItem">
+                                    <a className="total">{totalAmount}</a>
                                 </li>
                                 <li className="navItem cart-icon">
                                     <NavLink activeClassName="active-link" to="/cart">
