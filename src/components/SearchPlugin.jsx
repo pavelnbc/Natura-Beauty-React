@@ -1,14 +1,20 @@
 import React, {Component} from 'react';
+import FontAwesome from 'react-fontawesome';
 
 import {FormControl} from 'react-bootstrap'
 
 class SearchPlugin extends Component {
   constructor({ getSearchedMed }) {
     super({ getSearchedMed });
+    this.onSearch = getSearchedMed;
 
-        this.onSearch = getSearchedMed;
+    this.state = {
+        searchIcon: true
+    };
 
-        this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.defineIcon = this.defineIcon.bind(this);
+    this.deleteText = this.deleteText.bind(this);
   }
 
   handleSubmit(event) {
@@ -16,6 +22,25 @@ class SearchPlugin extends Component {
       let modifiedSearchValue = this.searchObject.value.trim();
       this.onSearch(modifiedSearchValue);
       this.searchObject.value = "";
+      this.setState({
+          searchIcon: true
+      });
+  }
+
+  defineIcon(event) {
+      event.preventDefault();
+      this.setState({
+          searchIcon: event.target.value ? false : true
+      })
+  }
+
+  deleteText(event) {
+      event.preventDefault();
+
+      this.searchObject.value = "";
+      this.setState({
+          searchIcon: true
+      });
   }
 
   render() {
@@ -25,8 +50,13 @@ class SearchPlugin extends Component {
                   type="text"
                   placeholder="Search"
                   inputRef={(input) => this.searchObject = input}
+                  onChange={this.defineIcon}
               />
-              <i className="fa fa-search" aria-hidden="true" onClick={this.handleSubmit}></i>
+              {this.state.searchIcon
+              ? <FontAwesome name="search" size="sm" />
+              : <FontAwesome name="times-circle" size="sm" onClick={this.deleteText} />
+              }
+
           </form>
       )
   }

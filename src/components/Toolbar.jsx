@@ -72,7 +72,7 @@ class Toolbar extends Component {
                             </Row>
                         </Col>
                         <Col xs={8} sm={5} md={3} lg={3} lgOffset={1}>
-                            <SearchPlugin searchedItem={searchMed} getSearchedMed={this.getSearchValue}/>
+                            <SearchPlugin getSearchedMed={this.getSearchValue}/>
                         </Col>
                         <Col xsHidden smHidden md={6} lg={5}>
                             <Nav onClick={this.onEmptySearch}>
