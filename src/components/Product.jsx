@@ -2,12 +2,13 @@ import React, {Component} from 'react';
 import { NavLink } from 'react-router-dom';
 import { Thumbnail, Button } from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome';
-
-import classNames from 'classnames';
+import axios from 'axios';
 
 class Product extends Component {
   constructor({ getItem }) {
     super({ getItem });
+
+        this.id = 1;
 
         this.getItem = getItem;
 
@@ -52,23 +53,15 @@ class Product extends Component {
     }
 
     getPrice() {    // Определение цены продукта
-        let price = this.medication.price[this.state.dosageIndicator]
+        let price = Math.round(this.medication.price[this.state.dosageIndicator]
             * this.medication.quantity[this.state.quantityIndicator]
-            * this.state.saleCoefs[this.state.quantityIndicator];
+            * this.state.saleCoefs[this.state.quantityIndicator] * 100) / 100;
 
         return price
     }
 
     render() {
         this.medication = this.props.medication;
-
-        let purchaseObj = {
-            img: `/img/${this.medication.slug}.jpg`,
-            title: this.medication.title,
-            price: this.getPrice(),
-            dosage: this.medication.dosage[this.state.dosageIndicator],
-            quantity: this.medication.quantity[this.state.quantityIndicator]
-        };
 
         return (
             <Thumbnail src={`/img/pills.png`} className="product">
@@ -101,7 +94,14 @@ class Product extends Component {
                     <Button bsStyle="info"
                             bsSize="sm"
                             className="submit-btn"
-                            onClick={() => {this.getItem(purchaseObj)}}
+                            onClick={() => {
+                                this.getItem({
+                                img: `/img/${this.medication.slug}.jpg`,
+                                title: this.medication.title,
+                                price: this.getPrice(),
+                                dosage: this.medication.dosage[this.state.dosageIndicator],
+                                quantity: this.medication.quantity[this.state.quantityIndicator]
+                              })}}
                     >
                         Add to card
                     </Button>

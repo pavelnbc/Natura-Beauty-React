@@ -6,10 +6,13 @@ class Anchor extends Component {
       super(props);
 
       this.handleScroll = this.handleScroll.bind(this);
+      this.handleVisibility = this.handleVisibility
   }
 
   handleVisibility(){
-    this.anchor.style.opacity = document.documentElement.scrollTop / 500 || document.body.scrollTop / 500;
+    if (this.anchor) {
+      this.anchor.style.opacity = document.documentElement.scrollTop / 500 || document.body.scrollTop / 500;
+    }
   };
 
   handleScroll() {
@@ -28,7 +31,7 @@ class Anchor extends Component {
   }
 
   componentDidMount() {
-      window.addEventListener("scroll", this.handleVisibility.bind(this))
+    window.addEventListener("scroll", this.handleVisibility.bind(this))
   }
 
   render() {

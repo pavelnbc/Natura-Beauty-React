@@ -6,7 +6,7 @@ function ContentShadow({ isMenuOpened, offMenu }) {
   let ContentShadowClassName = classNames({
     "content-without-shadow": true,
     "content-shadow": isMenuOpened
-  })
+  });
 
   return (
     <div className={ContentShadowClassName} onClick={offMenu}></div>

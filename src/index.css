@@ -6,6 +6,7 @@
 
 /* body */
 
+
 body {
   height: 100%;
   width: 100%;
@@ -165,7 +166,7 @@ h5 {
 
 .toolbar .container .header-title {
   font-family: Georgia;  /*'Wrexham Script'*/
-  color: #ffffff;
+  color: #ffffff !important;
   font-weight: bold;
 }
 
@@ -413,22 +414,22 @@ h5 {
   z-index: 100;
 }
 
-.product-page img{
+.medication-page img{
   float: left;
   margin-right: 20px;
   margin-bottom: 20px;
 }
 
-.product-page hr {
+.medication-page hr {
   margin: 5px 0;
   border-color: lightgray;
 }
 
-.product-page h4 {
+.medication-page h4 {
   margin-bottom: 40px;
 }
 
-.product-page .nav-btns{
+ .medication-page .nav-btns {       /* .medication-page .nav-btns a */
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;

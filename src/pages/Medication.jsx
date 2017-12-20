@@ -30,7 +30,7 @@ class Medication extends Component {
 
         return (
              this.state.products.length
-             ?   <main className="product-page">
+             ?   <main className="medication-page">
                     <img src="/img/pills.png" alt="medication"/>
                     <h2>{medication.title}</h2>
                     <hr/>
