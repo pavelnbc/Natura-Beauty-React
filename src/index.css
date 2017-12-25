@@ -91,6 +91,15 @@ body {
   transition: 200ms;
 }
 
+.prod-categories .fa-heartbeat {
+  margin-right: 10px;
+  color: darkred;
+}
+
+.prod-categories .list-group-item:hover .fa-heartbeat{
+  color: white;
+}
+
 .prod-categories a {
   color: #777777;
   font-size: 13px;
@@ -99,10 +108,9 @@ body {
   text-decoration: none;
 }
 
-
-.prod-categories .fa-heartbeat {
-  margin-right: 10px;
-  color: darkred;
+.prod-categories .active span{
+  background-color: #91B2ED;
+  color: white;
 }
 
     /*left-side-banner*/
@@ -433,7 +441,6 @@ h5 {
   display: flex;
   width: 95%;
   flex-wrap: wrap;
-  /*border: 1px dotted;*/
 }
 
 .medication-page .nav-btns a {

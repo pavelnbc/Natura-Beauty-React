@@ -11,7 +11,6 @@ function ProdCategories({ categories }) {
                     return (
                         <NavLink key={index}
                                  to={`/products/${category.id}`}
-                                 className="menuItem"
                         >
                             <ListGroupItem>
                                 <FontAwesome name="heartbeat" />
