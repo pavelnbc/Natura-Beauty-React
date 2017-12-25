@@ -431,10 +431,14 @@ h5 {
 
  .medication-page .nav-btns {       /* .medication-page .nav-btns a */
   display: flex;
-  justify-content: space-between;
+  width: 95%;
   flex-wrap: wrap;
-  width: 40%;
-  margin-top: 30px;
+  /*border: 1px dotted;*/
+}
+
+.medication-page .nav-btns a {
+    margin-right: 20px;
+    margin-top: 10px;
 }
 
 .controls {
