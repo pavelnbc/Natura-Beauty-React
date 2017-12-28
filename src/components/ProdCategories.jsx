@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import {ListGroup, ListGroupItem} from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome';
 
-function ProdCategories({ categories }) {
+function ProdCategories({ categories, clearSearchValue }) {
     return (
         <div className="prod-categories">
             <ListGroup>
@@ -11,6 +11,7 @@ function ProdCategories({ categories }) {
                     return (
                         <NavLink key={index}
                                  to={`/products/${category.id}`}
+                                 onClick={clearSearchValue}
                         >
                             <ListGroupItem>
                                 <FontAwesome name="heartbeat" />

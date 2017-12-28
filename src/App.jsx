@@ -55,19 +55,6 @@ class App extends Component {
 
         this.state.isContentVisible = false;
     }
-
-    // componentDidMount() {
-    //     axios.get('https://our-natural-beauty-server.herokuapp.com/api/v1/cartData')
-    //         .then(response => response.data)
-    //         .then(cartData => {
-    //             this.setState({
-    //                 totalPrice: cartData.totalPrice,
-    //                 productCart: cartData.productCart,
-    //                 isContentVisible: true
-    //             })
-    //         })
-    //         .catch(this.handleError);
-    // }
     
     componentWillMount() {
         this.setContentAppearance();      // Запуск плавного появления элементов компонента при загрузке и обновлении компонента
@@ -76,14 +63,6 @@ class App extends Component {
     componentDidUpdate() {
       this.setContentAppearance();
     }
-
-    // componentDidMount() {
-    //   this.unsubscribe = this.store.subscribe(() => this.forceUpdate());
-    // }
-    //
-    // componentWillUnmount() {
-    //   this.unsubscribe();
-    // }
 
     static handleError(error) {
         console.error(error)

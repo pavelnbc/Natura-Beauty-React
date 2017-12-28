@@ -1,6 +1,13 @@
 import { connect } from 'react-redux';
 
 import ProdCategories from '../components/ProdCategories';
+import { deleteSearchValue } from '../actions'
+
+function mapDispatchToProps(dispatch) {
+    return {
+        clearSearchValue: () => dispatch(deleteSearchValue())
+    }
+}
 
 function mapStateToProps(state) {
     return {
@@ -8,6 +15,6 @@ function mapStateToProps(state) {
     }
 }
 
-const ProdCategoriesContainer = connect(mapStateToProps)(ProdCategories);
+const ProdCategoriesContainer = connect(mapStateToProps, mapDispatchToProps)(ProdCategories);
 
 export default ProdCategoriesContainer
