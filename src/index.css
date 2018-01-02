@@ -71,6 +71,13 @@ body {
   color: #DDDDDD;
 }
 
+.loading {
+  font-size: 50px;
+  color: #DDDDDD;
+  text-align: center;
+  margin-top: 150px;
+}
+
 /*left-bar-content*/
 
     /*Product categories*/
