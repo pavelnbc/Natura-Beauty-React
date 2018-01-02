@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {Grid, Row, Col} from 'react-bootstrap';
-// import axios from 'axios';
 
 import Product from '../components/Product';
 import EmptyPage from '../components/EmptyPage';
@@ -20,8 +19,11 @@ function Products({ products, match, searchedMed, getProduct }) {
   });
 
   return (
-    searchMeds.length
-      ? <Grid>
+      (!medications.length && !searchMeds.length)
+      ? <EmptyPage content="Loading..." /> :
+      (!searchMeds.length)
+      ? <EmptyPage content="Nothing was found" />
+      : <Grid>
         <Row className="show-grid">
           {searchMeds.map(((product, index) => {
             return (
@@ -35,7 +37,6 @@ function Products({ products, match, searchedMed, getProduct }) {
           }))}
         </Row>
       </Grid>
-      : <EmptyPage content="Nothing was found" />
   )
 }
 

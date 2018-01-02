@@ -6,13 +6,11 @@ class Anchor extends Component {
       super(props);
 
       this.handleScroll = this.handleScroll.bind(this);
-      this.handleVisibility = this.handleVisibility
+      this.handleVisibility = this.handleVisibility.bind(this)
   }
 
   handleVisibility(){
-    if (this.anchor) {
       this.anchor.style.opacity = document.documentElement.scrollTop / 500 || document.body.scrollTop / 500;
-    }
   };
 
   handleScroll() {
@@ -20,26 +18,18 @@ class Anchor extends Component {
           document.documentElement.scrollTop -= 15;
           document.body.scrollTop -= 15;
 
-          console.log(document.documentElement.scrollTop);
-          console.log(document.body.scrollTop);
-          console.log(window.pageYOffset);
-
-          if(!window.pageYOffset) {
-              clearInterval(scrollID);
-          }
-      }, 1)
+          if(!window.pageYOffset) clearInterval(scrollID);
+      })
   }
 
   componentDidMount() {
-    window.addEventListener("scroll", this.handleVisibility.bind(this))
+    window.addEventListener("scroll", this.handleVisibility);
   }
 
   render() {
     return (
       <div className="anchor" ref={(div) => { this.anchor = div }} onClick={this.handleScroll}>
-        <div className="anchor-link">
-          <Fontawesome name="angle-up" size="3x"/>
-        </div>
+        <Fontawesome name="angle-up" size="3x"/>
       </div>
     )
   }
