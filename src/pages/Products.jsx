@@ -18,7 +18,7 @@ function Products({ products, match, searchedMed, getProduct }) {
         }
     });
 
-    return !medications.length && !searchMeds.length ? (
+    return !medications.length ? (
         <Loading />
     ) : !searchMeds.length ? (
         <EmptyPage content="Nothing was found" />
