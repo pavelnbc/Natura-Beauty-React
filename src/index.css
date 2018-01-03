@@ -170,7 +170,7 @@ h5 {
   transition: 600ms;
 }
 
-.active-link {
+.toolbar .navItem .active {
   background-color: #4FACFF !important;
   color: #fff !important;
 }
@@ -198,7 +198,7 @@ h5 {
   padding-top: 13px !important;
 }
 
-.toolbar .nav .navItem a:hover {
+.toolbar .nav .navItem:not(.excluding) a:hover {
   background-color: #4FACFF;
   transition: 300ms;
 }
@@ -582,8 +582,7 @@ h5 {
 .delivery-amount-bar {
   display: flex;
   flex-direction: column;
-  height: 250px;
-  padding: 13px;
+  padding: 10px;
   background-color: white;
   border: 3px solid #DDDDDD;
   border-radius: 5px;

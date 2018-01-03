@@ -46,10 +46,10 @@ function Toolbar({ match, categories, totalPrice, itemAmount, onMenu, setEmptySe
                     <Col xsHidden smHidden md={6} lg={5}>
                         <Nav onClick={setEmptySearch}>
                             <li className="navItem">
-                                <NavLink activeClassName="active-link" to="/products">Our Products</NavLink>
+                                <NavLink  to="/products">Our Products</NavLink>
                             </li>
                             <li className="navItem">
-                                <NavLink activeClassName="active-link" to="/about">About us</NavLink>
+                                <NavLink  to="/about">About us</NavLink>
                             </li>
                             <li className="navItem">
                                 <a className="navItem"
@@ -60,11 +60,11 @@ function Toolbar({ match, categories, totalPrice, itemAmount, onMenu, setEmptySe
                                     Order status
                                 </a>
                             </li>
-                            <li className="navItem">
+                            <li className="navItem excluding">
                                 <a className="total">{totalPrice}</a>
                             </li>
                             <li className="navItem cart-icon">
-                                <NavLink activeClassName="active-link" to="/cart">
+                                <NavLink to="/cart">
                                     <span className="product-amount">{itemAmount}</span>
                                     <img src="/img/cart.png" />
                                 </NavLink>
