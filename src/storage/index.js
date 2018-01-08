@@ -1,35 +1,33 @@
 import reducer from '../reducers';
 import initialStore from './initialStore';
 
-function store(reducer, initialState) {
-  let state = initialState;
-  let callbacks = [];
+function store(reducer, initialStore) {
+    let state = initialStore;
+    let callbacks = [];
 
-  let getState = function() {
-    return state;
-  };
+    let getState = () => state;
 
-  let dispatch = function(action) {
-    state = reducer(state, action);
-    callbacks.forEach(cb => cb());
-  };
+    let dispatch = (action) => {
+        state = reducer(state, action);
+        callbacks.forEach(cb => cb())
+    };
 
-  let subscribe = function(callback) {
-    callbacks.push(callback);
+    let subscribe = (callback) => {
+        callbacks.push(callback);
 
-    return () => callbacks = callbacks.filter(cb => cb !== callback);
-  };
+        return () => callbacks = callbacks.filter(cb => callback)
+    };
 
-  return { getState, dispatch, subscribe };
+    return {getState, dispatch, subscribe}
 }
 
 const storage = store(reducer, initialStore);
 
-const dispatch = storage.dispatch;
+let dispatch = storage.dispatch;
 
 storage.dispatch = (action) => {
     if(typeof action.then === 'function') {
-        return action.then(dispatch)
+       return action.then(dispatch)
     }
 
     return dispatch(action)

@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import {BrowserRouter as Router} from 'react-router-dom';
 import { Provider } from 'react-redux';
 import storage from './storage'
-// import axios from 'axios';
 
 import './index.css';
 import "font-awesome/css/font-awesome.css";

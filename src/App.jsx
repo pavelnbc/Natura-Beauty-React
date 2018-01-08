@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { Grid, Row, Col } from 'react-bootstrap';
-// import axios from 'axios';
 
 import ContentShadowContainer from './containers/ContentShadowContainer';
 import ToolbarContainer from './containers/ToolbarContainer';
@@ -62,10 +61,6 @@ class App extends Component {
 
     componentDidUpdate() {
       this.setContentAppearance();
-    }
-
-    static handleError(error) {
-        console.error(error)
     }
 
     render() {

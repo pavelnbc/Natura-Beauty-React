@@ -27,7 +27,7 @@ function Products({ products, match, searchedMed, getProduct }) {
             <Row className="show-grid">
                 {searchMeds.map((product, index) => {
                     return (
-                        <Col xs={12} sm={6} md={4} lg={4} key={index}>
+                        <Col xs={12} sm={6} md={3} lg={3} key={index}>
                             <Product key={index} medication={product} getItem={getProduct} />
                         </Col>
                     );
