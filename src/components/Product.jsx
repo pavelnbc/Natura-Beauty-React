@@ -66,7 +66,7 @@ class Product extends Component {
         return (
             <Thumbnail src={`/img/pills.png`} className="product">
                 <div className="controls">
-                    <h4 className="price"><span>$</span>{this.getPrice().toFixed(2)}</h4>
+                    <h4 className="price">${this.getPrice().toFixed(2)}</h4>
                     <p className="dosage-selection">
                         <div className="arrow arrow-left" onClick={() => {this.handleDosage(true)}}>
                             <FontAwesome name="chevron-up" size="2x" />

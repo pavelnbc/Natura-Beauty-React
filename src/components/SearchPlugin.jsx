@@ -18,6 +18,7 @@ class SearchPlugin extends Component {
 
     deleteText() {
         this.searchObject.value = "";
+        this.searchObject.focus();
         this.setState({
             searchIcon: true
         });
