@@ -116,6 +116,6 @@ class App extends Component {
 
 App.contextTypes = {
   store: PropTypes.object
-}
+};
 
 export default App;
