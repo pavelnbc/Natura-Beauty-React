@@ -325,6 +325,7 @@ h5 {
 
 .menu-bar {
   position: fixed;
+  position: fixed;
   min-height: 100%;
   width: 333px;
   margin-left: -333px;
@@ -368,8 +369,6 @@ h5 {
   background-color: white;
 }
 
-
-
 .menu-bar .list-group::-webkit-scrollbar-thumb  {
   border-radius: 5px;
   border: 1px solid white;
@@ -412,6 +411,10 @@ h5 {
   margin: 0;
 }
 
+.menu-links-loading {
+  display: block;
+  margin: 30px auto;
+}
 
   /*Products*/
 

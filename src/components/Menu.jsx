@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import { ListGroup, ListGroupItem } from "react-bootstrap";
 import FontAwesome from 'react-fontawesome';
 import classNames from "classnames";
-// import axios from 'axios';
 
 import SocialNetworks from './SocialNetworks';
 
@@ -35,7 +34,7 @@ function Menu({ menuLinks, isMenuOpened, offMenu }) {
               </NavLink>
             )
           })
-          : <img src="/public/img/menu-list-loading.gif" alt="loading"/>}
+          : <img className="menu-links-loading" src="/img/menu-list-loading.gif" alt="loading"/>}
         </ListGroup>
       </div>
       <SocialNetworks />
