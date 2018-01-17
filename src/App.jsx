@@ -56,11 +56,13 @@ class App extends Component {
     }
     
     componentWillMount() {
+        console.log("mount");
         this.setContentAppearance();      // Запуск плавного появления элементов компонента при загрузке и обновлении компонента
     }
 
     componentDidUpdate() {
-      this.setContentAppearance();
+        console.log("update");
+        this.setContentAppearance();
     }
 
     render() {
@@ -69,7 +71,7 @@ class App extends Component {
             <Content>
                 <MenuContainer />
                 <ContentShadowContainer />
-                <RedirectContainer />
+                <Route path="/:products?" component={RedirectContainer}/>
                 <Route path="/:pages?" component={ToolbarContainer}/>
                 <Grid>
                     <Row className="show-grid">

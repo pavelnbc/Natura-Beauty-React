@@ -1,9 +1,10 @@
 import { connect } from 'react-redux';
 import RedirectToProds from  '../components/RedirectToProds';
 
-function mapStateToProps(state) {
+function mapStateToProps(state, ownProps) {
     return {
-        searchValue: state.searchValue
+        searchValue: state.searchValue,
+        match: ownProps.match
     }
 }
 
