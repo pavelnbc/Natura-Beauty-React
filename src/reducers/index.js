@@ -16,7 +16,7 @@ function reducer(state = {}, action) {
     isMenuOpened: menuReducer(state.isMenuOpened, action),
     menuLinks: menuLinksReducer(state.menuLinks, action),
     categories: categoriesReducer(state.categories, action),
-    products: productsReducer(state.products, action),
+    products: productsReducer(state.products, action)
   }
 }
 

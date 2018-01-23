@@ -31,4 +31,5 @@ export function deleteFromCart(id) {
             type: DELETE_ITEM,
             id: id
         }))
+        .catch(error => console.log(error))
 }
