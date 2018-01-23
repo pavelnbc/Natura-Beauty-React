@@ -80,8 +80,11 @@ function Toolbar({ match, categories, totalPrice, itemAmount, onMenu, setEmptySe
                             <MenuItem className="navItem" eventKey="1">
                                 <NavLink to="/products">Our Products</NavLink>
                             </MenuItem>
+                            <MenuItem  className="navItem" eventKey="2">
+                                <NavLink to="/about">About us</NavLink>
+                            </MenuItem>
                             <MenuItem title="USPS.com"
-                                      eventKey="2"
+                                      eventKey="3"
                                       className="navItem"
                                       href="https://www.usps.com/"
                                       target="_blank"
@@ -89,7 +92,7 @@ function Toolbar({ match, categories, totalPrice, itemAmount, onMenu, setEmptySe
                             >
                                 <a>Order status</a>
                             </MenuItem>
-                            <MenuItem className="navItem" eventKey="5">
+                            <MenuItem className="navItem" eventKey="4">
                                 <FontAwesome name="caret-down"/>
                                 <a>Categories</a>
                                 <ListGroup className="shotNav-categories">
@@ -109,10 +112,10 @@ function Toolbar({ match, categories, totalPrice, itemAmount, onMenu, setEmptySe
                                     })}
                                 </ListGroup>
                             </MenuItem>
-                            <MenuItem className="navItem shot-total" eventKey="6">
+                            <MenuItem className="navItem shot-total" eventKey="5">
                                 <a href="#">{totalPrice}</a>
                             </MenuItem>
-                            <MenuItem className="navItem" eventKey="7">
+                            <MenuItem className="navItem" eventKey="6">
                                 <NavLink  to="/cart">
                                     Cart
                                 </NavLink>

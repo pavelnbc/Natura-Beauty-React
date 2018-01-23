@@ -69,7 +69,7 @@ class App extends Component {
         return (
           <main className="app">
             <Content>
-                <MenuContainer />
+                <MenuContainer/>
                 <ContentShadowContainer />
                 <Route path="/:products?" component={RedirectContainer}/>
                 <Route path="/:pages?" component={ToolbarContainer}/>

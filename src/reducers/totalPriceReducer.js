@@ -19,6 +19,6 @@ export function totalPriceReducer(state = [], action) {
       return state.totalPrice - deletedItem.price
 
     default: 
-      return state.totalPrice  
+      return state.totalPrice ? state.totalPrice : 0
   }
 }
