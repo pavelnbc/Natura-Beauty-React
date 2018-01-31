@@ -4,9 +4,9 @@ import FontAwesome from 'react-fontawesome';
 import {FormControl} from 'react-bootstrap'
 
 class SearchPlugin extends Component {
-    constructor({ getSearchValue }) {
-        super({ getSearchValue });
-        this.onSearch = getSearchValue;
+    constructor(props) {
+        super(props);
+        this.onSearch = props.getSearchValue;
         this.state = {
             searchIcon: true
         };
@@ -48,7 +48,7 @@ class SearchPlugin extends Component {
                     onChange={this.defineIcon}
                 />
                 {this.state.searchIcon
-                    ? <FontAwesome name="search" size="sm" />
+                    ? <FontAwesome name="search" />
                     : <FontAwesome name="times-circle" size="sm" onClick={this.deleteText}/>
                 }
 

@@ -12,6 +12,7 @@ export function updateCartState() {
             cartItems: data.productCart,
             totalPrice: data.totalPrice
         }))
+        .catch(error => console.log(error))
 }
 
 export function addToCart(orderItem) {

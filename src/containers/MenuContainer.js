@@ -7,14 +7,15 @@ import { offMenu, importMenuLinks } from '../actions'
 function mapStateToProps(state) {
   return {
     menuLinks: state.menuLinks,
-    isMenuOpened: state.isMenuOpened
+    isMenuOpened: state.isMenuOpened,
   }
 }
 
 function mapDispatchToProps(dispatch) {
-  dispatch(importMenuLinks())
+  // dispatch(importMenuLinks());
   return {
-    offMenu: () => dispatch(offMenu())
+    offMenu: () => dispatch(offMenu()),
+    importMenuLinks: () => dispatch(importMenuLinks())
   }
 }
 

@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import RedirectToProds from  '../components/RedirectToProds';
+import PropTypes from 'prop-types';
 
 function mapStateToProps(state, ownProps) {
     return {
@@ -10,5 +11,8 @@ function mapStateToProps(state, ownProps) {
 
 const RedirectContainer = connect(mapStateToProps)(RedirectToProds);
 
+RedirectContainer.propTypes = {
+    ownProps: PropTypes.object
+};
 
 export default RedirectContainer

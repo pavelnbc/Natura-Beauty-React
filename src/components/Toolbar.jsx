@@ -3,12 +3,11 @@ import { NavLink} from 'react-router-dom';
 import { Navbar, Nav, MenuItem, Grid, Row, Col, DropdownButton, ListGroup, ListGroupItem } from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 import SearchPluginContainer from '../containers/SearchPluginContainer';
 
 function Toolbar({ match, categories, totalPrice, itemAmount, onMenu, setEmptySearch }) {
-    console.log(totalPrice);
-
     totalPrice = totalPrice.toFixed(2);
 
     let toolbarClassName = classNames({
@@ -66,7 +65,7 @@ function Toolbar({ match, categories, totalPrice, itemAmount, onMenu, setEmptySe
                             <li className="navItem cart-icon">
                                 <NavLink to="/cart">
                                     <span className="product-amount">{itemAmount}</span>
-                                    <img src="/img/cart.png" />
+                                    <img src="/img/cart.png" alt="cart"/>
                                 </NavLink>
                             </li>
                         </Nav>
@@ -113,7 +112,7 @@ function Toolbar({ match, categories, totalPrice, itemAmount, onMenu, setEmptySe
                                 </ListGroup>
                             </MenuItem>
                             <MenuItem className="navItem shot-total" eventKey="5">
-                                <a href="#">{totalPrice}</a>
+                                <a>{totalPrice}</a>
                             </MenuItem>
                             <MenuItem className="navItem" eventKey="6">
                                 <NavLink  to="/cart">
@@ -127,5 +126,14 @@ function Toolbar({ match, categories, totalPrice, itemAmount, onMenu, setEmptySe
         </Navbar>
     )
 }
+
+Toolbar.propTypes = {
+    match: PropTypes.object,
+    categories: PropTypes.array,
+    totalPrice: PropTypes.number,
+    totalAmount: PropTypes.object || PropTypes.number,
+    onMenu: PropTypes.func,
+    setEmptySearch: PropTypes.func
+};
 
 export default Toolbar

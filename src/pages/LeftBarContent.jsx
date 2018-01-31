@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
 
 import classNames from 'classnames';
 
@@ -8,7 +8,7 @@ class LeftBarContent extends Component {
 
     this.state = {
       isBarVisible: true
-    }
+    };
 
     this.handleBarVisibility = this.handleBarVisibility.bind(this);
   }
@@ -26,8 +26,6 @@ class LeftBarContent extends Component {
     this.setState({
         isBarVisible: false
     });
-
-
   }
 
   render() {

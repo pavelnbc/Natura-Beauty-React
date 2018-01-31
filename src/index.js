@@ -11,7 +11,7 @@ import App from './App';
 
 
 ReactDOM.render(
-  <Provider store={ storage }>
+  <Provider store={storage}>
         <Router>
             <App />
         </Router>

@@ -1,4 +1,3 @@
-import { SET_SEARCH_VALUE, CLEAR_SEARCH } from '../actions';
 import {GET_SEARCH_VALUE, DELETE_SEARCH_VALUE} from "../actions/index";
 
 

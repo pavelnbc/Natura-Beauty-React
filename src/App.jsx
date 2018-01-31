@@ -1,6 +1,7 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { Grid, Row, Col } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 
 import ContentShadowContainer from './containers/ContentShadowContainer';
 import ToolbarContainer from './containers/ToolbarContainer';
@@ -56,12 +57,10 @@ class App extends Component {
     }
     
     componentWillMount() {
-        console.log("mount");
         this.setContentAppearance();      // Запуск плавного появления элементов компонента при загрузке и обновлении компонента
     }
 
     componentDidUpdate() {
-        console.log("update");
         this.setContentAppearance();
     }
 

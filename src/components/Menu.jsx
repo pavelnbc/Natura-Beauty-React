@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import { ListGroup, ListGroupItem } from "react-bootstrap";
 import FontAwesome from 'react-fontawesome';
@@ -6,11 +6,13 @@ import classNames from "classnames";
 
 import SocialNetworks from './SocialNetworks';
 
-function Menu({ menuLinks, isMenuOpened, offMenu }) {
+function Menu({ menuLinks, isMenuOpened, offMenu, importMenuLinks }) {
   let menuClassName = classNames({
     "menu-bar": true,
     "menuOn": isMenuOpened
   });
+
+  importMenuLinks();
 
   return (
     <aside className={menuClassName} onClick={offMenu}>

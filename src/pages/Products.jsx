@@ -1,11 +1,13 @@
-import React, { Component } from "react";
+import React from "react";
 import { Grid, Row, Col } from "react-bootstrap";
 
 import Product from "../components/Product";
 import EmptyPage from "../components/EmptyPage";
 import Loading from '../components/Loading';
 
-function Products({ products, match, searchedMed, getProduct }) {
+function Products({ products, match, searchedMed, importProducts, getProduct }) {
+    importProducts();
+
     let medications = match.params.category
         ? products.filter(medication => {
             return medication.category === match.params.category;
@@ -13,7 +15,7 @@ function Products({ products, match, searchedMed, getProduct }) {
         : products;
 
     let searchMeds = medications.filter(med => {
-        if (~med.slug.indexOf(searchedMed.toLocaleLowerCase())) {
+        if (~med.slug.indexOf(searchedMed.toLowerCase())) {
             return med;
         }
     });

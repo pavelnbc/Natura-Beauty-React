@@ -1,7 +1,5 @@
 import React from 'react';
 
-import Fontawesome from 'react-fontawesome';
-
 function Loading() {
     return (
         <div className="loading">

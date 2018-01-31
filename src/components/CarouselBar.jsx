@@ -3,10 +3,10 @@ import { Carousel } from 'react-bootstrap'
 
 function CarouselBar({interval, slides}) {
   return (
-    <Carousel interval={interval} className="carousel-bar" slides="slides">
-      {slides.map((slide) => {
+    <Carousel interval={+interval} className="carousel-bar">
+      {slides.map((slide, index) => {
           return (
-              <Carousel.Item>
+              <Carousel.Item key={index}>
                   <img width={slide.width} height={slide.height} alt={`${slide.width}x${slide.height}`} src={slide.img} />
                   <Carousel.Caption>
                       <h2>{slide.label}</h2>

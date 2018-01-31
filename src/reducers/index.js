@@ -7,8 +7,6 @@ import { categoriesReducer } from './categoriesReducer'
 import { menuLinksReducer } from './menuLinksReducer'
 
 function reducer(state = {}, action) {
-  console.log(state);
-  console.log(action);
   return {
     cartItems: cartItemReducer(state.cartItems, action),
     totalPrice: totalPriceReducer(state, action),

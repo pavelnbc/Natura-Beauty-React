@@ -2,15 +2,14 @@ import React, {Component} from 'react';
 import { NavLink } from 'react-router-dom';
 import { Thumbnail, Button } from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome';
-import axios from 'axios';
 
 class Product extends Component {
-  constructor({ getItem }) {
-    super({ getItem });
+  constructor(props) {
+    super(props);
 
         this.id = 1;
 
-        this.getItem = getItem;
+        this.getItem = props.getItem;
 
         this.state = {
             dosageIndicator: 0,
@@ -109,7 +108,7 @@ class Product extends Component {
                 <NavLink to={`/products/${this.medication.category}/${this.medication.slug}`}
                          className="info-btn"
                 >
-                    <img src="/img/triangle.png"/>
+                    <img src="/img/triangle.png" alt="info"/>
                 </NavLink>
                 <h4>{this.medication.title}</h4>
                 <p>{this.medication.ingredient}</p>

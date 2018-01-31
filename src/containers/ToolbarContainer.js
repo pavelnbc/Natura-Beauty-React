@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import Toolbar from '../components/Toolbar';
 import { handleMenu, deleteSearchValue, importCategories, updateCartState } from '../actions';
@@ -22,5 +23,9 @@ function mapDispatchToProps(dispatch) {
 }
 
 const ToolbarContainer = connect(mapStateToProps, mapDispatchToProps)(Toolbar);
+
+ToolbarContainer.propTypes = {
+  ownProps: PropTypes.object
+}
 
 export default ToolbarContainer

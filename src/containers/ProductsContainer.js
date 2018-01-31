@@ -12,9 +12,9 @@ function mapStateToProps(state, ownProps) {
 }
 
 function mapDispatchToProps(dispatch) {
-  dispatch(importProducts());
   return {
-    getProduct:(product) => dispatch(addToCart(product))
+    getProduct:(product) => dispatch(addToCart(product)),
+    importProducts: () => dispatch(importProducts())
   }
 }
 
