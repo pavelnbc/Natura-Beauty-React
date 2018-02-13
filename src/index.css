@@ -389,6 +389,10 @@ h5 {
   color: white;
 }
 
+.menu-bar .fa-home {
+  font-size: 18px;
+}
+
 .menu-bar .list-group-item:hover {
   color: #065AA6 !important;
   background-color: #8DC9FF;
