@@ -3,7 +3,7 @@ import { PageHeader } from 'react-bootstrap';
 
 function FAQ() {
   return (
-    <div className="faq">
+    <section className="faq">
       <PageHeader>Frequently Asked Questions</PageHeader>
 
       <p>Admiration we surrounded possession frequently he. Remarkably did increasing occasional too its difficulty 
@@ -38,7 +38,7 @@ function FAQ() {
        No thought me husband or colonel forming effects. End sitting shewing who saw besides son musical adapted.
         Contrasted interested eat alteration pianoforte sympathize was. He families believed if no elegance 
         interest surprise an. It abode wrong miles an so delay plate. She relation own put outlived may disposed.</p>
-    </div>
+    </section>
   )
 }
 

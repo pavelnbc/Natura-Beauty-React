@@ -3,7 +3,7 @@ import { PageHeader } from 'react-bootstrap';
 
 function Contacts() {
     return (
-        <div className="contacts">
+        <section className="contacts">
           <PageHeader>Our Contacts</PageHeader>
 
           <p>
@@ -30,7 +30,7 @@ function Contacts() {
             <iframe title="iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2396.381494016536!2d8.832481315422275!3d53.085383201927534!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b127de36b5241d%3A0xa5a06acc85e6cfcb!2zTWF4LVJlZ2VyLVN0cmHDn2UgMSwgMjgyMDkgQnJlbWVuLCDQndGW0LzQtdGH0YfQuNC90LA!5e0!3m2!1suk!2sua!4v1508925525301" width="600" height="450" frameborder="0" allowfullscreen></iframe>
           </div>
 
-        </div>
+        </section>
     )
 }
 

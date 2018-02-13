@@ -31,7 +31,7 @@ class Cart extends Component {
 
     return (
       productList.length
-        ? <div className="cart-bar">
+        ? <section className="cart-bar">
             <ListGroup className="purchase-bar">
               {productList.map((prod, index) => {
                 return <CartItem key={index}
@@ -65,7 +65,7 @@ class Cart extends Component {
               </div>
               <Button className="checkout-btn" bsStyle="success" bsSize="md">To checkout!</Button>
             </aside>
-          </div>
+          </section>
         : <EmptyPage content="Your cart is empty" />
     )
   }

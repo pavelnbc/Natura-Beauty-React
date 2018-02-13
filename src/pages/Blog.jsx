@@ -3,7 +3,7 @@ import { PageHeader } from 'react-bootstrap';
 
 function Blog() {
   return (
-    <div className="blog">
+    <section className="blog">
       <PageHeader>Blog</PageHeader>
 
       <p>And sir dare view but over man. So at within mr to simple assure. Mr disposing continued 
@@ -25,7 +25,7 @@ function Blog() {
       <p>Examine she brother prudent add day ham. Far stairs now coming bed oppose hunted become his. 
       You zealously departure had procuring suspicion. Books whose front would purse if be do decay. 
       Quitting you way formerly disposed perceive ladyship are. Common turned boy direct and yet.</p>
-    </div>
+    </section>
   )
 }
 

@@ -3,7 +3,7 @@ import { PageHeader } from 'react-bootstrap';
 
 function OrderReplacement() {
   return (
-    <div className="order-replacement">
+    <section className="order-replacement">
       <PageHeader>How to initiate your order replacement</PageHeader>
 
       <p>Imagine was you removal raising gravity. Unsatiable understood or expression dissimilar so sufficient.
@@ -24,7 +24,7 @@ function OrderReplacement() {
         Morning because as to society behaved moments. Put ladies design mrs sister was. Play on hill felt john no gate.
         Am passed figure to marked in. Prosperous middletons is ye inhabiting as assistance me especially.
         For looking two cousins regular amongst.</p>
-    </div>
+    </section>
   )
 }
 

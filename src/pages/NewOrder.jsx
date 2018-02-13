@@ -3,7 +3,7 @@ import { PageHeader } from 'react-bootstrap';
 
 function NewOrder() {
   return (
-    <div className="new-order">
+    <section className="new-order">
       <PageHeader>How to place an order with our company</PageHeader>
 
       <p>Improve him believe opinion offered met and end cheered forbade. Friendly as stronger speedily by recurred.
@@ -29,7 +29,7 @@ function NewOrder() {
       <p>Excited him now natural saw passage offices you minuter. At by asked being court hopes.
       Farther so friends am to detract. Forbade concern do private be. Offending residence but men engrossed shy.
       Pretend am earnest offered arrived company so on. Felicity informed yet had admitted strictly how you.</p>
-    </div>
+    </section>
   )
 }
 

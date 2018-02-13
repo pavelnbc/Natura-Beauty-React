@@ -35,7 +35,7 @@ class Medication extends Component {
                     <h2>{medication.title}</h2>
                     <hr/>
                     <h4>{medication.ingredient}</h4>
-                    <div className="medication-description">
+                    <section className="medication-description">
                         <p>Raising say express had chiefly detract demands she. Quiet led own cause three him. Front no party young abode
                             state up. Saved he do fruit woody of to. Met defective are allowance two perceived listening consulted contained.
                             It chicken oh colonel pressed excited suppose to shortly. He improve started no we manners however effects.
@@ -53,8 +53,8 @@ class Medication extends Component {
                             Thing do taste on we manor. Him had wound use found hoped. Of distrusts immediate enjoyment curiosity do.
                             Marianne numerous saw thoughts the humoured.
                         </p>
-                    </div>
-                    <div className="nav-btns">
+                    </section>
+                    <section className="nav-btns">
                         <NavLink to={`/products/${medication.category}`}>
                             <Button bsStyle="info" bsSyze="md">
                                 Products in this category
@@ -65,7 +65,7 @@ class Medication extends Component {
                                 Back to all products
                             </Button>
                         </NavLink>
-                    </div>
+                    </section>
                 </main>
                 :   <EmptyPage content="Loading" />
         )

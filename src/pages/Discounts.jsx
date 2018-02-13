@@ -3,7 +3,7 @@ import { PageHeader } from 'react-bootstrap';
 
 function Discounts() {
   return (
-    <div className="discounts">
+    <section className="discounts">
       <PageHeader>Discounts</PageHeader>
 
       <p>Certainty listening no no behaviour existence assurance situation is. Because add why not esteems amiable him.
@@ -28,7 +28,7 @@ function Discounts() {
         So mr delay at since place whole above miles. He to observe conduct at detract because. 
         Way ham unwilling not breakfast furniture explained perpetual. Or mr surrounded conviction so astonished 
         literature. Songs to an blush woman be sorry young. We certain as removal attempt.</p>
-    </div>
+    </section>
   )
 }
 

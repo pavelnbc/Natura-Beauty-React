@@ -24,7 +24,7 @@ class Home extends Component {
 
     render() {
         return (
-            <div className="homePage">
+            <section className="homePage">
                 <PageHeader>Welcome to Natural Beauty</PageHeader>
 
                 <p>
@@ -145,7 +145,7 @@ class Home extends Component {
                     <img src="/img/guarantees/refund.gif" alt="MIPA-img"/>
                     <img src="/img/guarantees/Safety-check.png" alt="safety-check-img"/>
                 </div>
-            </div>
+            </section>
         );
     }
 }

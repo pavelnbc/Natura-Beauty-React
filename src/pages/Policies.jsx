@@ -3,7 +3,7 @@ import { PageHeader } from 'react-bootstrap';
 
 function Policies() {
     return (
-        <div className="policies">
+        <section className="policies">
             <PageHeader>Our Policies</PageHeader>
 
             <p>Believing neglected so so allowance existence departure in. In design active temper be uneasy.
@@ -29,7 +29,7 @@ function Policies() {
                 Reasonably how possession shy way introduced age inquietude. Missed he engage no exeter of.
                 Still tried means we aware order among on. Eldest father can design tastes did joy settle.
                 Roused future he ye an marked. Arose mr rapid in so vexed words. Gay welcome led add lasting chiefly say looking.</p>
-        </div>
+        </section>
     )
 }
 

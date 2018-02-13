@@ -3,7 +3,7 @@ import { PageHeader } from 'react-bootstrap';
 
 function About() {
     return (
-        <div className="aboutUs">
+        <section className="aboutUs">
             <PageHeader>About Us</PageHeader>
 
             <p>On am we offices expense thought. Its hence ten smile age means. Seven chief sight far point any.
@@ -20,7 +20,7 @@ function About() {
                 To loud lady whom my mile sold four. Need miss all four case fine age tell.
                 He families my pleasant speaking it bringing it thoughts. View busy dine oh in knew if even.
                 Boy these along far own other equal old fanny charm. Difficulty invitation put introduced see middletons nor preference.</p>
-        </div>
+        </section>
     )
 }
 
