@@ -153,7 +153,7 @@ h5 {
 .toolbar {
   height: 640px;
   background: url("/img/NB-logo.png") no-repeat 50% 0;
-  background-size: contain;
+  background-size: cover;
   border-width: 0;
   transition: 600ms;
 }
