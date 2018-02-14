@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'HelveticaLTStd-Fraction';
+  src: local('HelveticaLTStd-Fraction'),
+  url('https://nomail.com.ua/files/woff/5a6abd7e63dede2301b22c6f5fc886d4.woff') format('woff');
+}
+
 /* body */
 
 body {
@@ -173,10 +179,10 @@ h5 {
 }
 
 .toolbar .container .header-title {
-  font-family: 'PT Sans Italic', arial;;  /*'Wrexham Script'*/
+  font-family: Georgia, arial;  /*'Wrexham Script'*/
   color: #ffffff !important;
   font-weight: bold;
-  font-size: 23px;
+  font-size: 20px;
 }
 
 .navbar-default {
