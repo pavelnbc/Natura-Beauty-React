@@ -81,8 +81,11 @@ class App extends Component {
                               <Route path="/products" component={ProdCategoriesContainer}/>
                               <Route path="/" component={LeftSideBanner}/>
                             </Switch>
-                            <Commercial />
+                            <Commercial/>
                           </LeftBarContent>
+                        </Col>
+                        <Col xs={12} smHidden mdHidden lgHidden>
+                            <Route path="/products" component={ProdCategoriesContainer}/>
                         </Col>
                         <Col xs={12} sm={8} md={9} lg={9} >
                           <MainContent isContentVisible={this.state.isContentVisible}>

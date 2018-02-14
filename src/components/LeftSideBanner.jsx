@@ -1,8 +1,8 @@
 import React from 'react';
 
-function LeftSideBanner({ setContWithoutDisappear }) {
+function LeftSideBanner() {
     return (
-      <div className="left-side-banner" onClick={setContWithoutDisappear}>
+      <div className="left-side-banner">
           <img src="/img/doctor.jpg" alt="doctor-img"/>
       </div>
     )
