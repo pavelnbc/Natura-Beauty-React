@@ -67,8 +67,8 @@ class App extends Component {
     render() {
         return (
           <main className="app">
-            <Content>
-                <MenuContainer/>
+              <MenuContainer/>
+              <Content>
                 <ContentShadowContainer />
                 <Route path="/:products?" component={RedirectContainer}/>
                 <Route path="/:pages?" component={ToolbarContainer}/>
