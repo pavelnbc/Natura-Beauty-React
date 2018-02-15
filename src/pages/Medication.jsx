@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 
-import EmptyPage from '../components/EmptyPage';
+import Loading from '../components/Loading';
 
 import { Button } from 'react-bootstrap';
 
@@ -67,7 +67,7 @@ class Medication extends Component {
                         </NavLink>
                     </section>
                 </main>
-                :   <EmptyPage content="Loading" />
+                : <Loading/>
         )
     }
 }
