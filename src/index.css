@@ -191,11 +191,10 @@ h5 {
 
 .toolbar .nav .navItem a{
   height: 50px !important;
-  font-family: Georgia;
+  font-family: Georgia, Arial;
   color: #ffffff !important;
   font-size: 0.825em;
   border: 3px solid transparent;
-  padding-top: 1px !important;
   padding-top: 13px !important;
 }
 
@@ -634,16 +633,26 @@ h5 {
 .contacts .contacts-field {
   display: flex;
   justify-content: space-between;
-  width: 70%;
+  width: 100%;
+  padding: 10px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
 }
 
-.contacts .contacts-field div:first-child {
+.contacts .contacts-field > div:first-child {
   font-weight: bold;
 }
 
+.contacts .contacts-field div:last-child {
+  text-align: right;
+}
+
 .contacts iframe {
-  margin-top: 30px;
-  border: none;
+  width: 100%;
+  height: 450px;
+  margin-bottom: 20px;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
 }
 
 /* footer */
