@@ -1,5 +1,6 @@
 import React from "react";
 import { Grid, Row, Col } from "react-bootstrap";
+import PropTypes from 'prop-types';
 
 import Product from "../components/Product";
 import EmptyPage from "../components/EmptyPage";
@@ -30,7 +31,7 @@ function Products({ products, match, searchedMed, importProducts, getProduct }) 
                 {searchMeds.map((product, index) => {
                     return (
                         <Col xs={12} sm={6} md={3} lg={3} key={index}>
-                            <Product key={index} medication={product} getItem={getProduct} />
+                            <Product medication={product} getItem={getProduct} />
                         </Col>
                     );
                 })}
@@ -38,5 +39,13 @@ function Products({ products, match, searchedMed, importProducts, getProduct }) 
         </Grid>
     );
 }
+
+Products.propTypes = {
+  products: PropTypes.array,
+  searchedMed: PropTypes.string,
+  importProducts: PropTypes.func,
+  getProduct: PropTypes.func,
+  match: PropTypes.object
+};
 
 export default Products;
