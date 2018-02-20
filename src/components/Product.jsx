@@ -62,16 +62,22 @@ class Product extends Component {
     render() {
         this.medication = this.props.medication;
 
+        let dosage = this.medication.dosage[this.state.dosageIndicator];
+        let quantity = this.medication.quantity[this.state.quantityIndicator];
+        let price = Math.round(this.medication.price[this.state.dosageIndicator]
+            * quantity
+            * this.state.saleCoefs[this.state.quantityIndicator] * 100) / 100;
+
         return (
             <Thumbnail src={`/img/pills.png`} className="product">
                 <div className="controls">
-                    <h4 className="price">${this.getPrice().toFixed(2)}</h4>
+                    <h4 className="price">${price.toFixed(2 )}</h4>
                     <p className="dosage-selection">
                         <div className="arrow arrow-left" onClick={() => {this.handleDosage(true)}}>
                             <FontAwesome name="chevron-up" size="2x" />
                         </div>
                         <div className="indicator">
-                            {this.medication.dosage[this.state.dosageIndicator]}
+                            {dosage}
                             <div className="mg">mg</div>
                         </div>
                         <div className="arrow arrow-right" onClick={() => {this.handleDosage(false)}}>
@@ -83,7 +89,7 @@ class Product extends Component {
                             <FontAwesome name="chevron-up" size="2x" />
                         </div>
                         <div className="indicator">
-                            {this.medication.quantity[this.state.quantityIndicator]}
+                            {quantity}
                             <div className="pills">pills</div>
                         </div>
                         <div className="arrow arrow-right" onClick={() => { this.handleQuantity(false)}}>
@@ -98,8 +104,8 @@ class Product extends Component {
                                 img: `/img/${this.medication.slug}.jpg`,
                                 title: this.medication.title,
                                 price: this.getPrice(),
-                                dosage: this.medication.dosage[this.state.dosageIndicator],
-                                quantity: this.medication.quantity[this.state.quantityIndicator]
+                                dosage: dosage,
+                                quantity: quantity
                               })}}
                     >
                         Add to card

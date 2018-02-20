@@ -7,15 +7,15 @@ class LeftBarContent extends Component {
     super(props);
 
     this.state = {
-      isBarVisible: true
+      shouldBarUpdate: true
     };
 
     this.handleBarVisibility = this.handleBarVisibility.bind(this);
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    if(!nextState.isBarVisible) {
-        nextState.isBarVisible = true;
+    if(!nextState.shouldBarUpdate) {
+        nextState.shouldBarUpdate = true;
         return false;
     }
 
@@ -24,7 +24,7 @@ class LeftBarContent extends Component {
 
   handleBarVisibility() {
     this.setState({
-        isBarVisible: false
+        shouldBarUpdate: false
     });
   }
 
@@ -41,18 +41,5 @@ class LeftBarContent extends Component {
       )
   }
 }
-
-// function LeftBarContent({ children, isContentVisible }) {
-//   let leftBarContentClass = classNames({
-//     "content-is-hidden": true,
-//     "content-is-visible": isContentVisible
-//   });
-//
-//   return (
-//     <aside className={leftBarContentClass}>
-//         {children}
-//     </aside>
-//   )
-// }
 
 export default LeftBarContent
