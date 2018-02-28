@@ -1,38 +1,39 @@
-import React, {Component} from 'react';
-import Fontawesome from "react-fontawesome";
+import React, { Component } from 'react';
+import FontAwesome from 'react-fontawesome';
 
 class Anchor extends Component {
-  constructor(props) {
-      super(props);
+    constructor(props) {
+        super(props)
 
-      this.handleScroll = this.handleScroll.bind(this);
-      this.handleVisibility = this.handleVisibility.bind(this)
-  }
+        this.handleVisibility = this.handleVisibility.bind(this);
+        this.handleScroll = this.handleScroll.bind(this);
+    }
 
-  handleVisibility(){
-      this.anchor.style.opacity = document.documentElement.scrollTop / 500 || document.body.scrollTop / 500;
-  };
+    handleScroll() {
+        let intervalId = setInterval(() => {
+            document.documentElement.scrollTop -= 15;
+            document.body.scrollTop -= 15;
 
-  handleScroll() {
-      let scrollID = setInterval(() => {
-          document.documentElement.scrollTop -= 15;
-          document.body.scrollTop -= 15;
+            if(!window.pageYOffset) clearInterval(intervalId);
 
-          if(!window.pageYOffset) clearInterval(scrollID);
-      })
-  }
+        }, 10)
+    }
 
-  componentDidMount() {
-    window.addEventListener("scroll", this.handleVisibility);
-  }
+    handleVisibility() {
+        this.anchor.style.opacity = document.body.scrollTop / 500 || document.documentElement.scrollTop / 500;
+    }
 
-  render() {
-    return (
-      <div className="anchor" ref={(div) => { this.anchor = div }} onClick={this.handleScroll}>
-        <Fontawesome name="angle-up" size="3x"/>
-      </div>
-    )
-  }
+    componentDidMount() {
+        window.addEventListener('scroll', this.handleVisibility)
+    }
+
+    render() {
+        return(
+            <div className="anchor" ref={(div) => this.anchor = div} onClick={this.handleScroll}>
+                <FontAwesome name="chevron-up" size="2x"/>.
+            </div>
+        )
+    }
 }
 
-export default Anchor 
+export default Anchor

@@ -107,7 +107,7 @@ class App extends Component {
                           </MainContent>
                         </Col>
                         <Col xsHidden>
-                          <Anchor />
+                          <Anchor/>
                         </Col>
                     </Row>
                 </Grid>
