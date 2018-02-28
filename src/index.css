@@ -19,6 +19,11 @@ body {
   background-color: whitesmoke;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 /*content*/
 
 .content {
@@ -699,20 +704,30 @@ h5 {
 /* Anchor */
 
 .anchor {
-  width: 45px;
-  height: 45px;
-  position: fixed;
-  bottom: 70px;
-  left: 120px;
-  border: 2px solid #0086FF;
-  border-radius: 5px;
-  opacity: 0;
-  text-align: center;
-  cursor: pointer;
+   position: absolute;
+   bottom: 100px;
+   left: 100px;
+   width: 60px;
+   height: 60px;
+   line-height: 50px;
+   text-align: center;
+   position: fixed;
+   border: 2px solid grey;
+   border-radius: 50%;
+   background-color: lightgrey;
+   cursor: pointer;
 }
 
-.fa-angle-up {
-  color: #40A5FF;
+.anchor:hover {
+  background-color: grey;
+  color: #fff;
+  border-color: darkslategrey;
+}
+
+.anchor .fa {
+  position: absolute;
+  top: 20%;
+  left: 25%;
 }
 
 .not-found {
@@ -720,5 +735,5 @@ h5 {
   height: 30px;
   margin: 70px auto;
   color: grey;
-  text-align: center;
+  text-align: right;
 }
