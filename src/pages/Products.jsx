@@ -26,17 +26,15 @@ function Products({ products, match, searchedMed, importProducts, getProduct }) 
     ) : !searchMeds.length ? (
         <EmptyPage content="Nothing was found" />
     ) : (
-        <Grid>
-            <Row className="show-grid">
-                {searchMeds.map((product, index) => {
-                    return (
-                        <Col xs={12} sm={6} md={3} lg={3} key={index}>
-                            <Product medication={product} getItem={getProduct} />
-                        </Col>
-                    );
-                })}
-            </Row>
-        </Grid>
+        <div className="row">
+            {searchMeds.map((product, index) => {
+                return (
+                    <div className="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                        <Product medication={product} getItem={getProduct} />
+                    </div>
+                );
+            })}
+        </div>
     );
 }
 

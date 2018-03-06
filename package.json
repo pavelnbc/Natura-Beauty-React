@@ -3,6 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "gulp-clean-css": "^3.9.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-concat-css": "^3.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uncss": "^1.0.6",
     "prop-types": "^15.6.0",
     "react": "^15.6.2",
     "react-dom": "^15.6.1",
@@ -22,6 +27,7 @@
   "devDependencies": {
     "axios": "^0.17.0",
     "font-awesome": "^4.7.0",
+    "gulp": "^3.9.1",
     "prettier": "1.8.2",
     "react-bootstrap": "^0.31.5",
     "react-fontawesome": "1.6.1"

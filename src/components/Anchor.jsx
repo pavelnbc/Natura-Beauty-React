@@ -3,20 +3,21 @@ import FontAwesome from 'react-fontawesome';
 
 class Anchor extends Component {
     constructor(props) {
-        super(props)
+        super(props);
 
         this.handleVisibility = this.handleVisibility.bind(this);
         this.handleScroll = this.handleScroll.bind(this);
     }
 
     handleScroll() {
-        let intervalId = setInterval(() => {
-            document.documentElement.scrollTop -= 15;
-            document.body.scrollTop -= 15;
+        requestAnimationFrame(function animate() {
+            document.documentElement.scrollTop -= 25;
+            document.body.scrollTop -= 25;
 
-            if(!window.pageYOffset) clearInterval(intervalId);
-
-        }, 10)
+            if(window.pageYOffset) {
+                requestAnimationFrame(animate)
+            }
+        })
     }
 
     handleVisibility() {

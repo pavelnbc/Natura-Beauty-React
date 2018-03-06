@@ -4,7 +4,7 @@ import {BrowserRouter as Router} from 'react-router-dom';
 import { Provider } from 'react-redux';
 import storage from './storage'
 
-import './index.css';
+import './css/index.css';
 import "font-awesome/css/font-awesome.css";
 
 import App from './App';

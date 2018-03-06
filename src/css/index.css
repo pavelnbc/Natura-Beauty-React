@@ -1,3 +1,5 @@
+@import 'grid.css';
+
 @font-face {
   font-family: 'HelveticaLTStd-Fraction';
   src: local('HelveticaLTStd-Fraction'),
@@ -53,7 +55,6 @@ body {
 
 .content-without-shadow {
   display: none;
-
 }
 
 .content-shadow {     /*Когда будешь расширять блок на всю страницу другим способом (если надо будет), не забудь что нужно*/
@@ -64,6 +65,10 @@ body {
   background-color: #7DA0C0;
   opacity: 0.3;
   z-index: 101;
+}
+
+.content-wrapper {
+  padding-top: 35px;
 }
 
 .empty-page {
@@ -94,6 +99,7 @@ body {
   margin-bottom: -1px;
   color: #0057A6;
   background-color: #CEE8FF;
+  text-align: left;
 }
 
 .prod-categories .list-group-item:hover {
@@ -161,7 +167,86 @@ h5 {
 
 /*header-toolbar*/
 
-.toolbar {
+.header {
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  height: 640px;
+  background: url("/img/NB-logo.png") no-repeat 50% 0;
+  background-size: cover;
+  font-family: HelveticaLTStd-Fraction;
+  transition: 600ms;
+  z-index: 103;
+}
+
+.folded-header {
+  position: fixed;
+  height: 50px;
+}
+
+.header .header-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.header a {
+  color: white;
+}
+
+.header a:hover, .header a:focus  {
+  text-decoration: none;
+}
+
+.header__left {
+  display: flex;
+  align-items: flex-start;
+  padding: 1px;
+  color: #fff;
+  line-height: 5px;
+  vertical-align: text-top;
+}
+
+.header__menu {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin-right: 20px;
+  margin-left: 20px;
+  vertical-align: text-top;
+  cursor: pointer;
+}
+
+.header__menu div {
+  width: 100%;
+  height: 4px;
+  margin-bottom: 5px;
+  background-color: #fff;
+}
+
+.header .header__header-title {
+  font-size: 20px;
+  font-weight: bold;
+  vertical-align: text-top;
+}
+
+
+.header__header-nav-bar li {
+  margin-right: 40px;
+  list-style: none;
+}
+
+.header__header-nav-bar li a {
+  color: white
+}
+
+.header__header-navigation ul {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+/*.toolbar {
   height: 640px;
   background: url("/img/NB-logo.png") no-repeat 50% 0;
   background-size: cover;
@@ -184,7 +269,7 @@ h5 {
 }
 
 .toolbar .container .header-title {
-  font-family: Georgia, arial;  /*'Wrexham Script'*/
+  font-family: Georgia, arial;  !*'Wrexham Script'*!
   color: #ffffff !important;
   font-weight: bold;
   font-size: 20px;
@@ -195,7 +280,7 @@ h5 {
 }
 
 .toolbar .nav .navItem a{
-  height: 50px !important;
+  height: 20px !important;
   font-family: Georgia, Arial;
   color: #ffffff !important;
   font-size: 0.825em;
@@ -203,13 +288,12 @@ h5 {
   padding-top: 13px !important;
 }
 
-.toolbar .nav .navItem:not(.excluding) a:hover {
-  background-color: #4FACFF;
-  transition: 300ms;
-}
-
 .toolbar .nav .navItem  a:hover {
   text-decoration: none;
+}
+
+.toolbar .nav .navItem:not(.excluding) a:hover {
+  transition: 300ms;
 }
 
 .fa-bars {
@@ -285,7 +369,7 @@ h5 {
 
 .shotNav .shot-total a{
   cursor: default !important;
-}
+}*/
 
 /*searchPlugin*/
 
@@ -294,8 +378,7 @@ h5 {
 }
 
 .search-form input{
-  margin-top: 11px;
-  height: 27px;
+  height: 25px;
 }
 
 .search-form .fa {
@@ -331,7 +414,6 @@ h5 {
 
 .menu-bar {
   position: fixed;
-  position: fixed;
   min-height: 100%;
   width: 333px;
   margin-left: -333px;
@@ -339,7 +421,7 @@ h5 {
   background-color: #1A64A6;
   border: 1px solid #ddd;
   border-top-color: #1A64A6;
-  z-index: 102;
+  z-index: 105;
 }
 
 .menuOn {
@@ -436,7 +518,7 @@ h5 {
   text-align: center;
   background-color: #fff;
   border: 1px solid #e2eefb;
-  margin: 20px auto 0;
+  margin: -11px auto 20px;
   overflow: hidden;
   z-index: 100;
 }
@@ -705,8 +787,8 @@ h5 {
 
 .anchor {
    position: absolute;
-   bottom: 100px;
-   left: 100px;
+   bottom: 10%;
+   left: 10%;
    width: 60px;
    height: 60px;
    line-height: 50px;
@@ -715,6 +797,8 @@ h5 {
    border: 2px solid grey;
    border-radius: 50%;
    background-color: lightgrey;
+   opacity: 0;
+   z-index: 200;
    cursor: pointer;
 }
 
