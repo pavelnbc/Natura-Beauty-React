@@ -4,7 +4,10 @@ import { PageHeader } from 'react-bootstrap';
 function Policies() {
     return (
         <section className="policies">
-            <PageHeader>Our Policies</PageHeader>
+            <div className="page-title">
+                <h1>Our Policies</h1>
+            </div>
+
 
             <p>Believing neglected so so allowance existence departure in. In design active temper be uneasy.
                 Thirty for remove plenty regard you summer though. He preference connection astonished on of ye.

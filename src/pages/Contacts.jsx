@@ -4,11 +4,13 @@ import { PageHeader } from 'react-bootstrap';
 function Contacts() {
     return (
         <section className="contacts">
-          <PageHeader>Our Contacts</PageHeader>
+          <div className="page-title">
+              <h1>Our Contacts</h1>
+          </div>
 
           <p>
             Please, contact our customer support team in case if you need an additional information
-            and we will be happy to provide you with everything that you need. 
+            and we will be happy to provide you with everything that you need.
             You may contact us any time it is conveniently for you - we work <b> 24/7</b>.
           </p>
 

@@ -4,7 +4,9 @@ import { PageHeader } from 'react-bootstrap';
 function About() {
     return (
         <section className="aboutUs">
-            <PageHeader>About Us</PageHeader>
+            <div className="page-title">
+                <h1>About Us</h1>
+            </div>
 
             <p>On am we offices expense thought. Its hence ten smile age means. Seven chief sight far point any.
                 Of so high into easy. Dashwoods eagerness oh extensive as discourse sportsman frankness.

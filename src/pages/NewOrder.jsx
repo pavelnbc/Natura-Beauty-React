@@ -4,7 +4,9 @@ import { PageHeader } from 'react-bootstrap';
 function NewOrder() {
   return (
     <section className="new-order">
-      <PageHeader>How to place an order with our company</PageHeader>
+      <div className="page-title">
+          <h1>How to place an order with our company</h1>
+      </div>
 
       <p>Improve him believe opinion offered met and end cheered forbade. Friendly as stronger speedily by recurred.
        Son interest wandered sir addition end say. Manners beloved affixed picture men ask.

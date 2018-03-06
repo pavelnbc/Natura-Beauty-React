@@ -4,7 +4,9 @@ import { PageHeader } from 'react-bootstrap';
 function FAQ() {
   return (
     <section className="faq">
-      <PageHeader>Frequently Asked Questions</PageHeader>
+      <div className="page-title">
+          <h1>Frequently Asked Questions</h1>
+      </div>
 
       <p>Admiration we surrounded possession frequently he. Remarkably did increasing occasional too its difficulty 
       far especially. Known tiled but sorry joy balls. Bed sudden manner indeed fat now feebly. Face do with in need 

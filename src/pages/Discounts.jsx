@@ -4,7 +4,10 @@ import { PageHeader } from 'react-bootstrap';
 function Discounts() {
   return (
     <section className="discounts">
-      <PageHeader>Discounts</PageHeader>
+      <div className="page-title">
+          <h1>Discounts</h1>
+      </div>
+
 
       <p>Certainty listening no no behaviour existence assurance situation is. Because add why not esteems amiable him.
        Interested the unaffected mrs law friendship add principles. Indeed on people do merits to. 

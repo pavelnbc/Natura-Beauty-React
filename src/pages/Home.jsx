@@ -25,8 +25,9 @@ class Home extends Component {
     render() {
         return (
             <section className="homePage">
-                <PageHeader>Welcome to Natural Beauty</PageHeader>
-
+                <div className="page-title">
+                    <h1>Welcome to Natural Beauty</h1>
+                </div>
                 <p>
                     Arrived compass prepare an on as. Reasonable particular on my it in
                     sympathize. Size now easy eat hand how. Unwilling he departure elsewhere
