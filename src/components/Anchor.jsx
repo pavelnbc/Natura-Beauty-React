@@ -1,38 +1,40 @@
-import React, {Component} from 'react';
-import Fontawesome from "react-fontawesome";
+import React, { Component } from 'react';
+import FontAwesome from 'react-fontawesome';
 
 class Anchor extends Component {
-  constructor(props) {
-      super(props);
+    constructor(props) {
+        super(props);
 
-      this.handleScroll = this.handleScroll.bind(this);
-      this.handleVisibility = this.handleVisibility.bind(this)
-  }
+        this.handleVisibility = this.handleVisibility.bind(this);
+        this.handleScroll = this.handleScroll.bind(this);
+    }
 
-  handleVisibility(){
-      this.anchor.style.opacity = document.documentElement.scrollTop / 500 || document.body.scrollTop / 500;
-  };
+    handleScroll() {
+        requestAnimationFrame(function animate() {
+            document.documentElement.scrollTop -= 25;
+            document.body.scrollTop -= 25;
 
-  handleScroll() {
-      let scrollID = setInterval(() => {
-          document.documentElement.scrollTop -= 15;
-          document.body.scrollTop -= 15;
+            if(window.pageYOffset) {
+                requestAnimationFrame(animate)
+            }
+        })
+    }
 
-          if(!window.pageYOffset) clearInterval(scrollID);
-      })
-  }
+    handleVisibility() {
+        this.anchor.style.opacity = document.body.scrollTop / 500 || document.documentElement.scrollTop / 500;
+    }
 
-  componentDidMount() {
-    window.addEventListener("scroll", this.handleVisibility);
-  }
+    componentDidMount() {
+        window.addEventListener('scroll', this.handleVisibility)
+    }
 
-  render() {
-    return (
-      <div className="anchor" ref={(div) => { this.anchor = div }} onClick={this.handleScroll}>
-        <Fontawesome name="angle-up" size="3x"/>
-      </div>
-    )
-  }
+    render() {
+        return(
+            <div className="anchor" ref={(div) => this.anchor = div} onClick={this.handleScroll}>
+                <FontAwesome name="chevron-up" size="2x"/>.
+            </div>
+        )
+    }
 }
 
-export default Anchor 
+export default Anchor

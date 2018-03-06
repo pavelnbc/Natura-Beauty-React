@@ -72,45 +72,51 @@ class App extends Component {
                 <ContentShadowContainer />
                 <Route path="/:products?" component={RedirectContainer}/>
                 <Route path="/:pages?" component={ToolbarContainer}/>
-                <Grid>
-                    <Row className="show-grid">
-                        <Col xsHidden sm={4} md={3} lg={3}>
-                          <LeftBarContent isContentVisible={this.state.isContentVisible}>
-                            <Switch>
-                              <Route path="/cart" component={RefundReturnPolicy}/>
-                              <Route path="/products" component={ProdCategoriesContainer}/>
-                              <Route path="/" component={LeftSideBanner}/>
-                            </Switch>
-                            <Commercial/>
-                          </LeftBarContent>
-                        </Col>
-                        <Col xs={12} smHidden mdHidden lgHidden>
-                            <Route path="/products" component={ProdCategoriesContainer}/>
-                        </Col>
-                        <Col xs={12} sm={8} md={9} lg={9} >
-                          <MainContent isContentVisible={this.state.isContentVisible}>
-                              <Switch>
-                                  <Route exact path="/" component={Home}/>}/>
-                                  <Route exact path="/products/:category?" component={ProductsContainer}/>
-                                  <Route path="/products/:category/:medication" component={Medication}/>
-                                  <Route path="/about" component={About}/>
-                                  <Route path="/contact" component={Contacts}/>
-                                  <Route path="/policies" component={Policies}/>
-                                  <Route path="/ordering" component={NewOrder} />
-                                  <Route path="/reordering" component={OrderReplacement} />
-                                  <Route path="/FAQ" component={FAQ} />
-                                  <Route path="/discounts" component={Discounts} />
-                                  <Route path="/cart" render={() => <CartContainer />}
-                                  />
-                                  <Route component={NotFound}/>
-                              </Switch>
-                          </MainContent>
-                        </Col>
-                        <Col xsHidden>
-                          <Anchor />
-                        </Col>
-                    </Row>
-                </Grid>
+                <div className="grid">
+                    <div className="row">
+                        <div className="content-wrapper">
+                            <div className="xsHidden col-sm-4 col-md-3 col-lg-3">
+                                <LeftBarContent isContentVisible={this.state.isContentVisible}>
+                                    <Switch>
+                                        <Route path="/cart" component={RefundReturnPolicy}/>
+                                        <Route path="/products" component={ProdCategoriesContainer}/>
+                                        <Route path="/" component={LeftSideBanner}/>
+                                    </Switch>
+                                    <Commercial/>
+                                </LeftBarContent>
+                            </div>
+                            <div className="col-xs-12 col-sm-8 col-md-9 col-lg-9">
+                                <div className="row">
+                                    <div className="col-xs-12 smHidden mdHidden lgHidden">
+                                        <Route path="/products" component={ProdCategoriesContainer}/>
+                                    </div>
+                                    <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <MainContent isContentVisible={this.state.isContentVisible}>
+                                            <Switch>
+                                                <Route exact path="/" component={Home}/>}/>
+                                                <Route exact path="/products/:category?" component={ProductsContainer}/>
+                                                <Route path="/products/:category/:medication" component={Medication}/>
+                                                <Route path="/about" component={About}/>
+                                                <Route path="/contact" component={Contacts}/>
+                                                <Route path="/policies" component={Policies}/>
+                                                <Route path="/ordering" component={NewOrder} />
+                                                <Route path="/reordering" component={OrderReplacement} />
+                                                <Route path="/FAQ" component={FAQ} />
+                                                <Route path="/discounts" component={Discounts} />
+                                                <Route path="/cart" render={() => <CartContainer />}
+                                                />
+                                                <Route component={NotFound}/>
+                                            </Switch>
+                                        </MainContent>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div xsHidden>
+                          <Anchor/>
+                        </div>
+                    </div>
+                </div>
             </Content>
             <Footer />
           </main>
