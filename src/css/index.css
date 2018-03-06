@@ -787,8 +787,13 @@ h5 {
 
 .anchor {
    position: absolute;
+<<<<<<< HEAD:src/css/index.css
    bottom: 10%;
    left: 10%;
+=======
+   bottom: 100px;
+   left: 100px;
+>>>>>>> f8cd79fbe976e56ac540c14788d44f88f058a6ff:src/index.css
    width: 60px;
    height: 60px;
    line-height: 50px;
@@ -797,8 +802,11 @@ h5 {
    border: 2px solid grey;
    border-radius: 50%;
    background-color: lightgrey;
+<<<<<<< HEAD:src/css/index.css
    opacity: 0;
    z-index: 200;
+=======
+>>>>>>> f8cd79fbe976e56ac540c14788d44f88f058a6ff:src/index.css
    cursor: pointer;
 }
 
