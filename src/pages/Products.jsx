@@ -1,5 +1,4 @@
 import React from "react";
-import { Grid, Row, Col } from "react-bootstrap";
 import PropTypes from 'prop-types';
 
 import Product from "../components/Product";
@@ -29,7 +28,7 @@ function Products({ products, match, searchedMed, importProducts, getProduct }) 
         <div className="row">
             {searchMeds.map((product, index) => {
                 return (
-                    <div className="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                    <div key={index} className="col-xs-12 col-sm-6 col-md-4 col-lg-3">
                         <Product medication={product} getItem={getProduct} />
                     </div>
                 );

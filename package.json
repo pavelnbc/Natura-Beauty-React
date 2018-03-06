@@ -3,10 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-beautify": "^2.0.1",
     "gulp-clean-css": "^3.9.2",
     "gulp-concat": "^2.6.1",
     "gulp-concat-css": "^3.0.0",
+    "gulp-cssbeautify": "^1.0.0",
+    "gulp-react": "^3.1.0",
     "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^2.6.4",
     "gulp-uncss": "^1.0.6",
     "prop-types": "^15.6.0",
     "react": "^15.6.2",
@@ -28,6 +33,7 @@
     "axios": "^0.17.0",
     "font-awesome": "^4.7.0",
     "gulp": "^3.9.1",
+    "gulp-util": "^3.0.8",
     "prettier": "1.8.2",
     "react-bootstrap": "^0.31.5",
     "react-fontawesome": "1.6.1"
