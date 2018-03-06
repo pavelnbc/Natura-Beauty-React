@@ -388,6 +388,8 @@ h5 {
 }
 
 .search-form input{
+  display: flex;
+  align-items: center;
   height: 25px;
 }
 
