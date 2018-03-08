@@ -757,11 +757,12 @@ h5 {
 .delivery-amount-bar {
   display: flex;
   flex-direction: column;
+  flex: 1 0 200px;
+  height: 200px;
   padding: 10px;
   background-color: white;
   border: 3px solid #DDDDDD;
   border-radius: 5px;
-  flex: 1 0 200px;
   margin: 20px 10px 0;
   font-size: 13px;
 }
