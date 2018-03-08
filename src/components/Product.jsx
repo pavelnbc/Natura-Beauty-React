@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import { NavLink } from 'react-router-dom';
-import { Thumbnail, Button } from 'react-bootstrap';
+import { Thumbnail } from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome';
+
+import Button from './Button';
 
 class Product extends Component {
   constructor(props) {
@@ -96,10 +98,10 @@ class Product extends Component {
                             <FontAwesome name="chevron-down" size="2x" />
                         </div>
                     </p>
-                    <Button bsStyle="info"
-                            bsSize="sm"
-                            className="submit-btn"
-                            onClick={() => {
+                    <Button class="submit-btn"
+                            icon="/img/spinner.png"
+                            link={`/products/${this.medication.category}/${this.medication.slug}`   }
+                            action={() => {
                                 this.getItem({
                                 img: `/img/${this.medication.slug}.jpg`,
                                 title: this.medication.title,
@@ -111,11 +113,11 @@ class Product extends Component {
                         Add to card
                     </Button>
                 </div>
-                <NavLink to={`/products/${this.medication.category}/${this.medication.slug}`}
+                {/*<NavLink to={`/products/${this.medication.category}/${this.medication.slug}`}
                          className="info-btn"
                 >
                     <img src="/img/triangle.png" alt="info"/>
-                </NavLink>
+                </NavLink>*/}
                 <h4>{this.medication.title}</h4>
                 <p>{this.medication.ingredient}</p>
             </Thumbnail>

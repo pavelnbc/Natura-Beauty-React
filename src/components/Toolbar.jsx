@@ -20,9 +20,9 @@ function Toolbar({ match, categories, totalPrice, itemAmount, onMenu, setEmptySe
             <div className="grid">
                 <div className="row">
                     <div className="header__wrapper">
-                        <div className="col-xs-2 col-sm-4 col-md-3 col-lg-4">
+                        <div className="col-xs-2 col-sm-4 col-md-3 col-lg-3">
                             <div className="header__left">
-                                <span className=" header__header-title">
+                                <span className=" header__title">
                                     <div className="header__menu" onClick={onMenu}>
                                         <div></div>
                                         <div></div>
@@ -41,8 +41,8 @@ function Toolbar({ match, categories, totalPrice, itemAmount, onMenu, setEmptySe
                         <div className="col-xs-8 col-sm-6 col-md-3 col-lg-3">
                             <SearchPluginContainer />
                         </div>
-                        <div className="header__header-navigation xsHidden smHidden col-md-6 col-lg-5">
-                            <nav onClick={setEmptySearch} className="header__header-nav-bar">
+                        <div className="header__navigation xsHidden smHidden col-md-6 col-lg-6">
+                            <nav onClick={setEmptySearch} className="header__nav-bar">
                                 <ul>
                                     <li className="header__navItem">
                                         <NavLink  to="/products">Our Products</NavLink>
@@ -59,8 +59,8 @@ function Toolbar({ match, categories, totalPrice, itemAmount, onMenu, setEmptySe
                                             Order status
                                         </a>
                                     </li>
-                                    <li className="header__navItem header__excluding">
-                                        <a className="header__total">{totalPrice}</a>
+                                    <li className="header__total header__navItem">
+                                        <a>{totalPrice}</a>
                                     </li>
                                     <li className="header__navItem cart-icon">
                                         <NavLink to="/cart">
