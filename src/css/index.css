@@ -185,6 +185,7 @@ h5 {
   justify-content: space-between;
   height: 640px;
   margin-bottom: -30px;
+  padding-top: 5px;
   font-family: 'HelveticaLTStd-Fraction';
   background: url("/img/NB-logo.png") no-repeat 50% 0;
   background-size: cover;
@@ -194,7 +195,11 @@ h5 {
 
 .folded-header {
   position: fixed;
-  height: 50px;
+  height: 60px;
+}
+
+.header__wrapper {
+  border: 1px solid #fff;
 }
 
 .header a {
