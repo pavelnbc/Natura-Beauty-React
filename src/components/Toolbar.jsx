@@ -19,7 +19,7 @@ function Toolbar({ match, categories, totalPrice, itemAmount, onMenu, setEmptySe
         <header className={toolbarClassName}>
             <div className="grid">
                 <div className="row">
-                    <div className="header__wrapper">
+                    <div>
                         <div className="col-xs-2 col-sm-4 col-md-3 col-lg-3">
                             <div className="header__left">
                                 <span className=" header__title">

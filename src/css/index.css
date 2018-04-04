@@ -177,13 +177,15 @@ h5 {
 /*header-toolbar*/
 
 .header {
+  position: relative;
+  top: 0;
   left: 0;
   right: 0;
   display: flex;
   justify-content: space-between;
   height: 640px;
   margin-bottom: -30px;
-  font-family: HelveticaLTStd-Fraction;
+  font-family: 'HelveticaLTStd-Fraction';
   background: url("/img/NB-logo.png") no-repeat 50% 0;
   background-size: cover;
   transition: 600ms;
@@ -193,11 +195,6 @@ h5 {
 .folded-header {
   position: fixed;
   height: 50px;
-}
-
-.header .header-wrapper {
-  display: flex;
-  align-items: center;
 }
 
 .header a {
@@ -404,6 +401,7 @@ h5 {
   display: flex;
   align-items: center;
   height: 25px;
+  margin-top: -3px;
 }
 
 .search-form .fa {
@@ -695,6 +693,8 @@ h5 {
 .submit-btn:hover .button__desc {
   width: 140px;
   border-radius: 5px 0 0 5px;
+  background-color: royalblue;
+  color: #fff;
 }
 
 .submit-btn:hover .button__desc .spinner-img {
