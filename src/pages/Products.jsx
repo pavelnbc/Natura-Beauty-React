@@ -12,6 +12,8 @@ function Products ({ products, searchedMed, match, getProduct }) {
         })
         : products;
 
+    console.log(searchedMed);
+
     const searchedMeds = medications.filter((med) => {
         if(~med.slug.indexOf(searchedMed.toLowerCase())) {
             return med

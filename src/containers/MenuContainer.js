@@ -12,10 +12,9 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  // dispatch(importMenuLinks());
+  dispatch(importMenuLinks());
   return {
-    offMenu: () => dispatch(offMenu()),
-    importMenuLinks: () => dispatch(importMenuLinks())
+    offMenu: () => dispatch(offMenu())
   }
 }
 

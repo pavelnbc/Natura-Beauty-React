@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink} from 'react-router-dom';
-import {    MenuItem, DropdownButton, ListGroup, ListGroupItem } from 'react-bootstrap';
+// import {    MenuItem, DropdownButton, ListGroup, ListGroupItem } from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
@@ -14,6 +14,16 @@ function Toolbar({ match, categories, totalPrice, itemAmount, onMenu, setEmptySe
         header: true,
         "folded-header": match.params.pages
     });
+
+    let dropdownList = document.getElementById("dropdown-list");
+
+    function setDropDownMenu() {
+        dropdownList.classList.toggle('unfolded');
+    }
+
+    function setDropdownHidden() {
+        dropdownList.classList.toggle('dropdown-is-hidden');
+    }
 
     return (
         <header className={toolbarClassName}>
@@ -72,7 +82,58 @@ function Toolbar({ match, categories, totalPrice, itemAmount, onMenu, setEmptySe
                             </nav>
                         </div>
                         <div className="col-xs-2 col-sm-2 mdHidden lgHidden">
-                            <DropdownButton pullRight bsStyle={'default'}
+                            <div className="header__dropdown-menu">
+                                <div className="header__dropdown-icon" onClick={setDropDownMenu}>
+                                    <div className="header__dropdown-icon-triangle"></div>
+                                </div>
+                                <ul className="header__dropdown-list" id="dropdown-list" onClick={setDropDownMenu}>
+                                    <li>
+                                        <NavLink className="header__dropdown-listIcon" to="/">Home</NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink className="header__dropdown-listIcon" to="/products">Our Products</NavLink>
+                                    </li>
+                                    <li>
+                                        <a href="https://tools.usps.com/go/TrackConfirmAction_input"
+                                           target="_blank"
+                                           title="USPS.com"
+                                           className="header__dropdown-listIcon"
+                                        >
+                                            Order Status
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <NavLink className="header__dropdown-listIcon" to="/about">About Us</NavLink>
+                                    </li>
+                                    <li className="header__dropdown-listIcon" onMouseOver={setDropdownHidden} onMouseOut={setDropdownHidden}>
+                                        Categories
+                                        <ul className="header__dropdown-categories">
+                                            {categories.map((category, index) => {
+                                                return (
+                                                    <li key={index} className="header__dropdown-category">
+                                                        <NavLink to={`/products/${category.id}`}>
+                                                            {category.title}
+                                                        </NavLink>
+                                                    </li>
+                                                )
+                                            })}
+                                        </ul>
+                                    </li>
+                                    <li className="header__dropdown-listIcon total-price">{totalPrice}</li>
+                                    <li>
+                                        <NavLink className="header__dropdown-listIcon" to="/cart">Cart</NavLink>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    )
+}
+
+/*<DropdownButton pullRight bsStyle={'default'}
                                             title=""
                                             id="toolbar-dropdown"
                                             bsSize="sm"
@@ -120,14 +181,7 @@ function Toolbar({ match, categories, totalPrice, itemAmount, onMenu, setEmptySe
                                         Cart
                                     </NavLink>
                                 </MenuItem>
-                            </DropdownButton>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-    )
-}
+                            </DropdownButton>*/
 
 /*<Navbar className={toolbarClassName}>
             <Grid>

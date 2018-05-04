@@ -12,10 +12,8 @@ function Menu({ menuLinks, isMenuOpened, offMenu, importMenuLinks }) {
     "menuOn": isMenuOpened
   });
 
-  importMenuLinks();
-
   return (
-    <aside className={menuClassName} onClick={offMenu}>
+    <aside className={menuClassName}>
       <div className="menu-bar-content">
         <div className="menu-logo">
           <img src="/img/menu-logo.png" alt="menu-logo-img" />
@@ -24,9 +22,9 @@ function Menu({ menuLinks, isMenuOpened, offMenu, importMenuLinks }) {
             <h4>We care</h4>
           </div>
         </div>
-        <ListGroup>
-          { menuLinks.length
-            ? menuLinks.map((link, index) => {
+        { menuLinks.length
+        ? <ListGroup onClick={offMenu}>
+           {menuLinks.map((link, index) => {
             return (
               <NavLink key={index} to={link.direction}>
                 <ListGroupItem>
@@ -35,9 +33,10 @@ function Menu({ menuLinks, isMenuOpened, offMenu, importMenuLinks }) {
                 </ListGroupItem>
               </NavLink>
             )
-          })
-          : <img className="menu-links-loading" src="/img/menu-list-loading.gif" alt="loading"/>}
+           })}
         </ListGroup>
+        : <img className="menu-links-loading" src="/img/menu-list-loading.gif" alt="loading"/>
+        }
       </div>
       <SocialNetworks />
     </aside>
@@ -45,3 +44,67 @@ function Menu({ menuLinks, isMenuOpened, offMenu, importMenuLinks }) {
 }
 
 export default Menu;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*import React from 'react';
+import { ListGroup, ListGroupItem } from "react-bootstrap";
+import FontAwesome from 'react-fontawesome';
+import classNames from 'classnames';
+
+function Menu({ menuLinks, isMenuOpened, offMenu } ) {
+  let menuClassName = classNames({
+     "menu-bar": true,
+     menuOff: isMenuOpened
+  });
+
+  return (
+      <aside className="menu">
+        <div className="menu__top">
+          <img src="" alt="menu__img"/>
+          <div className="menu__compay-name">
+            Natural Beauty
+          </div>
+          <div className="menu__logo">
+            We care
+          </div>
+        </div>
+        {menuLinks.links
+        ? <ListGroup onClick={offMenu}>
+                {
+                    menuLinks.map((link) => {
+                        return (
+                            <ListGroupItem>
+                              <FontAwesome name={link.icon}/>
+                                {link.title}
+                            </ListGroupItem>
+                        )
+                    })
+                }
+            </ListGroup>
+        : <img className="menu-links-loading" src="/img/menu-list-loading.gif" alt="loading"/>
+        }
+
+      </aside>
+  )
+}
+
+export default Menu
+
+
+*/

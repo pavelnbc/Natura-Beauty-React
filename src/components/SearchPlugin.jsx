@@ -1,60 +1,160 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import FontAwesome from 'react-fontawesome';
-
-import {FormControl} from 'react-bootstrap'
 
 class SearchPlugin extends Component {
     constructor(props) {
         super(props);
-        this.onSearch = props.getSearchValue;
+
         this.state = {
-            searchIcon: true
+            isInputEmpty: true
         };
-
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.defineIcon = this.defineIcon.bind(this);
-        this.deleteText = this.deleteText.bind(this);
-    }
-
-    deleteText() {
-        this.searchObject.value = "";
-        this.searchObject.focus();
-        this.setState({
-            searchIcon: true
-        });
-    }
-
-    defineIcon() {
-        this.setState({
-            searchIcon: this.searchObject.value ? false : true
-        })
-    }
-
-    handleSubmit(event) {
-        event.preventDefault();
-        let modifiedSearchValue = this.searchObject.value.trim();
-        console.log(this.onSearch);
-        this.onSearch(modifiedSearchValue);
-        this.deleteText();
     }
 
     render() {
-        return (
-            <form className="search-form" onSubmit={this.handleSubmit}>
-                <FormControl
-                    type="text"
-                    placeholder="Search"
-                    inputRef={(input) => this.searchObject = input}
-                    onChange={this.defineIcon}
-                />
-                {this.state.searchIcon
-                    ? <FontAwesome name="search" />
-                    : <FontAwesome name="times-circle" size="sm" onClick={this.deleteText}/>
-                }
+        let onSend = (event) => {
+            event.preventDefault();
 
+            let modifiedSerValue = this.searchValue.value.trim();
+            this.props.getSearchValue(modifiedSerValue);
+            onDeleteText();
+        };
+
+        let onDeleteText = () => {
+            this.searchValue.value = "";
+            this.searchValue.focus();
+            this.setState({
+                isInputEmpty: true
+            })
+        };
+
+        let onInputChange = () => {
+            this.setState({
+                isInputEmpty: this.searchValue.value ? false : true
+            })
+        };
+
+        return(
+            <form onSubmit={onSend} className="search-form">
+                <input type="text"
+                       className="search-plugin__input"
+                       placeHolder="Search"
+                       ref={(input) => this.searchValue = input}
+                       onChange={onInputChange}
+                />
+                {this.state.isInputEmpty
+                    ? <FontAwesome name="search" onClick={onSend}/>
+                    : <FontAwesome name="times-circle" size="sm" onClick={onDeleteText}/>
+                }
             </form>
         )
     }
 }
 
 export default SearchPlugin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+import React, { Component } from 'react';
+import FontAwesome from 'react-fontawesome';
+
+class SearchPlugin extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            isEmptyField: false
+        };
+
+        this.onSend = this.onSend.bind(this);
+        this.onInputChange = this.onInputChange.bind(this);
+        this.deleteText = this.deleteText.bind(this);
+    }
+
+    onSend(event) {
+        event.preventDefault();
+
+        let searchValue = this.searchField.value.trim();
+        this.props.getSearchValue(searchValue);
+        this.deleteText();
+    }
+
+    onInputChange(event) {
+        console.log(event.target);
+        this.setState({
+            isEmptyField: !!event.target.value
+        })
+    }
+
+    deleteText() {
+        this.searchField.value = ""
+        this.searchField.focus();
+        this.setState({
+            isEmptyField: false
+        })
+    }
+
+    render() {
+        return (
+            <form className="search-form" onSubmit={this.onSend}>
+                <input type="text"
+                       className="search-plugin__input"
+                       placeholder="Search"
+                       ref={(input) => this.searchField = input}
+                       onChange={this.onInputChange}
+                />
+                <div>
+                    {this.state.isEmptyField
+                        ? <FontAwesome name="times-circle" size="sm" onClick={this.deleteText}/>
+                        : <FontAwesome name="search" onClick={this.onSend}/>}
+                </div>
+            </form>
+        )
+    }
+}
+
+export default SearchPlugin
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
