@@ -340,7 +340,7 @@ h5 {
 
 .header__dropdown-categories {
   position: absolute;
-  left: -140px;
+  left: -160px;
   top: 15px;
   display: none;
   width: 150px;
@@ -354,19 +354,17 @@ h5 {
    display: block;
 }
 
-.header__dropdown-category {
+.header__dropdown-category a {
+  display: block;
   height: 35px;
-  background-color: lightblue;
+  width: 170px;
   padding: 7px 10px;
+  font-size: 13px;
+  background-color: lightblue;
   border-bottom: 1px solid lightgoldenrodyellow;
 }
 
-.header__dropdown-category a{
-  height: 35px;
-  font-size: 13px;
-}
-
-.header__dropdown-category:hover {
+.header__dropdown-category a:hover {
   background-color: royalblue;
 }
 
