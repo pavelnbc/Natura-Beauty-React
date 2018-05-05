@@ -310,11 +310,6 @@ h5 {
   overflow: visible;
 }
 
-.unfolded {
-  transform: scaleY(1);
-
-}
-
 .header__dropdown-list > li:not(:last-child) {
   position: relative;
   border-bottom: 1px solid lightgrey;
@@ -342,7 +337,7 @@ h5 {
   position: absolute;
   left: -160px;
   top: 15px;
-  display: none;
+  transform: scaleY(0);
   width: 150px;
   font-size: 12px;
   z-index: 111;
@@ -350,9 +345,13 @@ h5 {
   list-style: none;
 }
 
-.header__dropdown-list li:hover .header__dropdown-categories {
-   display: block;
+.unfolded {
+  transform: scaleY(1);
 }
+
+/*.header__dropdown-list li:hover .header__dropdown-categories {
+   display: block;
+}*/
 
 .header__dropdown-category a {
   display: block;

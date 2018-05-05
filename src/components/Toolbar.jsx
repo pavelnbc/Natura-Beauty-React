@@ -15,10 +15,18 @@ function Toolbar({ match, categories, totalPrice, itemAmount, onMenu, setEmptySe
         "folded-header": match.params.pages
     });
 
-    let dropdownList = document.getElementById("dropdown-list");
+    let dropdownList = document.getElementById('dropdown-list');
+    let dropdownSubList = document.getElementById('sub-list');
 
-    function setDropDownMenu() {
+    function setDropDownMenu(event) {
+        if(event.target.id === "categories") return;
+
         dropdownList.classList.toggle('unfolded');
+        dropdownSubList.classList.remove('unfolded');
+    }
+
+    function setDropDownSubList() {
+        dropdownSubList.classList.toggle('unfolded');
     }
 
     return (
@@ -101,9 +109,9 @@ function Toolbar({ match, categories, totalPrice, itemAmount, onMenu, setEmptySe
                                     <li>
                                         <NavLink className="header__dropdown-listIcon" to="/about">About Us</NavLink>
                                     </li>
-                                    <li className="header__dropdown-listIcon">
+                                    <li className="header__dropdown-listIcon" onClick={setDropDownSubList} id="categories">
                                         Categories
-                                        <ul className="header__dropdown-categories">
+                                        <ul className="header__dropdown-categories" id="sub-list">
                                             {categories.map((category, index) => {
                                                 return (
                                                     <li key={index} className="header__dropdown-category">
