@@ -8,15 +8,14 @@ function Content({ setDropdownClosed, children }) {
   function setDropdownMenuClosed(event) {
       console.log(event.target);
 
+      if(event.target.closest('#header__dropdown-icon')) return;
+
+      if(event.target.id === 'header__ dropdown-categories') return;
+
       let dropDownSubList = document.getElementById('sub-list');
-
-      if(event.target.classList.contains('header__dropdown-icon')) return;
-      if(event.target.classList.contains('header__dropdown-icon-triangle')) return;
-
-      if(event.target.id === 'heder__ dropdown-categories') return;
+      dropDownSubList.classList.remove('unfolded');
 
       setDropdownClosed();
-      dropDownSubList.classList.remove('unfolded');
   }
 
   return (

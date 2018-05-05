@@ -979,8 +979,8 @@ h5 {
 
 .anchor {
    position: fixed;
-   bottom: 17%;
-   left: 10%;
+   bottom: 100px;
+   left: 120px;
    width: 60px;
    height: 60px;
    line-height: 50px;
