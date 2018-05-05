@@ -30,7 +30,7 @@ function Toolbar({ match, categories, isDropdownOpened, totalPrice, itemAmount, 
             <div className="grid">
                 <div className="row">
                     <div>
-                        <div className="col-xs-2 col-sm-4 col-md-3 col-lg-3">
+                        <div className="col-xs-2 col-sm-5 col-md-3 col-lg-3">
                             <div className="header__left">
                                 <span className=" header__title">
                                     <div className="header__menu" onClick={onMenu}>
@@ -48,7 +48,7 @@ function Toolbar({ match, categories, isDropdownOpened, totalPrice, itemAmount, 
                                 </span>
                             </div>
                         </div>
-                        <div className="col-xs-8 col-sm-6 col-md-3 col-lg-3">
+                        <div className="col-xs-7 col-sm-5 col-md-3 col-lg-3">
                             <SearchPluginContainer />
                         </div>
                         <div className="header__navigation xsHidden smHidden col-md-6 col-lg-6">
@@ -81,7 +81,12 @@ function Toolbar({ match, categories, isDropdownOpened, totalPrice, itemAmount, 
                                 </ul>
                             </nav>
                         </div>
-                        <div className="col-xs-2 col-sm-2 mdHidden lgHidden">
+                        <div className="col-xs-1 col-sm-1 mdHidden lgHidden">
+                            <div className="total-amount">
+                                {totalPrice}
+                            </div>
+                        </div>
+                        <div className="col-xs-2 col-sm-1 mdHidden lgHidden">
                             <div className="header__dropdown-menu">
                                 <div className="header__dropdown-icon" id="header__dropdown-icon" onClick={setDropdownOpened}>
                                     <div className="header__dropdown-icon-triangle"></div>
