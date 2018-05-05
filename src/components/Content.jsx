@@ -6,11 +6,17 @@ import { setDropdownMenuClosed } from '../actions'
 function Content({ setDropdownClosed, children }) {
 
   function setDropdownMenuClosed(event) {
-      if(event.target.id === 'heder__ dropdown-categories') return
+      console.log(event.target);
 
-      if(event.target.id !== 'header__dropdown-icon') {
-          setDropdownClosed();
-      }
+      let dropDownSubList = document.getElementById('sub-list');
+
+      if(event.target.classList.contains('header__dropdown-icon')) return;
+      if(event.target.classList.contains('header__dropdown-icon-triangle')) return;
+
+      if(event.target.id === 'heder__ dropdown-categories') return;
+
+      setDropdownClosed();
+      dropDownSubList.classList.remove('unfolded');
   }
 
   return (

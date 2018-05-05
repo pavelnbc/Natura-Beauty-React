@@ -83,7 +83,7 @@ function Toolbar({ match, categories, isDropdownOpened, totalPrice, itemAmount, 
                         </div>
                         <div className="col-xs-2 col-sm-2 mdHidden lgHidden">
                             <div className="header__dropdown-menu">
-                                <div className="header__dropdown-icon" id="header__dropdown-icon" onClick={setDropdownOpened}>
+                                <div className="header__dropdown-icon" onClick={setDropdownOpened}>
                                     <div className="header__dropdown-icon-triangle"></div>
                                 </div>
                                 <ul className={dropdownClassName} id="dropdown-list">
