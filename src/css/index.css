@@ -331,7 +331,7 @@ h5 {
   height: 30px;
   padding-left: 20px;
   background-color: #7c92e1;
-  color: antiquewhite;
+  color: white;
 }
 
 .header__dropdown-listIcon:not(.total-price) {
