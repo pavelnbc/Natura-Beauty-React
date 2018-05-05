@@ -57,6 +57,22 @@ function Toolbar({ match, categories, isDropdownOpened, totalPrice, itemAmount, 
                                     <li className="header__navItem">
                                         <NavLink  to="/products">Our Products</NavLink>
                                     </li>
+                                    <li className="header__dropdown-listIcon"
+                                        id="header__ dropdown-categories"
+                                        onClick={setDropdownSubMenuClosed}>
+                                        Categories
+                                        <ul className="header__dropdown-categories" id="sub-list">
+                                            {categories.map((category, index) => {
+                                                return (
+                                                    <li key={index} className="header__dropdown-category">
+                                                        <NavLink to={`/products/${category.id}`}>
+                                                            {category.title}
+                                                        </NavLink>
+                                                    </li>
+                                                )
+                                            })}
+                                        </ul>
+                                    </li>
                                     <li className="header__navItem">
                                         <NavLink  to="/about">About us</NavLink>
                                     </li>
@@ -83,7 +99,7 @@ function Toolbar({ match, categories, isDropdownOpened, totalPrice, itemAmount, 
                         </div>
                         <div className="col-xs-1 col-sm-1 mdHidden lgHidden">
                             <div className="total-amount">
-                                {totalPrice}
+                                <NavLink to="/cart">{totalPrice}</NavLink>
                             </div>
                         </div>
                         <div className="col-xs-2 col-sm-1 mdHidden lgHidden">
@@ -109,22 +125,6 @@ function Toolbar({ match, categories, isDropdownOpened, totalPrice, itemAmount, 
                                     </li>
                                     <li>
                                         <NavLink className="header__dropdown-listIcon" to="/about">About Us</NavLink>
-                                    </li>
-                                    <li className="header__dropdown-listIcon"
-                                        id="header__ dropdown-categories"
-                                        onClick={setDropdownSubMenuClosed}>
-                                        Categories
-                                        <ul className="header__dropdown-categories" id="sub-list">
-                                            {categories.map((category, index) => {
-                                                return (
-                                                    <li key={index} className="header__dropdown-category">
-                                                        <NavLink to={`/products/${category.id}`}>
-                                                            {category.title}
-                                                        </NavLink>
-                                                    </li>
-                                                )
-                                            })}
-                                        </ul>
                                     </li>
                                     <li className="header__dropdown-listIcon total-price">{totalPrice}</li>
                                     <li>
