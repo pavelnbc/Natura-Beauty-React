@@ -1,10 +1,8 @@
 import React, {Component} from "react";
-import { PageHeader } from "react-bootstrap";
 import axios from 'axios';
 
 import CarouselBar from "../components/CarouselBar";
 
-// import mainPageSlides from "../data/homePageSlides.json";
 
 class Home extends Component {
     constructor(props) {

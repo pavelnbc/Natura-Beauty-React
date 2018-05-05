@@ -37,7 +37,7 @@ class SearchPlugin extends Component {
             <form onSubmit={onSend} className="search-form">
                 <input type="text"
                        className="search-plugin__input"
-                       placeHolder="Search"
+                       placeholder="Search"
                        ref={(input) => this.searchValue = input}
                        onChange={onInputChange}
                 />

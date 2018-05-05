@@ -1,13 +1,12 @@
 import React from 'react';
 import { NavLink} from 'react-router-dom';
-// import {    MenuItem, DropdownButton, ListGroup, ListGroupItem } from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
 import SearchPluginContainer from '../containers/SearchPluginContainer';
 
-function Toolbar({ match, categories, totalPrice, itemAmount, onMenu, setEmptySearch }) {
+function Toolbar({ match, categories, isDropdownOpened, totalPrice, itemAmount, onMenu, setEmptySearch, setDropdownOpened }) {
     totalPrice = totalPrice.toFixed(2);
 
     let toolbarClassName = classNames({
@@ -15,18 +14,15 @@ function Toolbar({ match, categories, totalPrice, itemAmount, onMenu, setEmptySe
         "folded-header": match.params.pages
     });
 
-    let dropdownList = document.getElementById('dropdown-list');
-    let dropdownSubList = document.getElementById('sub-list');
+    let dropdownClassName = classNames({
+        "header__dropdown-list": true,
+        unfolded: isDropdownOpened
+    });
 
-    function setDropDownMenu(event) {
-        if(event.target.id === "categories") return;
+    let dropDownSubList = document.getElementById('sub-list');
 
-        dropdownList.classList.toggle('unfolded');
-        dropdownSubList.classList.remove('unfolded');
-    }
-
-    function setDropDownSubList() {
-        dropdownSubList.classList.toggle('unfolded');
+    function setDropDownSubMenuClosed() {
+        dropDownSubList.classList.toggle('unfolded');
     }
 
     return (
@@ -87,10 +83,10 @@ function Toolbar({ match, categories, totalPrice, itemAmount, onMenu, setEmptySe
                         </div>
                         <div className="col-xs-2 col-sm-2 mdHidden lgHidden">
                             <div className="header__dropdown-menu">
-                                <div className="header__dropdown-icon" onClick={setDropDownMenu}>
+                                <div className="header__dropdown-icon" id="header__dropdown-icon" onClick={setDropdownOpened}>
                                     <div className="header__dropdown-icon-triangle"></div>
                                 </div>
-                                <ul className="header__dropdown-list" id="dropdown-list" onClick={setDropDownMenu}>
+                                <ul className={dropdownClassName} id="dropdown-list">
                                     <li>
                                         <NavLink className="header__dropdown-listIcon" to="/">Home</NavLink>
                                     </li>
@@ -109,7 +105,9 @@ function Toolbar({ match, categories, totalPrice, itemAmount, onMenu, setEmptySe
                                     <li>
                                         <NavLink className="header__dropdown-listIcon" to="/about">About Us</NavLink>
                                     </li>
-                                    <li className="header__dropdown-listIcon" onClick={setDropDownSubList} id="categories">
+                                    <li className="header__dropdown-listIcon"
+                                        id="heder__ dropdown-categories"
+                                        onClick={setDropDownSubMenuClosed}>
                                         Categories
                                         <ul className="header__dropdown-categories" id="sub-list">
                                             {categories.map((category, index) => {

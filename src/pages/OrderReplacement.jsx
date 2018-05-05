@@ -1,11 +1,10 @@
 import React from 'react';
-import { PageHeader } from 'react-bootstrap';
 
 function OrderReplacement() {
   return (
     <section className="order-replacement">
       <div className="page-title">
-          <PageHeader>How to initiate your order replacement</PageHeader>
+          <h1>Discounts</h1>
       </div>
 
       <p>Imagine was you removal raising gravity. Unsatiable understood or expression dissimilar so sufficient.

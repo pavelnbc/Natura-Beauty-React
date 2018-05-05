@@ -303,11 +303,7 @@ h5 {
   border: 1px solid rgba(0,0,0,.15);
   border-radius: 4px;
   z-index: 110;
-  transition: 300ms;
-}
-
-.dropdown-is-hidden {
-  overflow: visible;
+  transition: 150ms;
 }
 
 .header__dropdown-list > li:not(:last-child) {
@@ -348,10 +344,6 @@ h5 {
 .unfolded {
   transform: scaleY(1);
 }
-
-/*.header__dropdown-list li:hover .header__dropdown-categories {
-   display: block;
-}*/
 
 .header__dropdown-category a {
   display: block;

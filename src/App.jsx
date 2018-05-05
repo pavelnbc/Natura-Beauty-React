@@ -9,7 +9,7 @@ import RedirectContainer from './containers/RedirectContainer';
 import CartContainer from './containers/CartContainer';
 import ProductsContainer from './containers/ProductsContainer';
 import ProdCategoriesContainer from './containers/ProdCategoriesContainer';
-import Content from './components/Content';
+import ContentContainer from './components/Content';
 import MainContent from './pages/MainContent';
 import LeftBarContent from './pages/LeftBarContent';
 import LeftSideBanner from './components/LeftSideBanner';
@@ -27,7 +27,6 @@ import FAQ from './pages/FAQ';
 import Discounts from './pages/Discounts';
 import Policies from './pages/Policies';
 import NotFound from './pages/NotFound';
-
 
 class App extends Component {
     constructor(props, context) {
@@ -65,9 +64,9 @@ class App extends Component {
 
     render() {
         return (
-          <main className="app">
+          <main className="app" onClick={this.setDropdownMenuClosed}>
               <MenuContainer/>
-              <Content>
+              <ContentContainer>
                 <ContentShadowContainer />
                 <Route path="/:products?" component={RedirectContainer}/>
                 <Route path="/:pages?" component={ToolbarContainer}/>
@@ -116,7 +115,7 @@ class App extends Component {
                         </div>
                     </div>
                 </div>
-            </Content>
+            </ContentContainer>
             <Footer />
           </main>
         )
