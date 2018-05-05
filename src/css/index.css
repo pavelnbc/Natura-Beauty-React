@@ -295,12 +295,13 @@ h5 {
 
 .header__dropdown-list {
   position: absolute;
+  top: 26px;
+  right: 36px;
   width: 180px;
   transform: scale(0);
-  top: 26px;
-  overflow: hidden;
-  right: 36px;
   list-style: none;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: 4px;
   z-index: 110;
   transition: 300ms;
 }
@@ -311,8 +312,7 @@ h5 {
 
 .unfolded {
   transform: scaleY(1);
-  border: 1px solid rgba(0,0,0,.15);
-  border-radius: 4px;
+
 }
 
 .header__dropdown-list > li:not(:last-child) {

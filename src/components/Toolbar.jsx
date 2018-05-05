@@ -21,10 +21,6 @@ function Toolbar({ match, categories, totalPrice, itemAmount, onMenu, setEmptySe
         dropdownList.classList.toggle('unfolded');
     }
 
-    function setDropdownHidden() {
-        dropdownList.classList.toggle('dropdown-is-hidden');
-    }
-
     return (
         <header className={toolbarClassName}>
             <div className="grid">
@@ -105,7 +101,7 @@ function Toolbar({ match, categories, totalPrice, itemAmount, onMenu, setEmptySe
                                     <li>
                                         <NavLink className="header__dropdown-listIcon" to="/about">About Us</NavLink>
                                     </li>
-                                    <li className="header__dropdown-listIcon" onMouseOver={setDropdownHidden} onMouseOut={setDropdownHidden}>
+                                    <li className="header__dropdown-listIcon">
                                         Categories
                                         <ul className="header__dropdown-categories">
                                             {categories.map((category, index) => {
