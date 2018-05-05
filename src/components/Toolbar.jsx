@@ -57,22 +57,6 @@ function Toolbar({ match, categories, isDropdownOpened, totalPrice, itemAmount, 
                                     <li className="header__navItem">
                                         <NavLink  to="/products">Our Products</NavLink>
                                     </li>
-                                    <li className="header__dropdown-listIcon"
-                                        id="header__ dropdown-categories"
-                                        onClick={setDropdownSubMenuClosed}>
-                                        Categories
-                                        <ul className="header__dropdown-categories" id="sub-list">
-                                            {categories.map((category, index) => {
-                                                return (
-                                                    <li key={index} className="header__dropdown-category">
-                                                        <NavLink to={`/products/${category.id}`}>
-                                                            {category.title}
-                                                        </NavLink>
-                                                    </li>
-                                                )
-                                            })}
-                                        </ul>
-                                    </li>
                                     <li className="header__navItem">
                                         <NavLink  to="/about">About us</NavLink>
                                     </li>
@@ -113,6 +97,22 @@ function Toolbar({ match, categories, isDropdownOpened, totalPrice, itemAmount, 
                                     </li>
                                     <li>
                                         <NavLink className="header__dropdown-listIcon" to="/products">Our Products</NavLink>
+                                    </li>
+                                    <li className="header__dropdown-listIcon"
+                                        id="header__ dropdown-categories"
+                                        onClick={setDropdownSubMenuClosed}>
+                                        Categories
+                                        <ul className="header__dropdown-categories" id="sub-list">
+                                            {categories.map((category, index) => {
+                                                return (
+                                                    <li key={index} className="header__dropdown-category">
+                                                        <NavLink to={`/products/${category.id}`}>
+                                                            {category.title}
+                                                        </NavLink>
+                                                    </li>
+                                                )
+                                            })}
+                                        </ul>
                                     </li>
                                     <li>
                                         <a href="https://tools.usps.com/go/TrackConfirmAction_input"

@@ -878,8 +878,8 @@ h5 {
   display: flex;
   flex-direction: column;
   flex: 1 0 200px;
-  height: 200px;
   padding: 10px;
+  height: 100%;
   background-color: white;
   border: 3px solid #DDDDDD;
   border-radius: 5px;
