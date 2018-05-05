@@ -302,7 +302,7 @@ h5 {
   right: 36px;
   list-style: none;
   z-index: 110;
-  transition: height 300ms;
+  transition: 300ms;
 }
 
 .dropdown-is-hidden {
