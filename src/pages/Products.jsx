@@ -1,11 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import { connect } from 'react-redux';
 import Product from '../components/Product';
 import Loading from '../components/Loading'
 import EmptyPage from '../components/EmptyPage';
 
-function Products ({ products, searchedMed, match, getProduct }) {
+import { addToCart, importProducts } from '../actions';
+
+function ProductsComponent ({ products, searchedMed, match, getProduct, importProducts }) {
+    (function () {
+        if(!products.length) {
+            importProducts();
+        }
+    })();
+
     const medications = match.params.category
         ? products.filter((med) => {
             return med.category === match.params.category
@@ -20,7 +28,7 @@ function Products ({ products, searchedMed, match, getProduct }) {
         }
     });
 
-    console.log(products);
+
 
     return (
         !products.length
@@ -39,11 +47,28 @@ function Products ({ products, searchedMed, match, getProduct }) {
     )
 }
 
+let mapStateToProps = (state) => {
+    return {
+        products: state.products,
+        searchedMed: state.searchValue
+    }
+};
+
+let mapDispatchToProps = (dispatch) => {
+    return {
+        getProduct: product => dispatch(addToCart(product)),
+        importProducts: () => dispatch(importProducts())
+    }
+};
+
+const Products = connect(mapStateToProps, mapDispatchToProps)(ProductsComponent);
+
 Products.propTypes = {
     products: PropTypes.array,
     searchedMed: PropTypes.string,
     match: PropTypes.object,
-    getItem: PropTypes.func
+    getProduct: PropTypes.func,
+
 };
 
 export default Products

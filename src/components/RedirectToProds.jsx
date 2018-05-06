@@ -1,14 +1,24 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-function RedirectToProds({ match, searchValue }) {
+
+function RedirectToProdsComponent({ match, searchedMed }) {
     return (
-      searchValue && match.params.products !== "products"
+        searchedMed && match.params.products !== "products"
       ? <Redirect to="/products" />
       : null
     )
 }
+
+let mapStateToProps = (state) => {
+    return {
+        searchedMed: state.searchValue
+    }
+};
+
+const RedirectToProds = connect(mapStateToProps)(RedirectToProdsComponent);
 
 RedirectToProds.propTypes = {
     match: PropTypes.object,

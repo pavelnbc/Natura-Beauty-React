@@ -6,9 +6,9 @@ export function totalPriceReducer(state = [], action) {
       return action.totalPrice;
 
     case ADD_ITEM:
-      console.log(action.item.price)
-      console.log(state.totalPrice + action.item.price)
-      return state.totalPrice + action.item.price
+      console.log(action.item.price);
+      console.log(state.totalPrice + action.item.price);
+      return state.totalPrice + action.item.price;
 
     case DELETE_ITEM:
       let deletedItem = state.cartItems.find((item) => {
@@ -16,7 +16,7 @@ export function totalPriceReducer(state = [], action) {
       });
       console.log(state.totalPrice - deletedItem.price);
 
-      return state.totalPrice - deletedItem.price
+      return state.totalPrice - deletedItem.price;
 
     default: 
       return state.totalPrice ? state.totalPrice : 0

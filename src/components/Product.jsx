@@ -58,6 +58,8 @@ class Product extends Component {
             * this.medication.quantity[this.state.quantityIndicator]
             * this.state.saleCoefs[this.state.quantityIndicator] * 100) / 100;
 
+        console.log(price);
+
         return price
     }
 
@@ -100,7 +102,7 @@ class Product extends Component {
                     </p>
                     <Button class="submit-btn"
                             icon="/img/spinner.png"
-                            link={`/products/${this.medication.category}/${this.medication.slug}`   }
+                            link={`/products/${this.medication.category}/${this.medication.slug}`}
                             action={() => {
                                 this.getItem({
                                 img: `/img/${this.medication.slug}.jpg`,
@@ -113,11 +115,6 @@ class Product extends Component {
                         Add to card
                     </Button>
                 </div>
-                {/*<NavLink to={`/products/${this.medication.category}/${this.medication.slug}`}
-                         className="info-btn"
-                >
-                    <img src="/img/triangle.png" alt="info"/>
-                </NavLink>*/}
                 <h4>{this.medication.title}</h4>
                 <p>{this.medication.ingredient}</p>
             </Thumbnail>

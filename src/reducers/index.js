@@ -8,9 +8,7 @@ import { menuLinksReducer } from './menuLinksReducer';
 import { dropDownReducer } from './dropdownReducer';
 
 function reducer(state = {}, action) {
-  // console.log(state.isDropdownOpened);
-
-  return {
+    return {
     cartItems: cartItemReducer(state.cartItems, action),
     totalPrice: totalPriceReducer(state, action),
     searchValue: searchPluginReducer(state.searchValue, action),

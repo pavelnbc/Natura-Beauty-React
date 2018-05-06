@@ -1,10 +1,14 @@
 import React, { Component }from "react";
 import {ListGroup, Button, Radio } from 'react-bootstrap'
 import EmptyPage from '../components/EmptyPage';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import CartItem from "../components/CartItem";
 
-class Cart extends Component {
+import { deleteFromCart } from '../actions';
+
+class CartComponent extends Component {
   constructor(props) {
     super(props);
 
@@ -70,5 +74,27 @@ class Cart extends Component {
     )
   }
 }
+
+CartComponent.propTypes = {
+  productList: PropTypes.array,
+    totalAmount: PropTypes.number,
+    deleteOrderItem: PropTypes.func
+};
+
+
+function mapStateToProps(state) {
+  return {
+    productList: state.cartItems,
+    totalAmount: state.totalPrice
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    deleteOrderItem: id => dispatch(deleteFromCart(id))
+  }
+}
+
+const Cart = connect(mapStateToProps, mapDispatchToProps)(CartComponent);
 
 export default Cart;

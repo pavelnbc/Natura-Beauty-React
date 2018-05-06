@@ -1,16 +1,26 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import { NavLink } from "react-router-dom";
 import { ListGroup, ListGroupItem } from "react-bootstrap";
 import FontAwesome from 'react-fontawesome';
 import classNames from "classnames";
+import { connect } from 'react-redux';
 
 import SocialNetworks from './SocialNetworks';
 
-function Menu({ menuLinks, isMenuOpened, offMenu, importMenuLinks }) {
+import { offMenu, importMenuLinks } from '../actions';
+
+function MenuComponent({ menuLinks, isMenuOpened, offMenu, importMenuList }) {
   let menuClassName = classNames({
     "menu-bar": true,
     "menuOn": isMenuOpened
   });
+
+  (function () {
+      if(!menuLinks.length) {
+          importMenuList();
+      }
+  })();
 
   return (
     <aside className={menuClassName}>
@@ -42,6 +52,30 @@ function Menu({ menuLinks, isMenuOpened, offMenu, importMenuLinks }) {
     </aside>
   )
 }
+
+MenuComponent.propTypes = {
+  menuLinks: PropTypes.array,
+  isMenuOpened: PropTypes.bool,
+  offMenu: PropTypes.func,
+  importMenuList: PropTypes.func
+};
+
+
+function mapStateToProps(state) {
+  return {
+    menuLinks: state.menuLinks,
+    isMenuOpened: state.isMenuOpened
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    offMenu: () => dispatch(offMenu()),
+    importMenuList: () => dispatch(importMenuLinks())
+  }
+}
+
+const Menu = connect(mapStateToProps, mapDispatchToProps)(MenuComponent);
 
 export default Menu;
 

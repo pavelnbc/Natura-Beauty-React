@@ -1,37 +1,47 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { NavLink} from 'react-router-dom';
-import FontAwesome from 'react-fontawesome';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-import SearchPluginContainer from '../containers/SearchPluginContainer';
+import SearchPlugin from '../components/SearchPlugin';
 
-function Toolbar({ match, categories, isDropdownOpened, totalPrice, itemAmount, onMenu, setEmptySearch, setDropdownOpened }) {
-    totalPrice = totalPrice.toFixed(2);
+import { handleMenu, deleteSearchValue, setDropdownMenuOpened, updateCartState, importCategories } from '../actions';
 
-    let toolbarClassName = classNames({
-        header: true,
-        "folded-header": match.params.pages
-    });
-
-    let dropdownClassName = classNames({
-        "header__dropdown-list": true,
-        unfolded: isDropdownOpened
-    });
-
-    let dropdownSubList = document.getElementById("sub-list");
-
-    function setDropdownSubMenuClosed() {
-        dropdownSubList.classList.toggle('unfolded');
+class ToolbarComponent extends Component {
+    componentDidMount() {
+        this.props.updateCartState();
+        this.props.importCategories();
     }
 
-    return (
-        <header className={toolbarClassName}>
-            <div className="grid">
-                <div className="row">
-                    <div>
-                        <div className="col-xs-2 col-sm-5 col-md-3 col-lg-3">
-                            <div className="header__left">
+    render() {
+        let { match, categories, isDropdownOpened, totalPrice, itemAmount, onMenu, setEmptySearch, setDropdownOpened } = this.props;
+
+        totalPrice = totalPrice.toFixed(2);
+
+        let toolbarClassName = classNames({
+            header: true,
+            "folded-header": match.params.pages
+        });
+
+        let dropdownClassName = classNames({
+            "header__dropdown-list": true,
+            unfolded: isDropdownOpened
+        });
+
+        let dropdownSubList = document.getElementById("sub-list");
+
+        function setDropdownSubMenuClosed() {
+            dropdownSubList.classList.toggle('unfolded');
+        }
+
+        return (
+            <header className={toolbarClassName}>
+                <div className="grid">
+                    <div className="row">
+                        <div>
+                            <div className="col-xs-2 col-sm-5 col-md-3 col-lg-3">
+                                <div className="header__left">
                                 <span className=" header__title">
                                     <div className="header__menu" onClick={onMenu}>
                                         <div></div>
@@ -46,99 +56,136 @@ function Toolbar({ match, categories, isDropdownOpened, totalPrice, itemAmount, 
                                         Natural Beauty
                                     </NavLink>
                                 </span>
-                            </div>
-                        </div>
-                        <div className="col-xs-7 col-sm-5 col-md-3 col-lg-3">
-                            <SearchPluginContainer />
-                        </div>
-                        <div className="header__navigation xsHidden smHidden col-md-6 col-lg-6">
-                            <nav onClick={setEmptySearch} className="header__nav-bar">
-                                <ul>
-                                    <li className="header__navItem">
-                                        <NavLink  to="/products">Our Products</NavLink>
-                                    </li>
-                                    <li className="header__navItem">
-                                        <NavLink  to="/about">About us</NavLink>
-                                    </li>
-                                    <li className="header__navItem">
-                                        <a className="navItem"
-                                           href="https://www.usps.com/"
-                                           target="_blank" rel="noopener noreferrer"
-                                           title="USPS.com"
-                                        >
-                                            Order status
-                                        </a>
-                                    </li>
-                                    <li className="header__total header__navItem">
-                                        <a>{totalPrice}</a>
-                                    </li>
-                                    <li className="header__navItem cart-icon">
-                                        <NavLink to="/cart">
-                                            <span className="header__product-amount">{itemAmount}</span>
-                                            <img src="/img/cart.png" alt="cart"/>
-                                        </NavLink>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-                        <div className="col-xs-1 col-sm-1 mdHidden lgHidden">
-                            <div className="total-amount">
-                                <NavLink to="/cart">{totalPrice}</NavLink>
-                            </div>
-                        </div>
-                        <div className="col-xs-2 col-sm-1 mdHidden lgHidden">
-                            <div className="header__dropdown-menu">
-                                <div className="header__dropdown-icon" id="header__dropdown-icon" onClick={setDropdownOpened}>
-                                    <div className="header__dropdown-icon-triangle"></div>
                                 </div>
-                                <ul className={dropdownClassName} id="dropdown-list">
-                                    <li>
-                                        <NavLink className="header__dropdown-listIcon" to="/">Home</NavLink>
-                                    </li>
-                                    <li>
-                                        <NavLink className="header__dropdown-listIcon" to="/products">Our Products</NavLink>
-                                    </li>
-                                    <li className="header__dropdown-listIcon"
-                                        id="header__ dropdown-categories"
-                                        onClick={setDropdownSubMenuClosed}>
-                                        Categories
-                                        <ul className="header__dropdown-categories" id="sub-list">
-                                            {categories.map((category, index) => {
-                                                return (
-                                                    <li key={index} className="header__dropdown-category">
-                                                        <NavLink to={`/products/${category.id}`}>
-                                                            {category.title}
-                                                        </NavLink>
-                                                    </li>
-                                                )
-                                            })}
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="https://tools.usps.com/go/TrackConfirmAction_input"
-                                           target="_blank"
-                                           title="USPS.com"
-                                           className="header__dropdown-listIcon"
-                                        >
-                                            Order Status
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <NavLink className="header__dropdown-listIcon" to="/about">About Us</NavLink>
-                                    </li>
-                                    <li className="header__dropdown-listIcon total-price">{totalPrice}</li>
-                                    <li>
-                                        <NavLink className="header__dropdown-listIcon" to="/cart">Cart</NavLink>
-                                    </li>
-                                </ul>
+                            </div>
+                            <div className="col-xs-7 col-sm-5 col-md-3 col-lg-3">
+                                <SearchPlugin/>
+                            </div>
+                            <div className="header__navigation xsHidden smHidden col-md-6 col-lg-6">
+                                <nav onClick={setEmptySearch} className="header__nav-bar">
+                                    <ul>
+                                        <li className="header__navItem">
+                                            <NavLink  to="/products">Our Products</NavLink>
+                                        </li>
+                                        <li className="header__navItem">
+                                            <NavLink  to="/about">About us</NavLink>
+                                        </li>
+                                        <li className="header__navItem">
+                                            <a className="navItem"
+                                               href="https://www.usps.com/"
+                                               target="_blank"
+                                               rel="noopener noreferrer"
+                                               title="USPS.com"
+                                            >
+                                                Order status
+                                            </a>
+                                        </li>
+                                        <li className="header__total header__navItem">
+                                            <a>{totalPrice}</a>
+                                        </li>
+                                        <li className="header__navItem cart-icon">
+                                            <NavLink to="/cart">
+                                                <span className="header__product-amount">{itemAmount}</span>
+                                                <img src="/img/cart.png" alt="cart"/>
+                                            </NavLink>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div className="col-xs-1 col-sm-1 mdHidden lgHidden">
+                                <div className="total-amount">
+                                    <NavLink to="/cart">{totalPrice}</NavLink>
+                                </div>
+                            </div>
+                            <div className="col-xs-2 col-sm-1 mdHidden lgHidden">
+                                <div className="header__dropdown-menu">
+                                    <div className="header__dropdown-icon" id="header__dropdown-icon" onClick={setDropdownOpened}>
+                                        <div className="header__dropdown-icon-triangle"></div>
+                                    </div>
+                                    <ul className={dropdownClassName} id="dropdown-list">
+                                        <li>
+                                            <NavLink className="header__dropdown-listIcon" to="/">Home</NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink className="header__dropdown-listIcon" to="/products">Our Products</NavLink>
+                                        </li>
+                                        <li className="header__dropdown-listIcon"
+                                            id="header__ dropdown-categories"
+                                            onClick={setDropdownSubMenuClosed}>
+                                            Categories
+                                            <ul className="header__dropdown-categories" id="sub-list">
+                                                {categories.map((category, index) => {
+                                                    return (
+                                                        <li key={index} className="header__dropdown-category">
+                                                            <NavLink to={`/products/${category.id}`}>
+                                                                {category.title}
+                                                            </NavLink>
+                                                        </li>
+                                                    )
+                                                })}
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="https://tools.usps.com/go/TrackConfirmAction_input"
+                                               target="_blank"
+                                               title="USPS.com"
+                                               rel="noopener noreferrer"
+                                               className="header__dropdown-listIcon"
+                                            >
+                                                Order Status
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <NavLink className="header__dropdown-listIcon" to="/about">About Us</NavLink>
+                                        </li>
+                                        <li className="header__dropdown-listIcon total-price">{totalPrice}</li>
+                                        <li>
+                                            <NavLink className="header__dropdown-listIcon" to="/cart">Cart</NavLink>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </header>
-    )
+            </header>
+        )
+    }
 }
+
+ToolbarComponent.propTypes = {
+    match: PropTypes.object,
+    categories: PropTypes.array,
+    totalPrice: PropTypes.number,
+    totalAmount: PropTypes.object || PropTypes.number,
+    onMenu: PropTypes.func,
+    setEmptySearch: PropTypes.func
+};
+
+
+let mapStateToProps = (state, ownProps) => {
+    return {
+        categories: state.categories,
+        totalPrice: state.totalPrice,
+        itemAmount: state.cartItems.length ? state.cartItems.length : null,
+        isDropdownOpened: state.isDropdownOpened,
+        match: ownProps.match
+    }
+};
+
+let mapDispatchToProps = (dispatch) => {
+    return {
+        onMenu: () => dispatch(handleMenu()),
+        setEmptySearch: () => dispatch(deleteSearchValue()),
+        setDropdownOpened: () => dispatch(setDropdownMenuOpened()),
+        updateCartState: () => dispatch(updateCartState()),
+        importCategories: () => dispatch(importCategories())
+    }
+};
+
+const Toolbar = connect(mapStateToProps, mapDispatchToProps)(ToolbarComponent);
+
+export default Toolbar
 
 /*<DropdownButton pullRight bsStyle={'default'}
                                             title=""
@@ -299,13 +346,3 @@ function Toolbar({ match, categories, isDropdownOpened, totalPrice, itemAmount, 
             </Grid>
         </Navbar>*/
 
-Toolbar.propTypes = {
-    match: PropTypes.object,
-    categories: PropTypes.array,
-    totalPrice: PropTypes.number,
-    totalAmount: PropTypes.object || PropTypes.number,
-    onMenu: PropTypes.func,
-    setEmptySearch: PropTypes.func
-};
-
-export default Toolbar

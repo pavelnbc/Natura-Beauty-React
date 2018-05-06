@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import FontAwesome from 'react-fontawesome';
+import { connect } from 'react-redux';
 
-class SearchPlugin extends Component {
+import { getSearchValue } from '../actions';
+
+class SearchPluginComponent extends Component {
     constructor(props) {
         super(props);
 
@@ -49,6 +53,19 @@ class SearchPlugin extends Component {
         )
     }
 }
+
+SearchPluginComponent.proptypes = {
+    getSearchValue: PropTypes.func
+};
+
+
+let mapDispatchToProps = (dispatch) => {
+    return {
+        getSearchValue: (value) => dispatch(getSearchValue(value))
+    }
+};
+
+const SearchPlugin = connect(null, mapDispatchToProps)(SearchPluginComponent);
 
 export default SearchPlugin
 
